@@ -1,44 +1,6 @@
 image: maven:latest
 
-stages:
-  - build
-  - test
-  - package
-
-variables:
-  # Maven command line options
-  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode -Dmaven.test.skip=true"
-  # Maven build options
-  MAVEN_BUILD_OPTS: "-Dmaven.repo.local=.m2/repository"
-
-cache:
-  paths:
-    - .m2/repository/
-
-before_script:
-  - export MAVEN_CLI_OPTS="$MAVEN_CLI_OPTS $MAVEN_BUILD_OPTS"
-  - 'which mvn || apt-get update && apt-get install -y maven openjdk-21-jdk'
-
-build_patient:
-  stage: build
-  script:
-    - mvn $MAVEN_CLI_OPTS clean compile -pl patient-service -am
-  rules:
-    - changes:
-        - patient-service/**
-
-test_patient:
-  stage: test
-  script:
-    - mvn $MAVEN_CLI_OPTS test -pl patient-service -am
-  rules:
-    - changes:
-      - patient-service/**
-
-package_patient:
-  stage: package
-  script:
-    - mvn $MAVEN_CLI_OPTS package -pl patient-service -am
-  rules:
-    - changes:
-        - patient-service/**
+include:
+  - local: 'gitlab-common/maven-setup.yml'
+  - local: 'gitlab-common/stages.yml'
+  - local: 'patient-service/gitlab.yml'
