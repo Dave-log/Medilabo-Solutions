@@ -3,6 +3,8 @@ package com.medilabo.patient_service.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 public class Patient {
@@ -16,7 +18,7 @@ public class Patient {
     @Column(name = "firstname")
     private String firstName;
 
-    private String birthdate;
+    private LocalDate birthdate;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
