@@ -3,4 +3,5 @@ image: maven:latest
 include:
   - local: 'gitlab-common/maven-setup.yml'
   - local: 'gitlab-common/stages.yml'
+  - local: 'gitlab-common/variables.yml'
   - local: 'patient-service/gitlab.yml'
