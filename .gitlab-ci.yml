@@ -1,10 +1,19 @@
 image: maven:latest
 
+services:
+  - mysql:latest
+
+#connect:
+  # image: mysql
+    #script:
+  #- echo "SELECT 'OK';" | mysql --user=root --password=rootroot --host=mysql patients
+
+
 include:
     # include common yaml files
   - local: 'gitlab-common/maven-setup.yml'
   - local: 'gitlab-common/stages.yml'
   - local: 'gitlab-common/variables.yml'
-  - local: 'gitlab-common/scripts.yml'
+  #- local: 'gitlab-common/scripts.yml'
     # include microservices
   - local: 'patient-service/gitlab.yml'
