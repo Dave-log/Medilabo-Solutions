@@ -8,7 +8,6 @@ class PatientServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println("coucou");
 	}
 
 }
