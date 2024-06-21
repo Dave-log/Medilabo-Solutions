@@ -17,12 +17,10 @@ import java.util.Optional;
 public class PatientController {
 
     private final PatientRepository patientRepository;
-    private final DeleteMe deleteMe;
 
     @Autowired
-    public PatientController(PatientRepository patientRepository, DeleteMe deleteMe) {
+    public PatientController(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
-        this.deleteMe = deleteMe;
     }
 
     @GetMapping
