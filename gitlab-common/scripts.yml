@@ -1,0 +1,3 @@
+before_script:
+  - id -u builduser &>/dev/null || adduser --disabled-password --gecos 'builduser' builduser
+  - echo "builduser:buildpassword" | chpasswd

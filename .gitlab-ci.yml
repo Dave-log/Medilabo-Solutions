@@ -1,7 +1,10 @@
 image: maven:latest
 
 include:
+    # include common yaml files
   - local: 'gitlab-common/maven-setup.yml'
   - local: 'gitlab-common/stages.yml'
   - local: 'gitlab-common/variables.yml'
+  - local: 'gitlab-common/scripts.yml'
+    # include microservices
   - local: 'patient-service/gitlab.yml'

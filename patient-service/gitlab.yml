@@ -1,7 +1,7 @@
 compile_patient:
   stage: compile
   script:
-    - mvn $MAVEN_CLI_OPTS clean compile -pl patient-service
+    - su - builduser -c && mvn $MAVEN_CLI_OPTS clean compile -pl patient-service
   rules:
     - changes:
         - patient-service/**
@@ -9,7 +9,7 @@ compile_patient:
 test_patient:
   stage: test
   script:
-    - mvn $MAVEN_CLI_OPTS test -pl patient-service
+    - su - builduser -c && mvn $MAVEN_CLI_OPTS test -pl patient-service
   rules:
     - changes:
         - patient-service/**
@@ -17,7 +17,7 @@ test_patient:
 package_patient:
   stage: package
   script:
-    - mvn $MAVEN_CLI_OPTS package -pl patient-service
+    - su - builduser -c && mvn $MAVEN_CLI_OPTS package -pl patient-service
   rules:
     - changes:
         - patient-service/**
