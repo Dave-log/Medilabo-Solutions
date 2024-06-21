@@ -1,19 +1,17 @@
-image: maven:latest
+image: maven:3.9.7-eclipse-temurin-21-alpine
 
-services:
-  - mysql:latest
+stages:
+  - compile
+  - test
+  - package
 
-#connect:
-  # image: mysql
-    #script:
-  #- echo "SELECT 'OK';" | mysql --user=root --password=rootroot --host=mysql patients
+cache:
+  paths:
+    - .m2/repository
+    - target
 
+variables:
+  MAVEN_CLI_OPTS: "--batch-mode"
 
 include:
-    # include common yaml files
-  - local: 'gitlab-common/maven-setup.yml'
-  - local: 'gitlab-common/stages.yml'
-  - local: 'gitlab-common/variables.yml'
-  #- local: 'gitlab-common/scripts.yml'
-    # include microservices
   - local: 'patient-service/gitlab.yml'

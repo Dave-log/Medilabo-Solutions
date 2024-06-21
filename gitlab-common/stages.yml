@@ -1,4 +1,0 @@
-stages:
-  - compile
-  - test
-  - package
