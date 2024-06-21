@@ -1,4 +1,4 @@
-build_patient:
+compile_patient:
   stage: compile
   script:
     - mvn $MAVEN_CLI_OPTS clean compile -pl patient-service
