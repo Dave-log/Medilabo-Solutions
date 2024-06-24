@@ -1,12 +1,11 @@
-CREATE DATABASE IF NOT EXISTS patients;
-USE patients;
+DROP TABLE IF EXISTS patient;
 
-CREATE TABLE IF NOT EXISTS patient (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    lastname VARCHAR(50) NOT NULL,
-    firstname VARCHAR(50) NOT NULL,
+CREATE TABLE patient (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    lastname VARCHAR(255) NOT NULL,
+    firstname VARCHAR(255) NOT NULL,
     birthdate DATE NOT NULL,
-    gender ENUM('M', 'F', 'OTHER') NOT NULL,
+    gender VARCHAR(10) NOT NULL,
     address VARCHAR(255),
-    phone_number VARCHAR(15)
+    phone_number VARCHAR(20)
 );
