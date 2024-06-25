@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="change properties to yaml files">
+      <change afterPath="$PROJECT_DIR$/discovery-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-service/src/main/java/com/medilabo/discovery_service/DiscoveryServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discovery-service/src/test/java/com/medilabo/discovery_service/DiscoveryServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/PatientServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/PatientServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +27,33 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Dave-log&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e4fd2fc3-d858-413c-8c26-21ce1b0df2bf" />
+        <option name="url" value="https://github.com/Dave-log/Medilabo-Solutions.git" />
+      </UrlAndAccount>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
@@ -24,16 +63,26 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2i3P4xzhtnP6Hs8Kdmf0MJCmYhP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Maven.p9-medilabo-solutions [clean].executor": "Run",
     "Maven.p9-medilabo-solutions [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.DiscoveryServiceApplication.executor": "Run",
+    "Spring Boot.PatientServiceApplication.executor": "Run",
+    "git-widget-placeholder": "discovery-service",
+    "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_9/p9_medilabo_solutions",
     "node.js.detected.package.eslint": "true",
@@ -41,10 +90,47 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "database.query.execution",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "H2"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "H2"
+    ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\discovery-service\src\test\java\com\medilabo\discovery_service" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\discovery-service\src\main\java\com\medilabo\discovery_service" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\discovery-service" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\patient-service\src\test\resources" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.medilabo.patient_service.repository" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PatientServiceApplication">
+    <configuration name="DiscoveryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="discovery-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.discovery_service.DiscoveryServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.medilabo.discovery_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PatientServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="patient-service" />
@@ -53,10 +139,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
         <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
       </set>
     </attachedChunks>
@@ -71,11 +163,298 @@
       <updated>1718716101164</updated>
       <workItem from="1718716102488" duration="290000" />
       <workItem from="1718716402236" duration="5000" />
-      <workItem from="1718716424245" duration="2215000" />
+      <workItem from="1718716424245" duration="2881000" />
+      <workItem from="1718719383347" duration="722000" />
+      <workItem from="1718742161388" duration="3711000" />
+      <workItem from="1718779393767" duration="812000" />
+      <workItem from="1718793471957" duration="427000" />
+      <workItem from="1718806742556" duration="5977000" />
+      <workItem from="1718878312685" duration="6795000" />
+      <workItem from="1718907670797" duration="4641000" />
+      <workItem from="1718915751027" duration="4792000" />
+      <workItem from="1718953678154" duration="12706000" />
+      <workItem from="1718973333910" duration="3014000" />
+      <workItem from="1718976645325" duration="2583000" />
+      <workItem from="1719235738707" duration="6738000" />
+      <workItem from="1719262939819" duration="2652000" />
+      <workItem from="1719299778743" duration="5525000" />
     </task>
+    <task id="LOCAL-00001" summary="Project setup">
+      <option name="closed" value="true" />
+      <created>1718718853894</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718718853894</updated>
+    </task>
+    <task id="LOCAL-00002" summary="CI setup">
+      <option name="closed" value="true" />
+      <created>1718746451104</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718746451104</updated>
+    </task>
+    <task id="LOCAL-00003" summary="CI setup adding yml parent/child">
+      <option name="closed" value="true" />
+      <created>1718831010637</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718831010637</updated>
+    </task>
+    <task id="LOCAL-00004" summary="SQL database setup">
+      <option name="closed" value="true" />
+      <created>1718892776435</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718892776435</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Adds Patient entity">
+      <option name="closed" value="true" />
+      <created>1718916852314</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718916852315</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Adds Patient DTO">
+      <option name="closed" value="true" />
+      <created>1718918810116</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718918810116</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Implements patients CRUD">
+      <option name="closed" value="true" />
+      <created>1718920032923</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718920032923</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fixes test stage">
+      <option name="closed" value="true" />
+      <created>1718953887743</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718953887743</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Test without UT">
+      <option name="closed" value="true" />
+      <created>1718954403605</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718954403605</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Test without UT">
+      <option name="closed" value="true" />
+      <created>1718954556624</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718954556624</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Test without UT">
+      <option name="closed" value="true" />
+      <created>1718954605149</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1718954605149</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Test without UT">
+      <option name="closed" value="true" />
+      <created>1718954861529</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1718954861529</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Test without UT">
+      <option name="closed" value="true" />
+      <created>1718954960941</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1718954960941</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Test with UT">
+      <option name="closed" value="true" />
+      <created>1718955176261</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1718955176261</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Test with UT">
+      <option name="closed" value="true" />
+      <created>1718955285006</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1718955285006</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Test with UT">
+      <option name="closed" value="true" />
+      <created>1718955563224</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1718955563224</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Test with UT 2">
+      <option name="closed" value="true" />
+      <created>1718955935690</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1718955935690</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Test with UT 3">
+      <option name="closed" value="true" />
+      <created>1718956048831</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1718956048831</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Test with UT 4">
+      <option name="closed" value="true" />
+      <created>1718956558647</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1718956558647</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Test with UT 5">
+      <option name="closed" value="true" />
+      <created>1718957820721</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1718957820721</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Test with UT 5">
+      <option name="closed" value="true" />
+      <created>1718958155183</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1718958155183</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Test with UT 6">
+      <option name="closed" value="true" />
+      <created>1718958969039</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1718958969039</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Gitlab CI fix">
+      <option name="closed" value="true" />
+      <created>1718961173744</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1718961173744</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Gitlab CI fix">
+      <option name="closed" value="true" />
+      <created>1718965864757</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1718965864757</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Gitlab CI fix">
+      <option name="closed" value="true" />
+      <created>1718966377009</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1718966377009</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Gitlab CI fix">
+      <option name="closed" value="true" />
+      <created>1718967541254</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1718967541254</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Gitlab CI fix">
+      <option name="closed" value="true" />
+      <created>1718967812869</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1718967812869</updated>
+    </task>
+    <task id="LOCAL-00028" summary="setup H2 db for testing">
+      <option name="closed" value="true" />
+      <created>1718978995979</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1718978995979</updated>
+    </task>
+    <task id="LOCAL-00029" summary="setup H2 db for testing">
+      <option name="closed" value="true" />
+      <created>1719249430629</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1719249430629</updated>
+    </task>
+    <task id="LOCAL-00030" summary="change properties to yaml files">
+      <option name="closed" value="true" />
+      <created>1719265678174</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1719265678174</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Project setup" />
+    <MESSAGE value="CI setup" />
+    <MESSAGE value="CI setup adding yml parent/child" />
+    <MESSAGE value="SQL database setup" />
+    <MESSAGE value="Adds Patient entity" />
+    <MESSAGE value="Adds Patient DTO" />
+    <MESSAGE value="Implements patients CRUD" />
+    <MESSAGE value="Fixes test stage" />
+    <MESSAGE value="Test without UT" />
+    <MESSAGE value="Test with UT" />
+    <MESSAGE value="Test with UT 2" />
+    <MESSAGE value="Test with UT 3" />
+    <MESSAGE value="Test with UT 4" />
+    <MESSAGE value="Test with UT 5" />
+    <MESSAGE value="Test with UT 6" />
+    <MESSAGE value="Gitlab CI fix" />
+    <MESSAGE value="setup H2 db for testing" />
+    <MESSAGE value="change properties to yaml files" />
+    <option name="LAST_COMMIT_MESSAGE" value="change properties to yaml files" />
   </component>
 </project>

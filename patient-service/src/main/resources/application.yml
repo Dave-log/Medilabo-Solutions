@@ -1,3 +1,6 @@
+server:
+  port: 0
+
 spring:
 
   application:
@@ -16,3 +19,10 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
