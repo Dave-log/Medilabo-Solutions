@@ -1,0 +1,23 @@
+compile_discovery:
+  stage: compile
+  script:
+    - mvn $MAVEN_CLI_OPTS clean compile -pl discovery-service
+  rules:
+    - changes:
+        - discovery-service/**
+
+test_discovery:
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS test -pl discovery-service
+  rules:
+    - changes:
+        - discovery-service/**
+
+package_discovery:
+  stage: package
+  script:
+    - mvn $MAVEN_CLI_OPTS package -pl discovery-service
+  rules:
+    - changes:
+        - discovery-service/**
