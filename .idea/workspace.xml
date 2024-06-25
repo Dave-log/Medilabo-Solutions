@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="change properties to yaml files">
-      <change afterPath="$PROJECT_DIR$/discovery-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-service/src/main/java/com/medilabo/discovery_service/DiscoveryServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/discovery-service/src/test/java/com/medilabo/discovery_service/DiscoveryServiceApplicationTests.java" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="test gitlab CI with discovery MS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/PatientServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/PatientServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +68,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.DiscoveryServiceApplication.executor": "Run",
+    "Spring Boot.PatientServiceApplication 2.executor": "Run",
     "Spring Boot.PatientServiceApplication.executor": "Run",
     "git-widget-placeholder": "discovery-service",
     "jdk.selected.JAVA_MODULE": "21",
@@ -117,7 +106,7 @@
       <recent name="com.medilabo.patient_service.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.PatientServiceApplication">
+  <component name="RunManager" selected="Spring Boot.PatientServiceApplication 2">
     <configuration name="DiscoveryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="discovery-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.discovery_service.DiscoveryServiceApplication" />
@@ -131,6 +120,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PatientServiceApplication 2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <envs>
+        <env name="--server.port" value="8085" />
+      </envs>
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="patient-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.patient_service.PatientServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PatientServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="patient-service" />
@@ -139,6 +139,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.PatientServiceApplication" />
+      <item itemvalue="Spring Boot.PatientServiceApplication 2" />
+      <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
@@ -177,7 +182,7 @@
       <workItem from="1718976645325" duration="2583000" />
       <workItem from="1719235738707" duration="6738000" />
       <workItem from="1719262939819" duration="2652000" />
-      <workItem from="1719299778743" duration="5525000" />
+      <workItem from="1719299778743" duration="8237000" />
     </task>
     <task id="LOCAL-00001" summary="Project setup">
       <option name="closed" value="true" />
@@ -419,7 +424,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719265678174</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="setup discovery microservice with eureka">
+      <option name="closed" value="true" />
+      <created>1719307083768</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1719307083768</updated>
+    </task>
+    <task id="LOCAL-00032" summary="test gitlab CI with discovery MS">
+      <option name="closed" value="true" />
+      <created>1719307770898</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1719307770898</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,6 +476,8 @@
     <MESSAGE value="Gitlab CI fix" />
     <MESSAGE value="setup H2 db for testing" />
     <MESSAGE value="change properties to yaml files" />
-    <option name="LAST_COMMIT_MESSAGE" value="change properties to yaml files" />
+    <MESSAGE value="setup discovery microservice with eureka" />
+    <MESSAGE value="test gitlab CI with discovery MS" />
+    <option name="LAST_COMMIT_MESSAGE" value="test gitlab CI with discovery MS" />
   </component>
 </project>
