@@ -17,3 +17,4 @@ include:
   - local: 'patient-service/gitlab.yml'
   - local: 'discovery-service/gitlab.yml'
   - local: 'gateway-service/gitlab.yml'
+  - local: 'frontend-service/gitlab.yml'
