@@ -1,0 +1,17 @@
+compile_frontend:
+  stage: compile
+  script:
+    - npm install
+    - npm run build
+  rules:
+    - changes:
+        - frontend-service/**
+
+test_frontend:
+  stage: test
+  script:
+    - npm install
+    - npm run test -- --watchAll=false
+  rules:
+    - changes:
+        - frontend-service/**
