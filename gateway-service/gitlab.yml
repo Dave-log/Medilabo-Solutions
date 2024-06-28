@@ -1,0 +1,23 @@
+compile_gateway:
+  stage: compile
+  script:
+    - mvn $MAVEN_CLI_OPTS clean compile -pl gateway-service
+  rules:
+    - changes:
+        - gateway-service/**
+
+test_gateway:
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS test -pl gateway-service
+  rules:
+    - changes:
+        - gateway-service/**
+
+package_gateway:
+  stage: package
+  script:
+    - mvn $MAVEN_CLI_OPTS package -pl gateway-service
+  rules:
+    - changes:
+        - gateway-service/**
