@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
 interface Patient {
@@ -13,14 +13,13 @@ interface Patient {
 
 const PatientList: React.FC = () => {
     const [patients, setPatients] = useState<Patient[]>([]);
-    const [error, setError] = useState<string | null>(null);
 
     const handleFetchPatients = async () => {
         try {
           const response = await axios.get('http://localhost:8080/patient/api/v1/patients');
           setPatients(response.data);
-        } catch (error: any) {
-            setError(error.message);
+        } catch (error) {
+            console.error('Error fetching patients:', error);
         }
     };
 
@@ -28,7 +27,6 @@ const PatientList: React.FC = () => {
         <div>
             <h2>Liste des patients</h2>
             <button onClick={handleFetchPatients}>Charger tous les patients</button>
-            {error && <p>Error: {error}</p>}
             <ul>
                 {patients.map(patient => (
                     <li key={patient.id}>
