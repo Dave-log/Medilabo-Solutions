@@ -14,6 +14,13 @@ spring:
           filters:
             - RewritePath=/patient/?(?<segment>.*), /$\{segment}
 
+        - id: frontend-service
+          uri: lb://frontend-service
+          predicates:
+            - Path=/frontend/**
+          filters:
+            - RewritePath=/frontend/?(?<segment>.*), /$\{segment}
+
 eureka:
   client:
     service-url:

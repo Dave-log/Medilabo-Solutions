@@ -1,6 +1,7 @@
 compile_frontend:
   stage: compile
   script:
+    - cd frontend-service
     - npm install
     - npm run build
   rules:
@@ -10,6 +11,7 @@ compile_frontend:
 test_frontend:
   stage: test
   script:
+    - cd frontend-service
     - npm install
     - npm run test -- --watchAll=false
   rules:
