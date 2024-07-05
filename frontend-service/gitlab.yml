@@ -15,7 +15,7 @@ test_frontend:
   script:
     - cd frontend-service
     - npm install
-    - npm run test -- --watchAll=false
+    - npm run test
   rules:
     - changes:
         - frontend-service/**

@@ -1,10 +1,8 @@
-import React from 'react';
 import Patient from './Patient';
 
-import './App.css';
+import './App.css'
 
 function App() {
-
   return (
     <div className="App">
 
@@ -17,8 +15,8 @@ function App() {
       </main>
       
     </div>
-  );
 
+  );
 }
 
-export default App;
+export default App
