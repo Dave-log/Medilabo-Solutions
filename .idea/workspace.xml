@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Switch to Vite from CRA (vitest fix)">
-      <change afterPath="$PROJECT_DIR$/frontend-service/src/App.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-service/src/setupTests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="add types in tsconfig files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -215,7 +208,7 @@
       <workItem from="1720077525613" duration="11348000" />
       <workItem from="1720166598067" duration="3062000" />
       <workItem from="1720273937588" duration="535000" />
-      <workItem from="1720274818745" duration="2050000" />
+      <workItem from="1720274818745" duration="2505000" />
     </task>
     <task id="LOCAL-00001" summary="Project setup">
       <option name="closed" value="true" />
@@ -561,7 +554,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720167450630</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Switch to Vite, add sample test">
+      <option name="closed" value="true" />
+      <created>1720278513896</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1720278513896</updated>
+    </task>
+    <task id="LOCAL-00045" summary="add types in tsconfig files">
+      <option name="closed" value="true" />
+      <created>1720278900853</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1720278900853</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +589,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Project setup" />
     <MESSAGE value="CI setup" />
     <MESSAGE value="CI setup adding yml parent/child" />
     <MESSAGE value="SQL database setup" />
@@ -604,6 +612,8 @@
     <MESSAGE value="Implements basic frontend MS" />
     <MESSAGE value="Switch to Vite from CRA" />
     <MESSAGE value="Switch to Vite from CRA (vitest fix)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switch to Vite from CRA (vitest fix)" />
+    <MESSAGE value="Switch to Vite, add sample test" />
+    <MESSAGE value="add types in tsconfig files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add types in tsconfig files" />
   </component>
 </project>
