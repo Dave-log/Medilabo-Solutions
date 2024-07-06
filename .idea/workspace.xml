@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Switch to Vite from CRA">
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Switch to Vite from CRA (vitest fix)">
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/App.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/setupTests.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,14 +41,12 @@
     &quot;assignee&quot;: &quot;Dave-log&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="e4fd2fc3-d858-413c-8c26-21ce1b0df2bf" />
-        <option name="url" value="https://github.com/Dave-log/Medilabo-Solutions.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Dave-log/Medilabo-Solutions.git",
+    "accountId": "e4fd2fc3-d858-413c-8c26-21ce1b0df2bf"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -180,8 +181,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
-        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -212,7 +213,9 @@
       <workItem from="1719299778743" duration="8237000" />
       <workItem from="1720045039341" duration="3123000" />
       <workItem from="1720077525613" duration="11348000" />
-      <workItem from="1720166598067" duration="834000" />
+      <workItem from="1720166598067" duration="3062000" />
+      <workItem from="1720273937588" duration="535000" />
+      <workItem from="1720274818745" duration="2050000" />
     </task>
     <task id="LOCAL-00001" summary="Project setup">
       <option name="closed" value="true" />
@@ -550,7 +553,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720166904743</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Switch to Vite from CRA (vitest fix)">
+      <option name="closed" value="true" />
+      <created>1720167450630</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1720167450630</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,6 +603,7 @@
     <MESSAGE value="Implements basic frontend MS (correct docker image for front)" />
     <MESSAGE value="Implements basic frontend MS" />
     <MESSAGE value="Switch to Vite from CRA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switch to Vite from CRA" />
+    <MESSAGE value="Switch to Vite from CRA (vitest fix)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Switch to Vite from CRA (vitest fix)" />
   </component>
 </project>
