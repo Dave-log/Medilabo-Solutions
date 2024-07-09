@@ -18,3 +18,12 @@ include:
   - local: 'discovery-service/gitlab.yml'
   - local: 'gateway-service/gitlab.yml'
   - local: 'frontend-service/gitlab.yml'
+
+docker_build_patient:
+  stage: package
+  script:
+    - docker build -t patient-service:latest -f patient-service/Dockerfile .
+  rules:
+    - changes:
+        - patient-service/**
+    - when: manual

@@ -1,0 +1,58 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootroot
+      MYSQL_DATABASE: patients
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - internal
+
+  discovery-service:
+    build:
+      context: .
+      dockerfile: discovery-service/Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - internal
+
+  gateway-service:
+    build:
+      context: .
+      dockerfile: gateway-service/Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - internal
+    depends_on:
+      - discovery-service
+
+  patient-service:
+    build:
+      context: .
+      dockerfile: patient-service/Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - internal
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/patients
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: rootroot
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - mysql
+      - discovery-service
+      - gateway-service
+
+volumes:
+  mysql_data:
+
+networks:
+  internal:
+    driver: bridge
