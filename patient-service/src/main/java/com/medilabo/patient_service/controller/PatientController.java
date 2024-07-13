@@ -23,7 +23,6 @@ public class PatientController {
         this.patientRepository = patientRepository;
     }
 
-    @CrossOrigin
     @GetMapping
     public List<PatientDTO> getPatients() {
         return patientRepository.findAll()
@@ -33,7 +32,6 @@ public class PatientController {
                 .toList();
     }
 
-    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<PatientDTO> getPatient(@PathVariable Integer id) {
         Optional<Patient> patient = patientRepository.findById(id);
@@ -41,7 +39,6 @@ public class PatientController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @CrossOrigin
     @PostMapping
     public ResponseEntity<PatientDTO> savePatient(@Valid @RequestBody PatientDTO patientDTO) {
         Patient patient = convertToEntity(patientDTO);
@@ -49,7 +46,6 @@ public class PatientController {
         return new ResponseEntity<>(convertToDTO(savedPatient), HttpStatus.CREATED);
     }
 
-    @CrossOrigin
     @PutMapping("/{id}")
     public ResponseEntity<PatientDTO> updatePatient(@PathVariable Integer id, @Valid @RequestBody PatientDTO patientDTO) {
         Optional<Patient> optionalPatient = patientRepository.findById(id);
@@ -63,7 +59,6 @@ public class PatientController {
         }
     }
 
-    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePatient(@PathVariable Integer id) {
         if (patientRepository.existsById(id)) {
@@ -76,6 +71,7 @@ public class PatientController {
 
     private PatientDTO convertToDTO(Patient patient) {
         return new PatientDTO(
+                patient.getId(),
                 patient.getFirstName(),
                 patient.getLastName(),
                 patient.getBirthdate(),

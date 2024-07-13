@@ -9,6 +9,9 @@ import jakarta.validation.constraints.Pattern;
 import java.time.LocalDate;
 
 public record PatientDTO(
+   @NotNull(message = "Id cannot be null")
+   Integer id,
+
    @NotEmpty(message = "First name is required")
    String firstName,
 
@@ -26,4 +29,6 @@ public record PatientDTO(
 
    @Pattern(regexp = "\\d{3}-\\d{3}-\\d{4}", message = "Phone number must be in the format XXX-XXX-XXXX")
    String phoneNumber
+
+
 ) {}

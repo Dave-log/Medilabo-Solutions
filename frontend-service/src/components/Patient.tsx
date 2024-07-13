@@ -27,7 +27,8 @@ const PatientList: React.FC = () => {
 
     const fetchPatients = async () => {
         try {
-          const response = await axios.get('http://localhost:8080/patient/api/v1/patients');
+          const response = await axios.get(`http://localhost:8080/patient/api/v1/patients`);
+          console.log(response.data);
           setPatients(response.data);
           setLoading(false);
         } catch (error) {
@@ -38,7 +39,7 @@ const PatientList: React.FC = () => {
 
     const handleAddPatient = async (newPatient: Patient) => {
         try {
-            const response = await axios.post('http://localhost:8080/patient/api/v1/patients', newPatient);
+            const response = await axios.post(`http://localhost:8080/patient/api/v1/patients`, newPatient);
             setPatients([...patients, response.data]);
         } catch (error) {
             console.error('Error adding patient:', error);
@@ -47,21 +48,28 @@ const PatientList: React.FC = () => {
 
     const handleUpdatePatient = async (updatedPatient: Patient) => {
         try {
-            await axios.put('http://localhost:8080/patient/api/v1/patients/${updatedPatient.id}', updatedPatient);
+            await axios.put(`http://localhost:8080/patient/api/v1/patients/${updatedPatient.id}`, updatedPatient);
             setPatients(patients.map(patient => patient.id === updatedPatient.id ? updatedPatient : patient));
         } catch (error) {
-            console.error('Error updatingf patient:', error);
+            console.error('Error updating patient:', error);
         }
     }
 
     const handleDeletePatient = async (id: number) => {
         try {
-            await axios.delete('http://localhost:8080/patient/api/v1/patients/${id}');
+            await axios.delete(`http://localhost:8080/patient/api/v1/patients/${id}`);
             setPatients(patients.filter(patient => patient.id !== id));
         } catch (error) {
             console.error('Error deleting patient:', error);
         }
     }
+
+    const renderActionsCell = (params: any) => (
+        <div>
+            <button onClick={() => handleUpdatePatient(params.data)}>Edit</button>
+            <button onClick={() => handleDeletePatient(params.data.id)}>Delete</button>
+        </div>
+    );
 
     const [colDefs] = useState<ColDef[]>([
         { field: "firstName", flex: 1, headerClass: 'center-header' },
@@ -72,12 +80,7 @@ const PatientList: React.FC = () => {
         { field: "phoneNumber", flex: 1.2, headerClass: 'center-header'},
         {
             headerName: "Actions",
-            cellRenderer: (params: any) => (
-                <div>
-                    <button onClick={() => handleUpdatePatient(params.data)}>Edit</button>
-                    <button onClick={() => handleDeletePatient(params.data.id)}>Delete</button>
-                </div>
-            ),
+            cellRenderer: renderActionsCell,
             flex: 1,
             headerClass: 'center-header'
         }
