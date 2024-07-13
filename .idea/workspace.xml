@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="add types in tsconfig files" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Adds Dockerfiles and docker-compose file. Modifies app prop">
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/styles/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/styles/PatientTable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/styles/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/Patient.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/controller/PatientController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,12 +48,16 @@
     &quot;assignee&quot;: &quot;Dave-log&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Dave-log/Medilabo-Solutions.git",
-    "accountId": "e4fd2fc3-d858-413c-8c26-21ce1b0df2bf"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Dave-log/Medilabo-Solutions.git&quot;,
+    &quot;accountId&quot;: &quot;e4fd2fc3-d858-413c-8c26-21ce1b0df2bf&quot;
   }
-}]]></component>
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -71,7 +89,7 @@
     &quot;Spring Boot.GatewayServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PatientServiceApplication 2.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PatientServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;frontend-service&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;docker-impl&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_9/p9_medilabo_solutions&quot;,
@@ -81,7 +99,8 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24481659&quot;,
     &quot;ts.external.directory.path&quot;: &quot;E:\\Documents\\Programmation\\Cours_OpenClassRooms\\Parcours_developpeur_application_Java\\Projet_9\\p9_medilabo_solutions\\frontend-service\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -118,7 +137,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.PatientServiceApplication">
+  <component name="RunManager" selected="Spring Boot.GatewayServiceApplication">
     <configuration name="DiscoveryServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="discovery-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.discovery_service.DiscoveryServiceApplication" />
@@ -209,6 +228,15 @@
       <workItem from="1720166598067" duration="3062000" />
       <workItem from="1720273937588" duration="535000" />
       <workItem from="1720274818745" duration="2505000" />
+      <workItem from="1720366433265" duration="8126000" />
+      <workItem from="1720390322573" duration="4290000" />
+      <workItem from="1720423562695" duration="9889000" />
+      <workItem from="1720454247706" duration="3620000" />
+      <workItem from="1720474875096" duration="608000" />
+      <workItem from="1720550044778" duration="5507000" />
+      <workItem from="1720596587764" duration="6648000" />
+      <workItem from="1720791105596" duration="1572000" />
+      <workItem from="1720879672318" duration="2433000" />
     </task>
     <task id="LOCAL-00001" summary="Project setup">
       <option name="closed" value="true" />
@@ -570,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720278900853</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Adds Dockerfiles and docker-compose file. Modifies app prop">
+      <option name="closed" value="true" />
+      <created>1720557502237</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1720557502237</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,7 +625,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="CI setup" />
     <MESSAGE value="CI setup adding yml parent/child" />
     <MESSAGE value="SQL database setup" />
     <MESSAGE value="Adds Patient entity" />
@@ -614,6 +649,7 @@
     <MESSAGE value="Switch to Vite from CRA (vitest fix)" />
     <MESSAGE value="Switch to Vite, add sample test" />
     <MESSAGE value="add types in tsconfig files" />
-    <option name="LAST_COMMIT_MESSAGE" value="add types in tsconfig files" />
+    <MESSAGE value="Adds Dockerfiles and docker-compose file. Modifies app prop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds Dockerfiles and docker-compose file. Modifies app prop" />
   </component>
 </project>
