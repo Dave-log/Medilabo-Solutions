@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="cleans Patient.tsx">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Patient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient.tsx" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements Add Patient functional button">
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,15 +228,7 @@
       <workItem from="1720596587764" duration="6648000" />
       <workItem from="1720791105596" duration="1572000" />
       <workItem from="1720879672318" duration="6249000" />
-      <workItem from="1720987160943" duration="3133000" />
-    </task>
-    <task id="LOCAL-00001" summary="Project setup">
-      <option name="closed" value="true" />
-      <created>1718718853894</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1718718853894</updated>
+      <workItem from="1720987160943" duration="3514000" />
     </task>
     <task id="LOCAL-00002" summary="CI setup">
       <option name="closed" value="true" />
@@ -625,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720988772455</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Implements Add Patient functional button">
+      <option name="closed" value="true" />
+      <created>1720993180459</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1720993180460</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +641,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adds Patient DTO" />
     <MESSAGE value="Implements patients CRUD" />
     <MESSAGE value="Fixes test stage" />
     <MESSAGE value="Test without UT" />
@@ -669,6 +665,7 @@
     <MESSAGE value="implements CRUD operations accessible from the front" />
     <MESSAGE value="implements CORS policy into Gateway ms" />
     <MESSAGE value="cleans Patient.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleans Patient.tsx" />
+    <MESSAGE value="Implements Add Patient functional button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements Add Patient functional button" />
   </component>
 </project>
