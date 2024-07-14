@@ -4,6 +4,12 @@ import { AgGridReact } from 'ag-grid-react';
 import { ColDef } from 'ag-grid-community';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import TextField from "@mui/material/TextField";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 
 interface Patient {
     id: number;
@@ -16,8 +22,16 @@ interface Patient {
 }
 
 const PatientList: React.FC = () => {
-
     const [patients, setPatients] = useState<Patient[]>([]);
+    const [open, setOpen] = useState(false);
+    const [newPatient, setNewPatient] = useState<Partial<Patient>>({
+        firstName: '',
+        lastName: '',
+        birthdate: '',
+        gender: '',
+        address: '',
+        phoneNumber: ''
+    });
 
     useEffect(() => {
         fetchPatients();
@@ -32,10 +46,12 @@ const PatientList: React.FC = () => {
         }
     };
 
-    const handleAddPatient = async (newPatient: Patient) => {
+    const handleAddPatient = async () => {
         try {
             const response = await axios.post(`http://localhost:8080/patient/api/v1/patients`, newPatient);
             setPatients([...patients, response.data]);
+            setOpen(false);
+            setNewPatient({ firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: ''});
         } catch (error) {
             console.error('Error adding patient:', error);
         }
@@ -61,8 +77,8 @@ const PatientList: React.FC = () => {
 
     const renderActionsCell = (params: any) => (
         <div>
-            <button onClick={() => handleUpdatePatient(params.data)}>Edit</button>
-            <button onClick={() => handleDeletePatient(params.data.id)}>Delete</button>
+            <button onClick={() => handleUpdatePatient(params.data)}>Modifier</button>
+            <button onClick={() => handleDeletePatient(params.data.id)}>Supprimer</button>
         </div>
     );
 
@@ -81,14 +97,106 @@ const PatientList: React.FC = () => {
         }
     ]);
 
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setNewPatient({ ...newPatient, [name]: value });
+    };
+
     return (
-        <div>
-            <h2>Liste des patients</h2>
-            <button onClick={fetchPatients}>Recharger les patients</button>
-            <div className='ag-theme-quartz' style={{height: 500, width: '100%'}}>
+        <Container>
+            <Typography variant="h4" gutterBottom>Liste des patients</Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: 2}}>
+                <Button variant="contained" color="primary" onClick={fetchPatients}>Rafraîchir la liste</Button>
+            </Box>
+            
+            <div className='ag-theme-quartz' style={{height: 300, width: '100%'}}>
                 <AgGridReact rowData={patients} columnDefs={colDefs} />
             </div>
-        </div>
+
+            <Box sx={{ marginTop: 2}}>
+                <Button variant="contained" color="secondary" onClick={handleOpen}>Ajouter un patient</Button>
+            </Box>
+
+            <Modal open={open} onClose={handleClose}>
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: 400,
+                        backgroundColor: 'white',
+                        boxShadow: 24,
+                        p: 4,
+                    }}
+                >
+                    <Typography variant="h5" color={"black"} align={"center"} gutterBottom>Ajouter un patient</Typography>
+                    <form noValidate autoComplete="off">
+                        <TextField
+                            required
+                            label="Prénom"
+                            name="firstName"
+                            value={newPatient.firstName}
+                            onChange={handleInputChange}
+                            fullWidth
+                            margin="normal"
+                        />
+                        <TextField
+                            required
+                            label="Nom"
+                            name="lastName"
+                            value={newPatient.lastName}
+                            onChange={handleInputChange}
+                            fullWidth
+                            margin="normal"
+                        />
+                        <TextField
+                            required
+                            label="Date de naissance"
+                            name="birthdate"
+                            type="date"
+                            value={newPatient.birthdate}
+                            onChange={handleInputChange}
+                            fullWidth
+                            margin="normal"
+                            InputLabelProps={{ shrink: true }}
+                        />
+                        <TextField
+                            required
+                            label="Genre"
+                            name="gender"
+                            value={newPatient.gender}
+                            onChange={handleInputChange}
+                            fullWidth
+                            margin="normal"
+                        />
+                        <TextField
+                            label="Adresse"
+                            name="address"
+                            value={newPatient.address}
+                            onChange={handleInputChange}
+                            fullWidth
+                            margin="normal"
+                        />
+                        <TextField
+                            label="Téléphone"
+                            name="phoneNumber"
+                            value={newPatient.phoneNumber}
+                            onChange={handleInputChange}
+                            fullWidth
+                            margin="normal"
+                        />
+                        <Box sx={{display: "flex", justifyContent: "center", marginTop: 2}}>
+                            <Button variant="contained" color="primary" onClick={handleAddPatient}>Ajouter</Button>
+                        </Box>
+                        
+                    </form>
+                </Box>
+            </Modal>
+        </Container>
     );
 };
 
