@@ -4,7 +4,6 @@ import { AgGridReact } from 'ag-grid-react';
 import { ColDef } from 'ag-grid-community';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import '../styles/PatientTable.css';
 
 interface Patient {
     id: number;
@@ -19,7 +18,6 @@ interface Patient {
 const PatientList: React.FC = () => {
 
     const [patients, setPatients] = useState<Patient[]>([]);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchPatients();
@@ -28,12 +26,9 @@ const PatientList: React.FC = () => {
     const fetchPatients = async () => {
         try {
           const response = await axios.get(`http://localhost:8080/patient/api/v1/patients`);
-          console.log(response.data);
           setPatients(response.data);
-          setLoading(false);
         } catch (error) {
             console.error('Error fetching patients:', error);
-            setLoading(false);
         }
     };
 
@@ -72,23 +67,19 @@ const PatientList: React.FC = () => {
     );
 
     const [colDefs] = useState<ColDef[]>([
-        { field: "firstName", flex: 1, headerClass: 'center-header' },
+        { field: "firstName", flex: 0.9, headerClass: 'center-header' },
         { field: "lastName", flex: 1, headerClass: 'center-header' },
-        { field: "birthdate", flex: 1, headerClass: 'center-header' },
-        { field: "gender", flex: 0.8, headerClass: 'center-header' },
-        { field: "address", flex: 1.2, headerClass: 'center-header'},
-        { field: "phoneNumber", flex: 1.2, headerClass: 'center-header'},
+        { field: "birthdate", flex: 0.9, headerClass: 'center-header' },
+        { field: "gender", flex: 0.7, headerClass: 'center-header' },
+        { field: "address", flex: 1, headerClass: 'center-header'},
+        { field: "phoneNumber", flex: 1.1, headerClass: 'center-header'},
         {
             headerName: "Actions",
             cellRenderer: renderActionsCell,
-            flex: 1,
+            flex: 1.3,
             headerClass: 'center-header'
         }
     ]);
-
-    if (loading) {
-        return <div>Chargement...</div>;
-    }
 
     return (
         <div>
