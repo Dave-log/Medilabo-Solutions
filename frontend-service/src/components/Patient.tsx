@@ -32,6 +32,7 @@ const PatientList: React.FC = () => {
         address: '',
         phoneNumber: ''
     });
+    const [currentPatient, setCurrentPatient] = useState<Partial<Patient> | null>(null);
 
     useEffect(() => {
         fetchPatients();
@@ -57,12 +58,17 @@ const PatientList: React.FC = () => {
         }
     };
 
-    const handleUpdatePatient = async (updatedPatient: Patient) => {
-        try {
-            await axios.put(`http://localhost:8080/patient/api/v1/patients/${updatedPatient.id}`, updatedPatient);
-            setPatients(patients.map(patient => patient.id === updatedPatient.id ? updatedPatient : patient));
-        } catch (error) {
-            console.error('Error updating patient:', error);
+    const handleUpdatePatient = async () => {
+        if (currentPatient && currentPatient.id !== undefined) {
+            try {
+                const updatedPatient = { ...currentPatient } as Patient;
+                await axios.put(`http://localhost:8080/patient/api/v1/patients/${updatedPatient.id}`, updatedPatient);
+                setPatients(patients.map(patient => patient.id === updatedPatient.id ? updatedPatient : patient));
+                setOpen(false);
+                setCurrentPatient(null);
+            } catch (error) {
+                console.error('Error updating patient:', error);
+            }
         }
     }
 
@@ -77,18 +83,18 @@ const PatientList: React.FC = () => {
 
     const renderActionsCell = (params: any) => (
         <div>
-            <button onClick={() => handleUpdatePatient(params.data)}>Modifier</button>
-            <button onClick={() => handleDeletePatient(params.data.id)}>Supprimer</button>
+            <Button variant="contained" color="secondary" sx={{width: 50, fontSize:'0.7em', marginRight: 0.5}} onClick={() => handleOpen(params.data)}>Modifier</Button>
+            <Button variant="contained" color="secondary" sx={{width: 50, bgcolor:'#b82828', fontSize:'0.7em'}} onClick={() => handleDeletePatient(params.data.id)}>Supprimer</Button>
         </div>
     );
 
     const [colDefs] = useState<ColDef[]>([
-        { field: "firstName", flex: 0.9, headerClass: 'center-header' },
-        { field: "lastName", flex: 1, headerClass: 'center-header' },
-        { field: "birthdate", flex: 0.9, headerClass: 'center-header' },
-        { field: "gender", flex: 0.7, headerClass: 'center-header' },
-        { field: "address", flex: 1, headerClass: 'center-header'},
-        { field: "phoneNumber", flex: 1.1, headerClass: 'center-header'},
+        { field: "firstName", headerName: "Prénom", flex: 0.8, headerClass: 'center-header' },
+        { field: "lastName", headerName: "Nom", flex: 1.1, headerClass: 'center-header' },
+        { field: "birthdate", headerName: "Naissance", flex: 0.9, headerClass: 'center-header' },
+        { field: "gender", headerName: "Genre", flex: 0.6, headerClass: 'center-header' },
+        { field: "address", headerName: "Adresse", flex: 1, headerClass: 'center-header'},
+        { field: "phoneNumber", headerName: "Téléphone", flex: 1.1, headerClass: 'center-header'},
         {
             headerName: "Actions",
             cellRenderer: renderActionsCell,
@@ -97,13 +103,38 @@ const PatientList: React.FC = () => {
         }
     ]);
 
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleOpen = (patient: Partial<Patient> | null = null) => {
+        if (patient) {
+            setCurrentPatient(patient);
+        } else {
+            setCurrentPatient(null);
+        }
+        setNewPatient(patient || { firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: ''});
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+        setNewPatient({ firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: '' });
+        setCurrentPatient(null);
+    }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setNewPatient({ ...newPatient, [name]: value });
+        if (currentPatient) {
+            setCurrentPatient({ ...currentPatient, [name]: value });
+        } else {
+            setNewPatient({ ...newPatient, [name]: value });
+        }
     };
+
+    const handleSubmit = () => {
+        if (currentPatient) {
+            handleUpdatePatient();
+        } else {
+            handleAddPatient();
+        }
+    }
 
     return (
         <Container>
@@ -112,12 +143,12 @@ const PatientList: React.FC = () => {
                 <Button variant="contained" color="primary" onClick={fetchPatients}>Rafraîchir la liste</Button>
             </Box>
             
-            <div className='ag-theme-quartz' style={{height: 300, width: '100%'}}>
+            <div className='ag-theme-quartz' style={{ height: 300, width: '100%' }}>
                 <AgGridReact rowData={patients} columnDefs={colDefs} />
             </div>
 
             <Box sx={{ marginTop: 2}}>
-                <Button variant="contained" color="secondary" onClick={handleOpen}>Ajouter un patient</Button>
+                <Button variant="contained" color="secondary" onClick={() => handleOpen(null)}>Ajouter un patient</Button>
             </Box>
 
             <Modal open={open} onClose={handleClose}>
@@ -133,13 +164,13 @@ const PatientList: React.FC = () => {
                         p: 4,
                     }}
                 >
-                    <Typography variant="h5" color={"black"} align={"center"} gutterBottom>Ajouter un patient</Typography>
+                    <Typography variant="h5" color={"black"} align={"center"} gutterBottom>{currentPatient ? 'Modifier le patient' : 'Ajouter un patient'}</Typography>
                     <form noValidate autoComplete="off">
                         <TextField
                             required
                             label="Prénom"
                             name="firstName"
-                            value={newPatient.firstName}
+                            value={currentPatient?.firstName || newPatient.firstName}
                             onChange={handleInputChange}
                             fullWidth
                             margin="normal"
@@ -148,7 +179,7 @@ const PatientList: React.FC = () => {
                             required
                             label="Nom"
                             name="lastName"
-                            value={newPatient.lastName}
+                            value={currentPatient?.lastName || newPatient.lastName}
                             onChange={handleInputChange}
                             fullWidth
                             margin="normal"
@@ -158,7 +189,7 @@ const PatientList: React.FC = () => {
                             label="Date de naissance"
                             name="birthdate"
                             type="date"
-                            value={newPatient.birthdate}
+                            value={currentPatient?.birthdate || newPatient.birthdate}
                             onChange={handleInputChange}
                             fullWidth
                             margin="normal"
@@ -168,7 +199,7 @@ const PatientList: React.FC = () => {
                             required
                             label="Genre"
                             name="gender"
-                            value={newPatient.gender}
+                            value={currentPatient?.gender || newPatient.gender}
                             onChange={handleInputChange}
                             fullWidth
                             margin="normal"
@@ -176,7 +207,7 @@ const PatientList: React.FC = () => {
                         <TextField
                             label="Adresse"
                             name="address"
-                            value={newPatient.address}
+                            value={currentPatient?.address || newPatient.address}
                             onChange={handleInputChange}
                             fullWidth
                             margin="normal"
@@ -184,13 +215,13 @@ const PatientList: React.FC = () => {
                         <TextField
                             label="Téléphone"
                             name="phoneNumber"
-                            value={newPatient.phoneNumber}
+                            value={currentPatient?.phoneNumber || newPatient.phoneNumber}
                             onChange={handleInputChange}
                             fullWidth
                             margin="normal"
                         />
                         <Box sx={{display: "flex", justifyContent: "center", marginTop: 2}}>
-                            <Button variant="contained" color="primary" onClick={handleAddPatient}>Ajouter</Button>
+                            <Button variant="contained" color="primary" onClick={handleSubmit}>{currentPatient ? 'Modifier' : 'Ajouter'}</Button>
                         </Box>
                         
                     </form>
