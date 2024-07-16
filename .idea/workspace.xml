@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements Add Patient functional button">
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements all Crud operations available from frontend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Patient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient.tsx" afterDir="false" />
     </list>
@@ -231,14 +231,7 @@
       <workItem from="1720879672318" duration="6249000" />
       <workItem from="1720987160943" duration="4144000" />
       <workItem from="1721070863806" duration="3494000" />
-    </task>
-    <task id="LOCAL-00003" summary="CI setup adding yml parent/child">
-      <option name="closed" value="true" />
-      <created>1718831010637</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1718831010637</updated>
+      <workItem from="1721119800922" duration="1136000" />
     </task>
     <task id="LOCAL-00004" summary="SQL database setup">
       <option name="closed" value="true" />
@@ -624,7 +617,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720993240758</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Implements all Crud operations available from frontend">
+      <option name="closed" value="true" />
+      <created>1721120017130</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1721120017130</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +644,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements patients CRUD" />
     <MESSAGE value="Fixes test stage" />
     <MESSAGE value="Test without UT" />
     <MESSAGE value="Test with UT" />
@@ -668,6 +668,7 @@
     <MESSAGE value="implements CORS policy into Gateway ms" />
     <MESSAGE value="cleans Patient.tsx" />
     <MESSAGE value="Implements Add Patient functional button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements Add Patient functional button" />
+    <MESSAGE value="Implements all Crud operations available from frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements all Crud operations available from frontend" />
   </component>
 </project>

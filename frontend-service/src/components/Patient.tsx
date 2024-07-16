@@ -21,6 +21,8 @@ interface Patient {
     phoneNumber: string;
 }
 
+const PATIENT_API_BASE_URL = `http://localhost:8080/patient/api/v1/patients`;
+
 const PatientList: React.FC = () => {
     const [patients, setPatients] = useState<Patient[]>([]);
     const [open, setOpen] = useState(false);
@@ -40,7 +42,7 @@ const PatientList: React.FC = () => {
 
     const fetchPatients = async () => {
         try {
-          const response = await axios.get(`http://localhost:8080/patient/api/v1/patients`);
+          const response = await axios.get(PATIENT_API_BASE_URL);
           setPatients(response.data);
         } catch (error) {
             console.error('Error fetching patients:', error);
@@ -49,7 +51,7 @@ const PatientList: React.FC = () => {
 
     const handleAddPatient = async () => {
         try {
-            const response = await axios.post(`http://localhost:8080/patient/api/v1/patients`, newPatient);
+            const response = await axios.post(PATIENT_API_BASE_URL, newPatient);
             setPatients([...patients, response.data]);
             setOpen(false);
             setNewPatient({ firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: ''});
@@ -62,7 +64,7 @@ const PatientList: React.FC = () => {
         if (currentPatient && currentPatient.id !== undefined) {
             try {
                 const updatedPatient = { ...currentPatient } as Patient;
-                await axios.put(`http://localhost:8080/patient/api/v1/patients/${updatedPatient.id}`, updatedPatient);
+                await axios.put(`${PATIENT_API_BASE_URL}/${updatedPatient.id}`, updatedPatient);
                 setPatients(patients.map(patient => patient.id === updatedPatient.id ? updatedPatient : patient));
                 setOpen(false);
                 setCurrentPatient(null);
@@ -74,8 +76,10 @@ const PatientList: React.FC = () => {
 
     const handleDeletePatient = async (id: number) => {
         try {
-            await axios.delete(`http://localhost:8080/patient/api/v1/patients/${id}`);
-            setPatients(patients.filter(patient => patient.id !== id));
+            await axios.delete(`${PATIENT_API_BASE_URL}/${id}`);
+            const updatedPatients = patients.filter(patient => patient.id !== id);
+            setPatients(updatedPatients);
+            fetchPatients();
         } catch (error) {
             console.error('Error deleting patient:', error);
         }
