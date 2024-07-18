@@ -35,6 +35,19 @@ spring:
             allowed-headers:
               - "*"
             allow-credentials: true
+  datasource:
+    url: jdbc:h2:mem:userdb
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
 
 eureka:
   client:

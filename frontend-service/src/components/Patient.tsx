@@ -35,10 +35,21 @@ const PatientList: React.FC = () => {
         phoneNumber: ''
     });
     const [currentPatient, setCurrentPatient] = useState<Partial<Patient> | null>(null);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredPatients, setFilteredPatients] = useState<Patient[]>([]);
 
     useEffect(() => {
         fetchPatients();
     }, []);
+
+    useEffect(() => {
+        setFilteredPatients(
+            patients.filter(patient =>
+                patient.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                patient.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+        );
+    }, [searchTerm, patients]);
 
     const fetchPatients = async () => {
         try {
