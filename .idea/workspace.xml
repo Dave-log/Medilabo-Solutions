@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Adds H2 db for Gateway testing">
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Fixes schema.sql for H2 testuserdb">
+      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/model/AuthRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/repository/UserCredentialRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/repository/UserCredentialRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,15 +250,7 @@
       <workItem from="1721645944331" duration="7194000" />
       <workItem from="1721656769020" duration="8428000" />
       <workItem from="1721684604174" duration="673000" />
-      <workItem from="1721718706669" duration="11925000" />
-    </task>
-    <task id="LOCAL-00009" summary="Test without UT">
-      <option name="closed" value="true" />
-      <created>1718954403605</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1718954403605</updated>
+      <workItem from="1721718706669" duration="19310000" />
     </task>
     <task id="LOCAL-00010" summary="Test without UT">
       <option name="closed" value="true" />
@@ -640,7 +636,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721730083559</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Fixes schema.sql for H2 testuserdb">
+      <option name="closed" value="true" />
+      <created>1721737483620</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1721737483620</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,7 +663,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Test with UT 4" />
     <MESSAGE value="Test with UT 5" />
     <MESSAGE value="Test with UT 6" />
     <MESSAGE value="Gitlab CI fix" />
@@ -684,7 +687,8 @@
     <MESSAGE value="Fixes frontend compilation" />
     <MESSAGE value="Implements basic security and starts Jwt auth implementation" />
     <MESSAGE value="Adds H2 db for Gateway testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds H2 db for Gateway testing" />
+    <MESSAGE value="Fixes schema.sql for H2 testuserdb" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes schema.sql for H2 testuserdb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
