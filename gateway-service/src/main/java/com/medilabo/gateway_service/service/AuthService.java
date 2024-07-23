@@ -21,6 +21,6 @@ public class AuthService {
     public String saveUser(UserCredential credential){
         credential.setPassword(encoder.encode(credential.getPassword()));
         repository.save(credential);
-        return credential.getUsername() + " has been saved";
+        return credential.getEmail() + " has been saved";
     }
 }
