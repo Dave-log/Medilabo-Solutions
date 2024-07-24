@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements reactive auth api">
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Refactors gateway ms to make it reactive (jdbc to r2dbc)">
+      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/R2DBCConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/GatewayServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/model/UserCredential.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/model/UserCredential.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/repository/UserCredentialRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/repository/UserCredentialRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/test/java/com/medilabo/gateway_service/repository/UserCredentialRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/test/java/com/medilabo/gateway_service/repository/UserCredentialRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/test/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/model/AuthRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/model/AuthRequestDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,54 +67,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Maven.p9-medilabo-solutions [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.p9-medilabo-solutions [install].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DiscoveryServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.GatewayServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PatientServiceApplication 2.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PatientServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Security&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_9/p9_medilabo_solutions/gateway-service/src/test/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24481659&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;E:\\Documents\\Programmation\\Cours_OpenClassRooms\\Parcours_developpeur_application_Java\\Projet_9\\p9_medilabo_solutions\\frontend-service\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Maven.p9-medilabo-solutions [clean].executor": "Run",
+    "Maven.p9-medilabo-solutions [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.DiscoveryServiceApplication.executor": "Run",
+    "Spring Boot.GatewayServiceApplication.executor": "Run",
+    "Spring Boot.PatientServiceApplication 2.executor": "Run",
+    "Spring Boot.PatientServiceApplication.executor": "Run",
+    "git-widget-placeholder": "Security",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_9/p9_medilabo_solutions/gateway-service/src/test/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "settings.editor.splitter.proportion": "0.24481659",
+    "ts.external.directory.path": "E:\\Documents\\Programmation\\Cours_OpenClassRooms\\Parcours_developpeur_application_Java\\Projet_9\\p9_medilabo_solutions\\frontend-service\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;h2&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "h2",
+      "mysql"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
-      &quot;H2&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "H2"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;H2&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "H2"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\gateway-service\src\test\resources" />
@@ -254,15 +253,7 @@
       <workItem from="1721656769020" duration="8428000" />
       <workItem from="1721684604174" duration="673000" />
       <workItem from="1721718706669" duration="25513000" />
-      <workItem from="1721802836984" duration="300000" />
-    </task>
-    <task id="LOCAL-00011" summary="Test without UT">
-      <option name="closed" value="true" />
-      <created>1718954605149</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1718954605149</updated>
+      <workItem from="1721802836984" duration="8412000" />
     </task>
     <task id="LOCAL-00012" summary="Test without UT">
       <option name="closed" value="true" />
@@ -648,7 +639,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721753068874</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Refactors gateway ms to make it reactive (jdbc to r2dbc)">
+      <option name="closed" value="true" />
+      <created>1721803160789</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1721803160789</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +666,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Test with UT 6" />
     <MESSAGE value="Gitlab CI fix" />
     <MESSAGE value="setup H2 db for testing" />
     <MESSAGE value="change properties to yaml files" />
@@ -692,7 +690,8 @@
     <MESSAGE value="Adds H2 db for Gateway testing" />
     <MESSAGE value="Fixes schema.sql for H2 testuserdb" />
     <MESSAGE value="Implements reactive auth api" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements reactive auth api" />
+    <MESSAGE value="Refactors gateway ms to make it reactive (jdbc to r2dbc)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactors gateway ms to make it reactive (jdbc to r2dbc)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

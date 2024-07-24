@@ -53,7 +53,7 @@ public class SecurityConfig {
         return (email) -> repository.findByEmail(email)
                 .map(userCredential -> User.withUsername(userCredential.getEmail())
                         .password(userCredential.getPassword())
-                        .roles("ROLE_" + userCredential.getRole())
+                        .roles(userCredential.getRole())
                         .build());
     }
 }

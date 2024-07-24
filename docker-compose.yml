@@ -42,7 +42,7 @@ services:
     networks:
       - internal
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://user-db:3306/userdb
+      SPRING_DATASOURCE_URL: r2dbc:mysql://user-db:3306/userdb
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: rootroot
       SPRING_JPA_HIBERNATE_DDL_AUTO: update

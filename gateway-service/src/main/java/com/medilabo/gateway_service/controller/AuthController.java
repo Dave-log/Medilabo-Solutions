@@ -1,6 +1,6 @@
 package com.medilabo.gateway_service.controller;
 
-import com.medilabo.gateway_service.model.AuthRequest;
+import com.medilabo.gateway_service.model.AuthRequestDTO;
 import com.medilabo.gateway_service.model.UserCredential;
 import com.medilabo.gateway_service.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public Mono<String> login() {
         return Mono.just("Login successful");
     }
@@ -29,8 +29,8 @@ public class AuthController {
     }
 
     @PostMapping("/token")
-    public Mono<String> getToken(@RequestBody AuthRequest authRequest) {
-        return authService.generateToken(authRequest.getEmail());
+    public Mono<String> getToken(@RequestBody AuthRequestDTO authRequestDTO) {
+        return authService.generateToken(authRequestDTO.getEmail());
     }
 
     @GetMapping("/validate")
