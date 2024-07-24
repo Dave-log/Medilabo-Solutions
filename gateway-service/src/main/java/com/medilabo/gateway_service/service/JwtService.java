@@ -10,6 +10,7 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
 
 @Service
 public class JwtService {
@@ -24,6 +25,15 @@ public class JwtService {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public String getUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
+    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
+        final Claims claims = getClaimsFromToken(token);
+        return claimsResolver.apply(claims);
     }
 
     public Claims getClaimsFromToken(String token) {

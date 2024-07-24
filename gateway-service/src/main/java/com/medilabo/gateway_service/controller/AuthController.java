@@ -28,11 +28,6 @@ public class AuthController {
         return authService.saveUser(user).then(Mono.just("User registered successfully"));
     }
 
-    @PostMapping("/token")
-    public Mono<String> getToken(@RequestBody AuthRequestDTO authRequestDTO) {
-        return authService.generateToken(authRequestDTO.getEmail());
-    }
-
     @GetMapping("/validate")
     public Mono<Boolean> validateToken(@RequestParam("token") String token) {
         return authService.validateToken(token);
