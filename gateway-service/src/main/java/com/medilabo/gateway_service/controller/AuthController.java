@@ -3,24 +3,42 @@ package com.medilabo.gateway_service.controller;
 import com.medilabo.gateway_service.model.AuthRequestDTO;
 import com.medilabo.gateway_service.model.UserCredential;
 import com.medilabo.gateway_service.service.AuthService;
+import com.medilabo.gateway_service.security.jwt.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.ReactiveAuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
     private final AuthService authService;
+    private final JwtTokenProvider jwtTokenProvider;
+    private final ReactiveAuthenticationManager authenticationManager;
 
     @Autowired
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, JwtTokenProvider jwtTokenProvider, ReactiveAuthenticationManager authenticationManager) {
         this.authService = authService;
+        this.jwtTokenProvider = jwtTokenProvider;
+        this.authenticationManager = authenticationManager;
     }
 
     @PostMapping("/login")
-    public Mono<String> login(@RequestBody AuthRequestDTO authRequestDTO) {
-        return authService.authenticate(authRequestDTO.getEmail(), authRequestDTO.getPassword());
+    public Mono<ResponseEntity<Map<String, String>>> login(@RequestBody Mono<AuthRequestDTO> authRequestDTO) {
+        return authRequestDTO
+                .flatMap(login -> this.authenticationManager
+                        .authenticate(new UsernamePasswordAuthenticationToken(
+                                login.getEmail(), login.getPassword()))
+                        .map(this.jwtTokenProvider::createToken))
+                .map(jwt -> {
+                   var tokenBody = Map.of("access_token", jwt);
+                   return ResponseEntity.ok().body(tokenBody);
+                });
     }
 
     @PostMapping("/register")

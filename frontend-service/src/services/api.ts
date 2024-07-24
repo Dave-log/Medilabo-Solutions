@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Patient } from '../types/types'
+import { useNavigate } from 'react-router-dom';
 
 const API_BASE_URL = 'http://localhost:8080';
 const API_PATIENT_PATH = '/patient/api/v1/patients';
@@ -13,7 +14,7 @@ const api = axios.create({
 
 export const login = async (email: string, password: string) => {
     const response = await api.post('/auth/login', { email, password });
-    const token = response.data;
+    const token = response.data.access_token;
     localStorage.setItem('token', token);
     return response;
 };
@@ -38,12 +39,25 @@ export const deletePatient = async (id: number) => {
     return api.delete(`${API_PATIENT_PATH}/${id}`);
 }
 
-api.interceptors.request.use(config => {
-    const token = localStorage.getItem('token');
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+api.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
 });
+
+api.interceptors.response.use(
+    response => response,
+    error => {
+        const navigate = useNavigate();
+        if (error.response && error.response.status === 401) {
+            localStorage.removeItem('token');
+            navigate('/login');
+        }
+        return Promise.reject(error);
+    }
+)
 
 export default api;

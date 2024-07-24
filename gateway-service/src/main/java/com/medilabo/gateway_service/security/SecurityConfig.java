@@ -1,6 +1,8 @@
-package com.medilabo.gateway_service.configuration;
+package com.medilabo.gateway_service.security;
 
 import com.medilabo.gateway_service.repository.UserCredentialRepository;
+import com.medilabo.gateway_service.security.jwt.JwtTokenAuthenticationFilter;
+import com.medilabo.gateway_service.security.jwt.JwtTokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
@@ -14,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.web.server.authentication.AuthenticationWebFilter;
+import org.springframework.security.web.server.context.NoOpServerSecurityContextRepository;
 import org.springframework.security.web.server.context.ServerSecurityContextRepository;
 import org.springframework.security.web.server.context.WebSessionServerSecurityContextRepository;
 import org.springframework.web.cors.CorsConfiguration;
@@ -27,16 +30,21 @@ import java.util.Arrays;
 public class SecurityConfig {
 
     @Bean
-    public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http, ReactiveAuthenticationManager authManager) {
+    public SecurityWebFilterChain securityWebFilterChain(
+            ServerHttpSecurity http,
+            JwtTokenProvider tokenProvider,
+            ReactiveAuthenticationManager authManager) {
         return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
+                .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
+                .authenticationManager(authManager)
+                .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
                 .cors(cors -> cors.configurationSource(configurationSource()))
                 .authorizeExchange(exchanges -> exchanges
                         .pathMatchers("/login","/auth/**").permitAll()
                         .anyExchange().authenticated()
                 )
-                .addFilterAt(jwtAuthenticationWebFilter(authManager), SecurityWebFiltersOrder.AUTHORIZATION)
-                //.authenticationManager(authManager)
+                .addFilterAt( new JwtTokenAuthenticationFilter(tokenProvider), SecurityWebFiltersOrder.HTTP_BASIC)
                 .formLogin(ServerHttpSecurity.FormLoginSpec::disable)
                 .build();
     }
@@ -44,9 +52,14 @@ public class SecurityConfig {
     @Bean
     public ReactiveUserDetailsService reactiveUserDetailsService(UserCredentialRepository repository) {
         return (email) -> repository.findByEmail(email)
-                .map(userCredential -> User.withUsername(userCredential.getEmail())
+                .map(userCredential -> User
+                        .withUsername(userCredential.getEmail())
                         .password(userCredential.getPassword())
-                        .roles(userCredential.getRole())
+                        .authorities(userCredential.getRole())
+                        .accountExpired(false)
+                        .credentialsExpired(false)
+                        .disabled(false)
+                        .accountLocked(false)
                         .build());
     }
 
@@ -78,10 +91,12 @@ public class SecurityConfig {
     }
 
     @Bean
-    public ReactiveAuthenticationManager authenticationManager(ReactiveUserDetailsService reactiveUserDetailsService) {
+    public ReactiveAuthenticationManager reactiveAuthenticationManager(
+            ReactiveUserDetailsService reactiveUserDetailsService,
+            PasswordEncoder passwordEncoder) {
         UserDetailsRepositoryReactiveAuthenticationManager authenticationManager =
                 new UserDetailsRepositoryReactiveAuthenticationManager(reactiveUserDetailsService);
-        authenticationManager.setPasswordEncoder(passwordEncoder());
+        authenticationManager.setPasswordEncoder(passwordEncoder);
         return authenticationManager;
     }
 

@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Adds Typescript types file">
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Commit before massive security refactoring">
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Navigation/Navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/jwt/JwtProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/jwt/JwtTokenAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/jwt/JwtTokenProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Auth/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Auth/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Auth/Register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/services/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/styles/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/GatewayServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/JwtService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,15 +261,7 @@
       <workItem from="1721684604174" duration="673000" />
       <workItem from="1721718706669" duration="25513000" />
       <workItem from="1721802836984" duration="25529000" />
-      <workItem from="1721842004040" duration="8532000" />
-    </task>
-    <task id="LOCAL-00017" summary="Test with UT 2">
-      <option name="closed" value="true" />
-      <created>1718955935690</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1718955935690</updated>
+      <workItem from="1721842004040" duration="15085000" />
     </task>
     <task id="LOCAL-00018" summary="Test with UT 3">
       <option name="closed" value="true" />
@@ -644,7 +647,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721845695897</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Commit before massive security refactoring">
+      <option name="closed" value="true" />
+      <created>1721852503338</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1721852503338</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -663,7 +674,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements basic frontend MS (correct docker image for front)" />
     <MESSAGE value="Implements basic frontend MS" />
     <MESSAGE value="Switch to Vite from CRA" />
     <MESSAGE value="Switch to Vite from CRA (vitest fix)" />
@@ -688,7 +698,8 @@
     <MESSAGE value="Implements backend jwt authentication" />
     <MESSAGE value="Adds jwt to Request head (frontend)" />
     <MESSAGE value="Adds Typescript types file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds Typescript types file" />
+    <MESSAGE value="Commit before massive security refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit before massive security refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

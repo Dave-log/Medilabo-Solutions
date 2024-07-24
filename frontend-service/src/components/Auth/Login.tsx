@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Container, Typography, Box, Link } from '@mui/material';
 import { login } from '../../services/api';
 
-const Login: React.FC = () => {
+interface LoginProps {
+    setIsAuthenticated: (isAuthenticated: boolean) => void;
+}
+
+const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const navigate = useNavigate();
@@ -12,6 +16,7 @@ const Login: React.FC = () => {
         e.preventDefault();
         try {
             await login(email, password);
+            setIsAuthenticated(true);
             navigate('/patients');
             console.log('Login successful');
         } catch (error) {
@@ -20,9 +25,27 @@ const Login: React.FC = () => {
     };
 
     return (
-        <Container>
-            <Typography variant="h4" gutterBottom>Login</Typography>
-            <Box component="form" onSubmit={handleLogin} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Container
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '50vh'
+          }}
+          >
+            <Box component="form" onSubmit={handleLogin} sx={
+                { 
+                    display: 'flex', 
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: 400,
+                    backgroundColor: 'white',
+                    boxShadow: 24,
+                    p: 4,
+                    borderRadius: 2
+                }}
+            >
+                <Typography variant="h4" color={"black"} gutterBottom>Login</Typography>
                 <TextField
                     margin="normal"
                     required
@@ -58,7 +81,7 @@ const Login: React.FC = () => {
                 </Button>
 
                 <Link href="/register" variant="body2" sx={{ mt: 2 }}>
-                    S'enregistrer
+                    Register
                 </Link>
 
             </Box>

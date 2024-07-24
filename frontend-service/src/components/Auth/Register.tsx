@@ -26,9 +26,27 @@ const Register: React.FC = () => {
     };
 
     return (
-        <Container>
-            <Typography variant="h4" gutterBottom>Register</Typography>
-            <Box component="form" onSubmit={handleRegister} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Container
+            sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '50vh'
+      }}
+        >
+            <Box component="form" onSubmit={handleRegister} sx={
+                { 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    alignItems: 'center',
+                    width: 400,
+                    backgroundColor: 'white',
+                    boxShadow: 24,
+                    p: 4,
+                    borderRadius: 2
+                    }}
+            >
+                <Typography variant="h4" color={"black"} gutterBottom>Register</Typography>
                 <TextField
                     margin="normal"
                     required
