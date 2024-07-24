@@ -18,9 +18,9 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @GetMapping("/login")
-    public Mono<String> login() {
-        return Mono.just("Login successful");
+    @PostMapping("/login")
+    public Mono<String> login(@RequestBody AuthRequestDTO authRequestDTO) {
+        return authService.authenticate(authRequestDTO.getEmail(), authRequestDTO.getPassword());
     }
 
     @PostMapping("/register")

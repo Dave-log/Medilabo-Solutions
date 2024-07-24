@@ -15,6 +15,7 @@ import java.util.Map;
 public class JwtService {
 
    public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
+   private static final long EXPIRATION_TIME = 1000 * 60 * 30;
 
     public boolean isTokenValid(String token) {
         try {
@@ -44,7 +45,7 @@ public class JwtService {
                .claims(claims)
                .subject(username)
                .issuedAt(new Date(System.currentTimeMillis()))
-               .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 30))
+               .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                .signWith(getSigningKey())
                .compact();
    }

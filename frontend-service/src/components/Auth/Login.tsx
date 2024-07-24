@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { TextField, Button, Container, Typography, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { TextField, Button, Container, Typography, Box, Link } from '@mui/material';
+import { login } from '../../services/api';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const navigate = useNavigate();
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/auth/login', {
-                email,
-                password
-            });
+            const response = await login(email, password);
             localStorage.setItem('token', response.data.token); // Assuming the token is in response.data.token
+            navigate('/patients');
             console.log('Login successful');
         } catch (error) {
-            console.error('Error logging in:', error);
+            console.error('Login failed:', error);
         }
     };
 
     return (
         <Container>
             <Typography variant="h4" gutterBottom>Login</Typography>
-            <Box component="form" onSubmit={handleLogin} sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={handleLogin} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <TextField
                     margin="normal"
                     required
@@ -57,6 +57,11 @@ const Login: React.FC = () => {
                 >
                     Login
                 </Button>
+
+                <Link href="/register" variant="body2" sx={{ mt: 2 }}>
+                    S'enregistrer
+                </Link>
+
             </Box>
         </Container>
     );

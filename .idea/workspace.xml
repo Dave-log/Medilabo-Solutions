@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Makes all auth api functional.">
-      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Login.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Register.tsx" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Fixes gateway ms testing with H2 db">
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Auth/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Auth/Register.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient/Patient.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/services/api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-service/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/test/java/com/medilabo/gateway_service/GatewayContextTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/test/java/com/medilabo/gateway_service/GatewayContextTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/test/java/com/medilabo/gateway_service/GatewayServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/test/java/com/medilabo/gateway_service/GatewayServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/test/java/com/medilabo/gateway_service/repository/UserCredentialRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/test/java/com/medilabo/gateway_service/repository/UserCredentialRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/test/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Patient.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Register.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/R2DBCConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/UserCredentialController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/JwtService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="docker-impl" />
+        <entry key="$PROJECT_DIR$" value="Security" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -84,7 +93,7 @@
     "Spring Boot.GatewayServiceApplication.executor": "Run",
     "Spring Boot.PatientServiceApplication 2.executor": "Run",
     "Spring Boot.PatientServiceApplication.executor": "Run",
-    "git-widget-placeholder": "Security",
+    "git-widget-placeholder": "Log-and-reg-page",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_9/p9_medilabo_solutions/gateway-service/src/test/resources",
@@ -253,15 +262,7 @@
       <workItem from="1721656769020" duration="8428000" />
       <workItem from="1721684604174" duration="673000" />
       <workItem from="1721718706669" duration="25513000" />
-      <workItem from="1721802836984" duration="13231000" />
-    </task>
-    <task id="LOCAL-00013" summary="Test without UT">
-      <option name="closed" value="true" />
-      <created>1718954960941</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1718954960941</updated>
+      <workItem from="1721802836984" duration="22888000" />
     </task>
     <task id="LOCAL-00014" summary="Test with UT">
       <option name="closed" value="true" />
@@ -647,7 +648,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721813219286</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Fixes gateway ms testing with H2 db">
+      <option name="closed" value="true" />
+      <created>1721822487514</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1721822487514</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,7 +675,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="setup H2 db for testing" />
     <MESSAGE value="change properties to yaml files" />
     <MESSAGE value="setup discovery microservice with eureka" />
     <MESSAGE value="test gitlab CI with discovery MS" />
@@ -691,7 +699,8 @@
     <MESSAGE value="Implements reactive auth api" />
     <MESSAGE value="Refactors gateway ms to make it reactive (jdbc to r2dbc)" />
     <MESSAGE value="Makes all auth api functional." />
-    <option name="LAST_COMMIT_MESSAGE" value="Makes all auth api functional." />
+    <MESSAGE value="Fixes gateway ms testing with H2 db" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes gateway ms testing with H2 db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,30 +1,34 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { TextField, Button, Container, Typography, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { TextField, Button, Container, Typography, Box, Link } from '@mui/material';
+import { register } from '../../services/api';
 
 const Register: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [role, setRole] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const navigate = useNavigate();
 
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+
         try {
-            const response = await axios.post('http://localhost:8080/auth/register', {
-                email,
-                password,
-                role
-            });
-            console.log(response.data); // Optionally handle response
+            await register(email, password);
+            navigate('/login');
         } catch (error) {
-            console.error('Error registering user:', error);
+            console.error('Registration failed:', error);
         }
     };
 
     return (
         <Container>
             <Typography variant="h4" gutterBottom>Register</Typography>
-            <Box component="form" onSubmit={handleRegister} sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={handleRegister} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <TextField
                     margin="normal"
                     required
@@ -53,11 +57,11 @@ const Register: React.FC = () => {
                     margin="normal"
                     required
                     fullWidth
-                    name="role"
-                    label="Role"
-                    id="role"
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
+                    name="confirmPassword"
+                    label="Confirm Password"
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <Button
                     type="submit"
@@ -68,6 +72,11 @@ const Register: React.FC = () => {
                 >
                     Register
                 </Button>
+
+                <Link href="/login" variant="body2" sx={{ marginTop: 2 }}>
+                    Déjà enregistré ? Login
+                </Link>
+
             </Box>
         </Container>
     );

@@ -21,8 +21,16 @@ public class AuthService {
         this.jwtService = jwtService;
     }
 
+    public Mono<String> authenticate(String email, String password) {
+        return repository.findByEmail(email)
+                .filter(user -> encoder.matches(password, user.getPassword()))
+                .flatMap(user -> generateToken(user.getEmail()))
+                .switchIfEmpty(Mono.error(new RuntimeException("Invalid Credentials")));
+    }
+
     public Mono<UserCredential> saveUser(UserCredential credential){
         credential.setPassword(encoder.encode(credential.getPassword()));
+        credential.setRole("USER");
         return repository.save(credential);
     }
 
