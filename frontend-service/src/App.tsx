@@ -21,3 +21,25 @@ function App() {
 }
 
 export default App
+
+// import React from 'react';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import Register from './Register';
+// import Login from './Login';
+// import PatientList from './PatientList';
+// import PrivateRoute from './PrivateRoute';
+
+// const App: React.FC = () => {
+//     return (
+//         <Router>
+//             <Switch>
+//                 <Route path="/register" component={Register} />
+//                 <Route path="/login" component={Login} />
+//                 <PrivateRoute path="/patients" component={PatientList} />
+//                 <Route path="/" component={Login} /> {/* Default to login */}
+//             </Switch>
+//         </Router>
+//     );
+// };
+
+// export default App;

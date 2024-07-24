@@ -5,6 +5,5 @@ import org.junit.jupiter.api.Test;
 public class GatewayContextTest extends GatewayServiceApplicationTests {
 
     @Test
-    void contextLoads() {
-    }
+    void contextLoads() {}
 }

@@ -4,11 +4,9 @@ import com.medilabo.gateway_service.GatewayServiceApplicationTests;
 import com.medilabo.gateway_service.model.UserCredential;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 
-@AutoConfigureMockMvc
 public class UserCredentialRepositoryTest extends GatewayServiceApplicationTests {
 
     @Autowired
