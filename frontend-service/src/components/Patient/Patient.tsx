@@ -1,5 +1,4 @@
 import React, {useState, useEffect } from "react";
-import axios from "axios";
 import { Patient } from "../../types/types";
 import { AgGridReact } from 'ag-grid-react';
 import { ColDef } from 'ag-grid-community';
