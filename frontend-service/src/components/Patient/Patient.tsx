@@ -1,27 +1,12 @@
 import React, {useState, useEffect } from "react";
 import axios from "axios";
+import { Patient } from "../../types/types";
 import { AgGridReact } from 'ag-grid-react';
 import { ColDef } from 'ag-grid-community';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
-import TextField from "@mui/material/TextField";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-
-interface Patient {
-    id: number;
-    lastName: string;
-    firstName: string;
-    birthdate: string;
-    gender: string;
-    address: string;
-    phoneNumber: string;
-}
-
-const PATIENT_API_BASE_URL = `http://localhost:8080/patient/api/v1/patients`;
+import { Button, Modal, Box, TextField, Container, Typography } from "@mui/material";
+import { getPatients, addPatient, updatePatient, deletePatient } from '../../services/api';
 
 const PatientList: React.FC = () => {
     const [patients, setPatients] = useState<Patient[]>([]);
@@ -42,7 +27,7 @@ const PatientList: React.FC = () => {
 
     const fetchPatients = async () => {
         try {
-          const response = await axios.get(PATIENT_API_BASE_URL);
+          const response = await getPatients();
           setPatients(response.data);
         } catch (error) {
             console.error('Error fetching patients:', error);
@@ -51,7 +36,7 @@ const PatientList: React.FC = () => {
 
     const handleAddPatient = async () => {
         try {
-            const response = await axios.post(PATIENT_API_BASE_URL, newPatient);
+            const response = await addPatient(newPatient);
             setPatients([...patients, response.data]);
             setOpen(false);
             setNewPatient({ firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: ''});
@@ -64,7 +49,7 @@ const PatientList: React.FC = () => {
         if (currentPatient && currentPatient.id !== undefined) {
             try {
                 const updatedPatient = { ...currentPatient } as Patient;
-                await axios.put(`${PATIENT_API_BASE_URL}/${updatedPatient.id}`, updatedPatient);
+                await updatePatient(updatedPatient.id, updatedPatient);
                 setPatients(patients.map(patient => patient.id === updatedPatient.id ? updatedPatient : patient));
                 setOpen(false);
                 setCurrentPatient(null);
@@ -76,7 +61,7 @@ const PatientList: React.FC = () => {
 
     const handleDeletePatient = async (id: number) => {
         try {
-            await axios.delete(`${PATIENT_API_BASE_URL}/${id}`);
+            await deletePatient(id);
             const updatedPatients = patients.filter(patient => patient.id !== id);
             setPatients(updatedPatients);
             fetchPatients();

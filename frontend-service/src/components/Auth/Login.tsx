@@ -11,8 +11,7 @@ const Login: React.FC = () => {
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await login(email, password);
-            localStorage.setItem('token', response.data.token); // Assuming the token is in response.data.token
+            await login(email, password);
             navigate('/patients');
             console.log('Login successful');
         } catch (error) {
