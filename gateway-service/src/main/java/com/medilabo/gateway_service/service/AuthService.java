@@ -21,9 +21,9 @@ public class AuthService {
         this.jwtService = jwtService;
     }
 
-    public Mono<Void> saveUser(UserCredential credential){
+    public Mono<UserCredential> saveUser(UserCredential credential){
         credential.setPassword(encoder.encode(credential.getPassword()));
-        return repository.save(credential).then();
+        return repository.save(credential);
     }
 
     public Mono<String> generateToken(String email) {

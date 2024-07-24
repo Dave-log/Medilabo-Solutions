@@ -35,18 +35,14 @@ spring:
             allowed-headers:
               - "*"
             allow-credentials: true
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://user-db:3306/userdb?serverTimezone=UTC
+  r2dbc:
+    url: r2dbc:mysql://user-db:3306/userdb?serverTimezone=UTC
     username: root
     password: rootroot
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+      ddl-auto: none
 
 eureka:
   client:

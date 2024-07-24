@@ -1,10 +1,12 @@
 package com.medilabo.gateway_service.configuration;
 
+import com.medilabo.gateway_service.repository.UserCredentialRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService;
+import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -46,13 +48,12 @@ public class SecurityConfig {
                 .build();
     }
 
-//    @Bean
-//    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
-//        return authConfig.getAuthenticationManager();
-//    }
-
-//    @Bean
-//    public UserDetailsService userDetailsService() {
-//        return null;
-//    }
+    @Bean
+    public ReactiveUserDetailsService reactiveUserDetailsService(UserCredentialRepository repository) {
+        return (email) -> repository.findByEmail(email)
+                .map(userCredential -> User.withUsername(userCredential.getEmail())
+                        .password(userCredential.getPassword())
+                        .roles("ROLE_" + userCredential.getRole())
+                        .build());
+    }
 }

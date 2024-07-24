@@ -5,10 +5,8 @@ import com.medilabo.gateway_service.model.UserCredential;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import reactor.core.publisher.Flux;
+import reactor.test.StepVerifier;
 
 @AutoConfigureMockMvc
 public class UserCredentialRepositoryTest extends GatewayServiceApplicationTests {
@@ -18,10 +16,11 @@ public class UserCredentialRepositoryTest extends GatewayServiceApplicationTests
 
     @Test
     public void testFindAllUserCredentials() {
-        List<UserCredential> credentials = credentialRepository.findAll();
-        assertEquals(credentials.size(), 3);
+        Flux<UserCredential> credentials = credentialRepository.findAll();
 
-        UserCredential userCredential = credentials.getFirst();
-        assertEquals("johndoe@example.com", userCredential.getEmail());
+        StepVerifier.create(credentials)
+                .expectNextMatches(user -> user.getEmail().equals("johndoe@example.com"))
+                .expectNextCount(2)
+                .verifyComplete();
     }
 }
