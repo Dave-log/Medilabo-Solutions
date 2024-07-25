@@ -24,6 +24,12 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, handleLogout }) => {
                         <Box component={Link} to={isAuthenticated ? "/patients" : "/login"} onClick={handlePatientsClick} sx={{ textDecoration: 'none', color: 'white', mr: 2 }}>
                             Patients
                         </Box>
+                        <Box component={Link} to={isAuthenticated ? "/patients" : "/login"} onClick={handlePatientsClick} sx={{ textDecoration: 'none', color: 'white', mr: 2 }}>
+                            Element2
+                        </Box>
+                        <Box component={Link} to={isAuthenticated ? "/patients" : "/login"} onClick={handlePatientsClick} sx={{ textDecoration: 'none', color: 'white', mr: 2 }}>
+                            Element3
+                        </Box>
                     </Typography>
                 </Box>
                 {isAuthenticated ? (

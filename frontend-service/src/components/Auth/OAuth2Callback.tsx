@@ -9,8 +9,8 @@ const OAuth2Callback: React.FC = () => {
         const fetchToken = async () => {
             try {
                 const response = await axios.get('http://localhost:8080/auth/oauth2');
-                const { access_token } = response.data;
-                localStorage.setItem('token', access_token);
+                const token = response.data.access_token;
+                localStorage.setItem('token', token);
                 navigate('/patients');
             } catch (error) {
                 console.error('OAuth2 callback error:', error);

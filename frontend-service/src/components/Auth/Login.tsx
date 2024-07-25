@@ -73,14 +73,13 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
                 />
                 <Button
                     type="submit"
-                    fullWidth
                     variant="contained"
                     color="primary"
                     sx={{ mt: 3, mb: 2 }}
                 >
                     Login
                 </Button>
-                
+
                 <GoogleLoginButton />
 
                 <Link href="/register" variant="body2" sx={{ mt: 2 }}>

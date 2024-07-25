@@ -11,7 +11,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -45,12 +44,14 @@ public class AuthController {
     }
 
     @GetMapping("/oauth2")
-    public Mono<ResponseEntity<Map<String, String>>> oauth2Login(ServerWebExchange exchange) {
+    public Mono<ResponseEntity<Map<String, String>>> oauth2Login() {
+        System.out.println("COUCOU");
         return ReactiveSecurityContextHolder.getContext()
                 .map(SecurityContext::getAuthentication)
                 .map(auth -> {
                     String jwt = jwtTokenProvider.createToken(auth);
                     var tokenBody = Map.of("access_token", jwt);
+                    System.out.println("OAuth2 callback token: " + jwt);
                     return ResponseEntity.ok().body(tokenBody);
                 });
     }
