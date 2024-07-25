@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.ReactiveSecurityContextHolder;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.Map;
@@ -38,6 +41,17 @@ public class AuthController {
                 .map(jwt -> {
                    var tokenBody = Map.of("access_token", jwt);
                    return ResponseEntity.ok().body(tokenBody);
+                });
+    }
+
+    @GetMapping("/oauth2")
+    public Mono<ResponseEntity<Map<String, String>>> oauth2Login(ServerWebExchange exchange) {
+        return ReactiveSecurityContextHolder.getContext()
+                .map(SecurityContext::getAuthentication)
+                .map(auth -> {
+                    String jwt = jwtTokenProvider.createToken(auth);
+                    var tokenBody = Map.of("access_token", jwt);
+                    return ResponseEntity.ok().body(tokenBody);
                 });
     }
 

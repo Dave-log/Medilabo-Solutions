@@ -44,6 +44,14 @@ spring:
     hibernate:
       ddl-auto: none
 
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 648209968703-25m2abibg15g7v1sbjbetgp6dq72fdvo.apps.googleusercontent.com
+            client-secret: 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
+
 eureka:
   client:
     service-url:

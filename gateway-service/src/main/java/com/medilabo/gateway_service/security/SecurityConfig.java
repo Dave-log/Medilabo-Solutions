@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UserDetailsRepositoryReactiveAuthenticationManager;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
@@ -41,11 +42,12 @@ public class SecurityConfig {
                 .securityContextRepository(NoOpServerSecurityContextRepository.getInstance())
                 .cors(cors -> cors.configurationSource(configurationSource()))
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/login","/auth/**").permitAll()
+                        .pathMatchers("/login/**","/auth/**", "/oauth2/**").permitAll()
                         .anyExchange().authenticated()
                 )
-                .addFilterAt( new JwtTokenAuthenticationFilter(tokenProvider), SecurityWebFiltersOrder.HTTP_BASIC)
                 .formLogin(ServerHttpSecurity.FormLoginSpec::disable)
+                .oauth2Login(Customizer.withDefaults())
+                .addFilterAt( new JwtTokenAuthenticationFilter(tokenProvider), SecurityWebFiltersOrder.HTTP_BASIC)
                 .build();
     }
 

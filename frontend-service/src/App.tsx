@@ -5,6 +5,7 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Patient from './components/Patient/Patient';
 import './styles/App.css';
+import OAuth2Callback from './components/Auth/OAuth2Callback';
 
 const App: React.FC = () => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -29,9 +30,11 @@ const App: React.FC = () => {
                         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/patients" element={<Patient />} />
+                        <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+                        <Route path="auth/oauth2" element={<OAuth2Callback />} />
                     </Routes>
                 </main>
-
+                
             </div>
         </Router>
 

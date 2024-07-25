@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Container, Typography, Box, Link } from '@mui/material';
 import { login } from '../../services/api';
+import GoogleLoginButton from './GoogleLoginButton';
 
 interface LoginProps {
     setIsAuthenticated: (isAuthenticated: boolean) => void;
@@ -79,6 +80,8 @@ const Login: React.FC<LoginProps> = ({ setIsAuthenticated }) => {
                 >
                     Login
                 </Button>
+                
+                <GoogleLoginButton />
 
                 <Link href="/register" variant="body2" sx={{ mt: 2 }}>
                     Register
