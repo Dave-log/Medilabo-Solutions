@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Try to fix oauth2 login (client bug)">
-      <change afterPath="$PROJECT_DIR$/mysql/create-database.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql/create-tables.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysql/insert-data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Puts the 2 mysql db into 1 container">
       <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,15 +253,7 @@
       <workItem from="1722017130817" duration="594000" />
       <workItem from="1722064397600" duration="642000" />
       <workItem from="1722106711125" duration="9727000" />
-      <workItem from="1722153694363" duration="5978000" />
-    </task>
-    <task id="LOCAL-00022" summary="Test with UT 6">
-      <option name="closed" value="true" />
-      <created>1718958969039</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1718958969039</updated>
+      <workItem from="1722153694363" duration="6265000" />
     </task>
     <task id="LOCAL-00023" summary="Gitlab CI fix">
       <option name="closed" value="true" />
@@ -655,7 +639,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721902465837</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Puts the 2 mysql db into 1 container">
+      <option name="closed" value="true" />
+      <created>1722169783048</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1722169783048</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,7 +666,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add types in tsconfig files" />
     <MESSAGE value="Adds Dockerfiles and docker-compose file. Modifies app prop" />
     <MESSAGE value="implements CRUD operations accessible from the front" />
     <MESSAGE value="implements CORS policy into Gateway ms" />
@@ -699,7 +690,8 @@
     <MESSAGE value="Removes useless import" />
     <MESSAGE value="Implements google oauth2 login" />
     <MESSAGE value="Try to fix oauth2 login (client bug)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Try to fix oauth2 login (client bug)" />
+    <MESSAGE value="Puts the 2 mysql db into 1 container" />
+    <option name="LAST_COMMIT_MESSAGE" value="Puts the 2 mysql db into 1 container" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
