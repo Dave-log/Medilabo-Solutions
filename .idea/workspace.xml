@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Commit before massive security refactoring">
-      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Navigation/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/jwt/JwtProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/jwt/JwtTokenAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/jwt/JwtTokenProvider.java" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Try to fix oauth2 login (client bug)">
+      <change afterPath="$PROJECT_DIR$/mysql/create-database.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql/create-tables.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql/insert-data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Auth/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Auth/Register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Auth/Register.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/services/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/styles/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/GatewayServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Security" />
+        <entry key="$PROJECT_DIR$" value="Log-and-reg-page" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,7 +85,7 @@
     &quot;Spring Boot.GatewayServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PatientServiceApplication 2.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PatientServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Log-and-reg-page&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;doctor-s-notes&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_9/p9_medilabo_solutions/gateway-service/src/test/resources&quot;,
@@ -261,39 +255,13 @@
       <workItem from="1721684604174" duration="673000" />
       <workItem from="1721718706669" duration="25513000" />
       <workItem from="1721802836984" duration="25529000" />
-      <workItem from="1721842004040" duration="15085000" />
-    </task>
-    <task id="LOCAL-00018" summary="Test with UT 3">
-      <option name="closed" value="true" />
-      <created>1718956048831</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1718956048831</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Test with UT 4">
-      <option name="closed" value="true" />
-      <created>1718956558647</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1718956558647</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Test with UT 5">
-      <option name="closed" value="true" />
-      <created>1718957820721</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1718957820721</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Test with UT 5">
-      <option name="closed" value="true" />
-      <created>1718958155183</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1718958155183</updated>
+      <workItem from="1721842004040" duration="15346000" />
+      <workItem from="1721887686698" duration="14812000" />
+      <workItem from="1721979116393" duration="3899000" />
+      <workItem from="1722017130817" duration="594000" />
+      <workItem from="1722064397600" duration="642000" />
+      <workItem from="1722106711125" duration="9727000" />
+      <workItem from="1722153694363" duration="5978000" />
     </task>
     <task id="LOCAL-00022" summary="Test with UT 6">
       <option name="closed" value="true" />
@@ -655,7 +623,39 @@
       <option name="project" value="LOCAL" />
       <updated>1721852503338</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Login and register pages fully functional">
+      <option name="closed" value="true" />
+      <created>1721863852853</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1721863852853</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Removes useless import">
+      <option name="closed" value="true" />
+      <created>1721864043252</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1721864043252</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Implements google oauth2 login">
+      <option name="closed" value="true" />
+      <created>1721898965666</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1721898965666</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Try to fix oauth2 login (client bug)">
+      <option name="closed" value="true" />
+      <created>1721902465837</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1721902465837</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,10 +674,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements basic frontend MS" />
-    <MESSAGE value="Switch to Vite from CRA" />
-    <MESSAGE value="Switch to Vite from CRA (vitest fix)" />
-    <MESSAGE value="Switch to Vite, add sample test" />
     <MESSAGE value="add types in tsconfig files" />
     <MESSAGE value="Adds Dockerfiles and docker-compose file. Modifies app prop" />
     <MESSAGE value="implements CRUD operations accessible from the front" />
@@ -699,7 +695,11 @@
     <MESSAGE value="Adds jwt to Request head (frontend)" />
     <MESSAGE value="Adds Typescript types file" />
     <MESSAGE value="Commit before massive security refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit before massive security refactoring" />
+    <MESSAGE value="Login and register pages fully functional" />
+    <MESSAGE value="Removes useless import" />
+    <MESSAGE value="Implements google oauth2 login" />
+    <MESSAGE value="Try to fix oauth2 login (client bug)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try to fix oauth2 login (client bug)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

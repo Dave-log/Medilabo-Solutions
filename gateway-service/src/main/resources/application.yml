@@ -36,7 +36,7 @@ spring:
               - "*"
             allow-credentials: true
   r2dbc:
-    url: r2dbc:mysql://user-db:3306/userdb?serverTimezone=UTC
+    url: r2dbc:mysql://mysql:3306/userdb?serverTimezone=UTC
     username: root
     password: rootroot
   jpa:

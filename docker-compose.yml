@@ -1,26 +1,15 @@
 services:
 
-  patient-db:
+  mysql:
     image: mysql:8.0
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootroot
-      MYSQL_DATABASE: patients
     ports:
       - "3307:3306"
     volumes:
-      - patient_data:/var/lib/mysql
-    networks:
-      - internal
-
-  user-db:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: rootroot
-      MYSQL_DATABASE: userdb
-    ports:
-      - "3308:3306"
-    volumes:
-      - user_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
+      - ./mysql/:/docker-entrypoint-initdb.d/
     networks:
       - internal
 
@@ -42,12 +31,12 @@ services:
     networks:
       - internal
     environment:
-      SPRING_DATASOURCE_URL: r2dbc:mysql://user-db:3306/userdb
+      SPRING_DATASOURCE_URL: r2dbc:mysql://mysql:3306/userdb
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: rootroot
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
-      - user-db
+      - mysql
       - discovery-service
 
   patient-service:
@@ -59,18 +48,17 @@ services:
     networks:
       - internal
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://patient-db:3306/patients
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/patients
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: rootroot
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
-      - patient-db
+      - mysql
       - discovery-service
       - gateway-service
 
 volumes:
-  patient_data:
-  user_data:
+  mysql_data:
 
 networks:
   internal:

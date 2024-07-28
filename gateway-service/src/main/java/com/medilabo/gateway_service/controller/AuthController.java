@@ -45,7 +45,6 @@ public class AuthController {
 
     @GetMapping("/oauth2")
     public Mono<ResponseEntity<Map<String, String>>> oauth2Login() {
-        System.out.println("COUCOU");
         return ReactiveSecurityContextHolder.getContext()
                 .map(SecurityContext::getAuthentication)
                 .map(auth -> {
