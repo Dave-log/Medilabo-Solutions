@@ -44,20 +44,20 @@ spring:
     hibernate:
       ddl-auto: none
 
-  #security:
-      # oauth2:
-        #client:
-        #registration:
-        # google:
-        #   client-id: 648209968703-25m2abibg15g7v1sbjbetgp6dq72fdvo.apps.googleusercontent.com
-        #   client-secret: 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
-        #   redirect-uri: "http://localhost:8080/login/oauth2/code/google"
-        #provider:
-        # google:
-        #   authorization-uri: https://accounts.google.com/o/oauth2/auth
-        #   token-uri: https://oauth2.googleapis.com/token
-        #   user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
-      #   user-name-attribute: email
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 648209968703-25m2abibg15g7v1sbjbetgp6dq72fdvo.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: "http://localhost:8080/login/oauth2/code/google"
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: email
 
 
 eureka:
