@@ -18,6 +18,7 @@ include:
   - local: 'discovery-service/gitlab.yml'
   - local: 'gateway-service/gitlab.yml'
   - local: 'frontend-service/gitlab.yml'
+  - local: 'notes-service/gitlab.yml'
 
 #docker_build_patient:
   #  stage: package

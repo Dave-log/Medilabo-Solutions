@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Removes github secret security for testing">
-      <change afterPath="$PROJECT_DIR$/notes-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/gitlab.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/NotesServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/src/test/java/com/medilabo/notes_service/NotesServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Setup Notes MS and db with mongoDB" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -276,15 +264,7 @@
       <workItem from="1722153694363" duration="7652000" />
       <workItem from="1722203312785" duration="817000" />
       <workItem from="1722238732692" duration="1306000" />
-      <workItem from="1722260298318" duration="6311000" />
-    </task>
-    <task id="LOCAL-00025" summary="Gitlab CI fix">
-      <option name="closed" value="true" />
-      <created>1718966377009</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1718966377009</updated>
+      <workItem from="1722260298318" duration="7011000" />
     </task>
     <task id="LOCAL-00026" summary="Gitlab CI fix">
       <option name="closed" value="true" />
@@ -670,7 +650,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722170049150</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Setup Notes MS and db with mongoDB">
+      <option name="closed" value="true" />
+      <created>1722273056674</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1722273056674</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +677,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="implements CORS policy into Gateway ms" />
     <MESSAGE value="cleans Patient.tsx" />
     <MESSAGE value="Implements Add Patient functional button" />
     <MESSAGE value="Implements all Crud operations available from frontend" />
@@ -714,7 +701,8 @@
     <MESSAGE value="Puts the 2 mysql db into 1 container" />
     <MESSAGE value="Removes oauth2 client secret" />
     <MESSAGE value="Removes github secret security for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removes github secret security for testing" />
+    <MESSAGE value="Setup Notes MS and db with mongoDB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setup Notes MS and db with mongoDB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
