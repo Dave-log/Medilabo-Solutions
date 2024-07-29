@@ -20,6 +20,14 @@ spring:
             - Path=/frontend/**
           filters:
             - RewritePath=/frontend/?(?<segment>.*), /$\{segment}
+
+        - id: notes-service
+          uri: lb://notes-service
+          predicates:
+            - Path=/notes/**
+          filters:
+            - RewritePath=/notes/?(?<segment>.*), /$\{segment}
+
       globalcors:
         cors-configurations:
           '[/**]':

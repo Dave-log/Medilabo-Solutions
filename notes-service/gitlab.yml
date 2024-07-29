@@ -1,0 +1,23 @@
+compile_notes:
+  stage: compile
+  script:
+    - mvn $MAVEN_CLI_OPTS clean compile -pl notes-service
+  rules:
+    - changes:
+        - notes-service/**
+
+test_notes:
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS test -pl notes-service
+  rules:
+    - changes:
+        - notes-service/**
+
+package_notes:
+  stage: package
+  script:
+    - mvn $MAVEN_CLI_OPTS package -pl notes-service
+  rules:
+    - changes:
+        - notes-service/**

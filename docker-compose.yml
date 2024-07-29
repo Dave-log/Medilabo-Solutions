@@ -2,7 +2,7 @@ services:
 
   mysql:
     image: mysql:8.0
-    restart: always
+    restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: rootroot
     ports:
@@ -10,6 +10,16 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
       - ./mysql/:/docker-entrypoint-initdb.d/
+    networks:
+      - internal
+
+  mongo:
+    image: mongo:latest
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
     networks:
       - internal
 
@@ -57,8 +67,26 @@ services:
       - discovery-service
       - gateway-service
 
+  notes-service:
+    build:
+      context: .
+      dockerfile: notes-service/Dockerfile
+    ports:
+      - "8082:8082"
+    networks:
+      - internal
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongo
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_DATABASE: patient_notes
+    depends_on:
+      - mongo
+      - discovery-service
+      - gateway-service
+
 volumes:
   mysql_data:
+  mongo_data:
 
 networks:
   internal:
