@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Setup Notes MS and db with mongoDB" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Test gitlab CI/CD with notes MS">
+      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/model/Note.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/repository/NoteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes-service/src/main/resources/initData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/NotesServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/NotesServiceApplication.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -97,7 +103,8 @@
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "h2",
-      "mysql"
+      "mysql",
+      "mongo"
     ],
     "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
       "H2"
@@ -264,15 +271,7 @@
       <workItem from="1722153694363" duration="7652000" />
       <workItem from="1722203312785" duration="817000" />
       <workItem from="1722238732692" duration="1306000" />
-      <workItem from="1722260298318" duration="7011000" />
-    </task>
-    <task id="LOCAL-00026" summary="Gitlab CI fix">
-      <option name="closed" value="true" />
-      <created>1718967541254</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1718967541254</updated>
+      <workItem from="1722260298318" duration="17061000" />
     </task>
     <task id="LOCAL-00027" summary="Gitlab CI fix">
       <option name="closed" value="true" />
@@ -658,7 +657,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722273056674</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Test gitlab CI/CD with notes MS">
+      <option name="closed" value="true" />
+      <created>1722274225952</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1722274225952</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -677,7 +684,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="cleans Patient.tsx" />
     <MESSAGE value="Implements Add Patient functional button" />
     <MESSAGE value="Implements all Crud operations available from frontend" />
     <MESSAGE value="Front refactoring" />
@@ -702,7 +708,8 @@
     <MESSAGE value="Removes oauth2 client secret" />
     <MESSAGE value="Removes github secret security for testing" />
     <MESSAGE value="Setup Notes MS and db with mongoDB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup Notes MS and db with mongoDB" />
+    <MESSAGE value="Test gitlab CI/CD with notes MS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test gitlab CI/CD with notes MS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
