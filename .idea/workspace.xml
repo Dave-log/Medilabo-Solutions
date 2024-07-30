@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Test gitlab CI/CD with notes MS">
-      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/model/Note.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/repository/NoteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/src/main/resources/initData.json" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Enable connection to mongoDB from notes-service.">
+      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/controller/NoteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/exception/NoteNotFound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/service/NoteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/service/NoteServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/NotesServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/NotesServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/repository/NoteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/repository/NoteRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,56 +65,56 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Maven.p9-medilabo-solutions [clean].executor": "Run",
-    "Maven.p9-medilabo-solutions [install].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.DiscoveryServiceApplication.executor": "Run",
-    "Spring Boot.GatewayServiceApplication.executor": "Run",
-    "Spring Boot.NotesServiceApplication.executor": "Run",
-    "Spring Boot.PatientServiceApplication 2.executor": "Run",
-    "Spring Boot.PatientServiceApplication.executor": "Run",
-    "git-widget-placeholder": "doctor-s-notes",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_9/p9_medilabo_solutions/notes-service",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "settings.editor.splitter.proportion": "0.24481659",
-    "ts.external.directory.path": "E:\\Documents\\Programmation\\Cours_OpenClassRooms\\Parcours_developpeur_application_Java\\Projet_9\\p9_medilabo_solutions\\frontend-service\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Maven.p9-medilabo-solutions [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.p9-medilabo-solutions [install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DiscoveryServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.NotesServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PatientServiceApplication 2.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PatientServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;doctor-s-notes&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_9/p9_medilabo_solutions/notes-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24481659&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\Documents\\Programmation\\Cours_OpenClassRooms\\Parcours_developpeur_application_Java\\Projet_9\\p9_medilabo_solutions\\frontend-service\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "h2",
-      "mysql",
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;h2&quot;,
+      &quot;mysql&quot;,
+      &quot;mongo&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
-      "H2"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/&quot;: [
+      &quot;H2&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
-      "H2"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;H2&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\notes-service" />
@@ -271,15 +272,8 @@
       <workItem from="1722153694363" duration="7652000" />
       <workItem from="1722203312785" duration="817000" />
       <workItem from="1722238732692" duration="1306000" />
-      <workItem from="1722260298318" duration="17061000" />
-    </task>
-    <task id="LOCAL-00027" summary="Gitlab CI fix">
-      <option name="closed" value="true" />
-      <created>1718967812869</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1718967812869</updated>
+      <workItem from="1722260298318" duration="17507000" />
+      <workItem from="1722320530488" duration="5337000" />
     </task>
     <task id="LOCAL-00028" summary="setup H2 db for testing">
       <option name="closed" value="true" />
@@ -665,7 +659,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722274225952</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Enable connection to mongoDB from notes-service.">
+      <option name="closed" value="true" />
+      <created>1722294688196</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1722294688196</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +686,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements Add Patient functional button" />
     <MESSAGE value="Implements all Crud operations available from frontend" />
     <MESSAGE value="Front refactoring" />
     <MESSAGE value="Implements Basic auth using WebFlux" />
@@ -709,7 +710,8 @@
     <MESSAGE value="Removes github secret security for testing" />
     <MESSAGE value="Setup Notes MS and db with mongoDB" />
     <MESSAGE value="Test gitlab CI/CD with notes MS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test gitlab CI/CD with notes MS" />
+    <MESSAGE value="Enable connection to mongoDB from notes-service." />
+    <option name="LAST_COMMIT_MESSAGE" value="Enable connection to mongoDB from notes-service." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
