@@ -29,7 +29,7 @@ public class NoteController {
         return ResponseEntity.ok(note);
     }
 
-    @GetMapping("/{patientId}")
+    @GetMapping("/patient/{patientId}")
     public ResponseEntity<List<Note>> getNoteByPatientId(@PathVariable String patientId) {
         List<Note> notes = noteService.getNotesByPatients(patientId);
         return ResponseEntity.ok(notes);
@@ -54,7 +54,7 @@ public class NoteController {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/{patientId}")
+    @DeleteMapping("/patient/{patientId}")
     public ResponseEntity<Void> deleteNoteByPatientId(@PathVariable String patientId) {
         noteService.deleteByPatient(patientId);
         return ResponseEntity.noContent().build();

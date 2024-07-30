@@ -14,20 +14,9 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class NotesServiceApplication implements CommandLineRunner {
-
-	private final Logger logger = LoggerFactory.getLogger(NotesServiceApplication.class);
-
-	@Autowired
-	NoteRepository noteRepository;
+public class NotesServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NotesServiceApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		List<Note> notes = noteRepository.findAll();
-		notes.forEach(note -> logger.info(note.toString()));
 	}
 }

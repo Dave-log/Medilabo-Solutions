@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Enable connection to mongoDB from notes-service.">
-      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/controller/NoteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/exception/NoteNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/service/NoteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/service/NoteServiceImpl.java" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements Note REST API">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/repository/NoteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/repository/NoteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/NotesServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/NotesServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/controller/NoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/model/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/model/Note.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,15 +271,7 @@
       <workItem from="1722203312785" duration="817000" />
       <workItem from="1722238732692" duration="1306000" />
       <workItem from="1722260298318" duration="17507000" />
-      <workItem from="1722320530488" duration="5337000" />
-    </task>
-    <task id="LOCAL-00028" summary="setup H2 db for testing">
-      <option name="closed" value="true" />
-      <created>1718978995979</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1718978995979</updated>
+      <workItem from="1722320530488" duration="9215000" />
     </task>
     <task id="LOCAL-00029" summary="setup H2 db for testing">
       <option name="closed" value="true" />
@@ -667,7 +657,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722294688196</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Implements Note REST API">
+      <option name="closed" value="true" />
+      <created>1722332489792</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1722332489792</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,7 +684,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements all Crud operations available from frontend" />
     <MESSAGE value="Front refactoring" />
     <MESSAGE value="Implements Basic auth using WebFlux" />
     <MESSAGE value="Fixes frontend compilation" />
@@ -711,7 +708,8 @@
     <MESSAGE value="Setup Notes MS and db with mongoDB" />
     <MESSAGE value="Test gitlab CI/CD with notes MS" />
     <MESSAGE value="Enable connection to mongoDB from notes-service." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enable connection to mongoDB from notes-service." />
+    <MESSAGE value="Implements Note REST API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements Note REST API" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
