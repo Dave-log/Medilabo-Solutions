@@ -1,18 +1,16 @@
 import React, {useState, useEffect } from "react";
-import { Patient, Note } from "../../types/types";
+import { Patient } from "../../types/types";
 import { AgGridReact } from 'ag-grid-react';
 import { ColDef } from 'ag-grid-community';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { Button, Modal, Box, TextField, Container, Typography } from "@mui/material";
-import { getPatients, addPatient, updatePatient, deletePatient, getPatientNotes, addNote, updateNote, deleteNote, deletePatientNotes } from '../../services/api';
-import { format } from 'date-fns';
+import { getPatients, addPatient, updatePatient, deletePatient} from '../../services/api';
 import NoteModal from "./NoteModal";
 
 const PatientComponent: React.FC = () => {
     const [patients, setPatients] = useState<Patient[]>([]);
     const [openPatientModal, setOpenPatientModal] = useState(false);
-    const [openNotesModal, setOpenNotesModal] = useState(false);
     const [newPatient, setNewPatient] = useState<Partial<Patient>>({
         firstName: '',
         lastName: '',
@@ -22,18 +20,11 @@ const PatientComponent: React.FC = () => {
         phoneNumber: ''
     });
     const [currentPatient, setCurrentPatient] = useState<Partial<Patient> | null>(null);
-    const [selectedPatientId, setSelectedPatientId] = useState<string | null>(null);
     const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
-    //const [notes, setNotes] = useState<Note[]>([]);
-    //const [newNote, setNewNote] = useState<Partial<Note>>({
-    //    note: ''
-    //});
 
     useEffect(() => {
         fetchPatients();
     }, []);
-
-    // PATIENT API METHODS
 
     const fetchPatients = async () => {
         try {
@@ -80,8 +71,6 @@ const PatientComponent: React.FC = () => {
         }
     }
 
-    // MODALS
-
     const handleOpenPatientModal = (patient: Partial<Patient> | null = null) => {
         if (patient) {
             setCurrentPatient(patient);
@@ -94,11 +83,7 @@ const PatientComponent: React.FC = () => {
 
     const handleOpenNotesModal = async (patient: Patient) => {
         try {
-            const response = await getPatientNotes(String(patient.id));
-            //setNotes(response.data);
             setSelectedPatient(patient);
-            setSelectedPatientId(String(patient.id));
-            setOpenNotesModal(true);
         } catch (error) {
             console.error('Error fetching notes:', error);
         }
@@ -106,10 +91,8 @@ const PatientComponent: React.FC = () => {
 
     const handleCloseModal = () => {
         setOpenPatientModal(false);
-        setOpenNotesModal(false);
         setNewPatient({ firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: '' });
         setCurrentPatient(null);
-        setSelectedPatientId(null);
         setSelectedPatient(null);
     }
 
@@ -122,11 +105,6 @@ const PatientComponent: React.FC = () => {
         }
     };
 
-    //const handleNoteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //    const { name, value } = e.target;
-    //    setNewNote({ ...newNote, [name]: value });
-    //};
-
     const handleSubmitPatient = () => {
         if (currentPatient) {
             handleUpdatePatient();
@@ -134,41 +112,6 @@ const PatientComponent: React.FC = () => {
             handleAddPatient();
         }
     }
-
-    // const handleAddNote = async () => {
-    //     try {
-    //         const response = await addNote(newNote);
-    //         setNotes([...notes, response.data]);
-    //         setNewNote({ patientId: '', patientName: '', note: '' });
-    //     } catch (error) {
-    //         console.error('Error adding note:', error);
-    //     }
-    // };
-
-    // const handleUpdateNote = async (id: string) => {
-    //     try {
-    //         await updateNote(id, newNote);
-    //         setNotes(notes.map(note => note.id === id ? { ...note, ...newNote } : note));
-    //     } catch (error) {
-    //         console.error('Error updating note:', error);
-    //     }
-    // };
-
-    // const handleDeleteNote = async (id: string) => {
-    //     try {
-    //         await deleteNote(id);
-    //         setNotes(notes.filter(note => note.id !== id));
-    //     } catch (error) {
-    //         console.error('Error deleting note:', error);
-    //     }
-    // };
-
-    // const handleDeletePatientNotes = async () => {
-    //     if (selectedPatientId) {
-    //         await deletePatientNotes(selectedPatientId);
-    //         setNotes([]);
-    //     }
-    // };
 
     const renderNotesCell = (params: any) => (
         <div>
@@ -299,7 +242,7 @@ const PatientComponent: React.FC = () => {
             {selectedPatient && (
                 <NoteModal patient={selectedPatient} onClose={handleCloseModal} />
             )}
-            
+
         </Container>
     );
 };

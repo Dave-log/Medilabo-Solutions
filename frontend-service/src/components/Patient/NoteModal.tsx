@@ -77,9 +77,11 @@ const NoteModal: React.FC<NoteModalProps> = ({ patient, onClose }) => {
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 width: 400,
+                maxHeight: '80%',
                 bgcolor: 'background.paper',
                 boxShadow: 24,
                 p: 4,
+                overflow: 'auto'
               }}>
                 <Typography variant="h6" gutterBottom color={'black'}>Notes pour {patient.firstName} {patient.lastName}</Typography>
                 <List>
