@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Fixes notes modal">
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/gitlab.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/DiabetesReportServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/test/java/com/medilabo/diabetesreportservice/DiabetesReportServiceApplicationTests.java" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="setup diabetes report MS">
+      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/DiabetesReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/RiskLevel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/model/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/model/Gender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +17,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -288,15 +280,7 @@
       <workItem from="1722203312785" duration="817000" />
       <workItem from="1722238732692" duration="1306000" />
       <workItem from="1722260298318" duration="17507000" />
-      <workItem from="1722320530488" duration="21149000" />
-    </task>
-    <task id="LOCAL-00032" summary="test gitlab CI with discovery MS">
-      <option name="closed" value="true" />
-      <created>1719307770898</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1719307770898</updated>
+      <workItem from="1722320530488" duration="22345000" />
     </task>
     <task id="LOCAL-00033" summary="Implements basic frontend MS">
       <option name="closed" value="true" />
@@ -682,7 +666,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722375137619</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="setup diabetes report MS">
+      <option name="closed" value="true" />
+      <created>1722379214033</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1722379214049</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +693,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements basic security and starts Jwt auth implementation" />
     <MESSAGE value="Adds H2 db for Gateway testing" />
     <MESSAGE value="Fixes schema.sql for H2 testuserdb" />
     <MESSAGE value="Implements reactive auth api" />
@@ -726,7 +717,8 @@
     <MESSAGE value="Fixes Notes API with patientId paramater" />
     <MESSAGE value="Implements Notes management from Frontend" />
     <MESSAGE value="Fixes notes modal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes notes modal" />
+    <MESSAGE value="setup diabetes report MS" />
+    <option name="LAST_COMMIT_MESSAGE" value="setup diabetes report MS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
