@@ -7,3 +7,11 @@ export interface Patient {
     address?: string;
     phoneNumber?: string;
 }
+
+export interface Note {
+    id: string;
+    patientId: string;
+    patientName: string;
+    note: string;
+    date: Date;
+}

@@ -1,15 +1,18 @@
 import React, {useState, useEffect } from "react";
-import { Patient } from "../../types/types";
+import { Patient, Note } from "../../types/types";
 import { AgGridReact } from 'ag-grid-react';
 import { ColDef } from 'ag-grid-community';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { Button, Modal, Box, TextField, Container, Typography } from "@mui/material";
-import { getPatients, addPatient, updatePatient, deletePatient } from '../../services/api';
+import { getPatients, addPatient, updatePatient, deletePatient, getPatientNotes, addNote, updateNote, deleteNote, deletePatientNotes } from '../../services/api';
+import { format } from 'date-fns';
+import NoteModal from "./NoteModal";
 
-const PatientList: React.FC = () => {
+const PatientComponent: React.FC = () => {
     const [patients, setPatients] = useState<Patient[]>([]);
-    const [open, setOpen] = useState(false);
+    const [openPatientModal, setOpenPatientModal] = useState(false);
+    const [openNotesModal, setOpenNotesModal] = useState(false);
     const [newPatient, setNewPatient] = useState<Partial<Patient>>({
         firstName: '',
         lastName: '',
@@ -19,10 +22,18 @@ const PatientList: React.FC = () => {
         phoneNumber: ''
     });
     const [currentPatient, setCurrentPatient] = useState<Partial<Patient> | null>(null);
+    const [selectedPatientId, setSelectedPatientId] = useState<string | null>(null);
+    const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
+    //const [notes, setNotes] = useState<Note[]>([]);
+    //const [newNote, setNewNote] = useState<Partial<Note>>({
+    //    note: ''
+    //});
 
     useEffect(() => {
         fetchPatients();
     }, []);
+
+    // PATIENT API METHODS
 
     const fetchPatients = async () => {
         try {
@@ -37,7 +48,7 @@ const PatientList: React.FC = () => {
         try {
             const response = await addPatient(newPatient);
             setPatients([...patients, response.data]);
-            setOpen(false);
+            setOpenPatientModal(false);
             setNewPatient({ firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: ''});
         } catch (error) {
             console.error('Error adding patient:', error);
@@ -50,7 +61,7 @@ const PatientList: React.FC = () => {
                 const updatedPatient = { ...currentPatient } as Patient;
                 await updatePatient(updatedPatient.id, updatedPatient);
                 setPatients(patients.map(patient => patient.id === updatedPatient.id ? updatedPatient : patient));
-                setOpen(false);
+                setOpenPatientModal(false);
                 setCurrentPatient(null);
             } catch (error) {
                 console.error('Error updating patient:', error);
@@ -69,9 +80,105 @@ const PatientList: React.FC = () => {
         }
     }
 
+    // MODALS
+
+    const handleOpenPatientModal = (patient: Partial<Patient> | null = null) => {
+        if (patient) {
+            setCurrentPatient(patient);
+        } else {
+            setCurrentPatient(null);
+        }
+        setNewPatient(patient || { firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: ''});
+        setOpenPatientModal(true);
+    };
+
+    const handleOpenNotesModal = async (patient: Patient) => {
+        try {
+            const response = await getPatientNotes(String(patient.id));
+            //setNotes(response.data);
+            setSelectedPatient(patient);
+            setSelectedPatientId(String(patient.id));
+            setOpenNotesModal(true);
+        } catch (error) {
+            console.error('Error fetching notes:', error);
+        }
+    };
+
+    const handleCloseModal = () => {
+        setOpenPatientModal(false);
+        setOpenNotesModal(false);
+        setNewPatient({ firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: '' });
+        setCurrentPatient(null);
+        setSelectedPatientId(null);
+        setSelectedPatient(null);
+    }
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        if (currentPatient) {
+            setCurrentPatient({ ...currentPatient, [name]: value });
+        } else {
+            setNewPatient({ ...newPatient, [name]: value });
+        }
+    };
+
+    //const handleNoteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //    const { name, value } = e.target;
+    //    setNewNote({ ...newNote, [name]: value });
+    //};
+
+    const handleSubmitPatient = () => {
+        if (currentPatient) {
+            handleUpdatePatient();
+        } else {
+            handleAddPatient();
+        }
+    }
+
+    // const handleAddNote = async () => {
+    //     try {
+    //         const response = await addNote(newNote);
+    //         setNotes([...notes, response.data]);
+    //         setNewNote({ patientId: '', patientName: '', note: '' });
+    //     } catch (error) {
+    //         console.error('Error adding note:', error);
+    //     }
+    // };
+
+    // const handleUpdateNote = async (id: string) => {
+    //     try {
+    //         await updateNote(id, newNote);
+    //         setNotes(notes.map(note => note.id === id ? { ...note, ...newNote } : note));
+    //     } catch (error) {
+    //         console.error('Error updating note:', error);
+    //     }
+    // };
+
+    // const handleDeleteNote = async (id: string) => {
+    //     try {
+    //         await deleteNote(id);
+    //         setNotes(notes.filter(note => note.id !== id));
+    //     } catch (error) {
+    //         console.error('Error deleting note:', error);
+    //     }
+    // };
+
+    // const handleDeletePatientNotes = async () => {
+    //     if (selectedPatientId) {
+    //         await deletePatientNotes(selectedPatientId);
+    //         setNotes([]);
+    //     }
+    // };
+
+    const renderNotesCell = (params: any) => (
+        <div>
+            <Button variant="contained" color="primary" sx={{width: 100, fontSize: '0.7em'}} onClick={() => handleOpenNotesModal(params.data)}>Voir les notes</Button>
+        </div>
+    )
+    
     const renderActionsCell = (params: any) => (
         <div>
-            <Button variant="contained" color="secondary" sx={{width: 50, fontSize:'0.7em', marginRight: 0.5}} onClick={() => handleOpen(params.data)}>Modifier</Button>
+            <Button variant="contained" color="secondary" sx={{width: 50, fontSize:'0.7em', marginRight: 0.5}} onClick={() => handleOpenPatientModal(params.data)}>Modifier</Button>
             <Button variant="contained" color="secondary" sx={{width: 50, bgcolor:'#b82828', fontSize:'0.7em'}} onClick={() => handleDeletePatient(params.data.id)}>Supprimer</Button>
         </div>
     );
@@ -84,45 +191,18 @@ const PatientList: React.FC = () => {
         { field: "address", headerName: "Adresse", flex: 1, headerClass: 'center-header'},
         { field: "phoneNumber", headerName: "Téléphone", flex: 1.1, headerClass: 'center-header'},
         {
+            headerName: "Notes",
+            cellRenderer: renderNotesCell,
+            flex: 1,
+            headerClass: 'center-header'
+        },
+        {
             headerName: "Actions",
             cellRenderer: renderActionsCell,
             flex: 1.3,
             headerClass: 'center-header'
         }
     ]);
-
-    const handleOpen = (patient: Partial<Patient> | null = null) => {
-        if (patient) {
-            setCurrentPatient(patient);
-        } else {
-            setCurrentPatient(null);
-        }
-        setNewPatient(patient || { firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: ''});
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-        setNewPatient({ firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: '' });
-        setCurrentPatient(null);
-    }
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        if (currentPatient) {
-            setCurrentPatient({ ...currentPatient, [name]: value });
-        } else {
-            setNewPatient({ ...newPatient, [name]: value });
-        }
-    };
-
-    const handleSubmit = () => {
-        if (currentPatient) {
-            handleUpdatePatient();
-        } else {
-            handleAddPatient();
-        }
-    }
 
     return (
         <Container>
@@ -136,10 +216,10 @@ const PatientList: React.FC = () => {
             </div>
 
             <Box sx={{ marginTop: 2}}>
-                <Button variant="contained" color="secondary" onClick={() => handleOpen(null)}>Ajouter un patient</Button>
+                <Button variant="contained" color="secondary" onClick={() => handleOpenPatientModal(null)}>Ajouter un patient</Button>
             </Box>
 
-            <Modal open={open} onClose={handleClose}>
+            <Modal open={openPatientModal} onClose={handleCloseModal}>
                 <Box
                     sx={{
                         position: 'absolute',
@@ -209,14 +289,19 @@ const PatientList: React.FC = () => {
                             margin="normal"
                         />
                         <Box sx={{display: "flex", justifyContent: "center", marginTop: 2}}>
-                            <Button variant="contained" color="primary" onClick={handleSubmit}>{currentPatient ? 'Modifier' : 'Ajouter'}</Button>
+                            <Button variant="contained" color="primary" onClick={handleSubmitPatient}>{currentPatient ? 'Modifier' : 'Ajouter'}</Button>
                         </Box>
                         
                     </form>
                 </Box>
             </Modal>
+
+            {selectedPatient && (
+                <NoteModal patient={selectedPatient} onClose={handleCloseModal} />
+            )}
+            
         </Container>
     );
 };
 
-export default PatientList;
+export default PatientComponent;

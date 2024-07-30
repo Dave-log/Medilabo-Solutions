@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements Note REST API">
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Fixes Notes API with patientId paramater">
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient/NoteModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/NotesServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/NotesServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Patient/Patient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient/Patient.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/services/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/controller/NoteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/model/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/model/Note.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,15 +277,7 @@
       <workItem from="1722203312785" duration="817000" />
       <workItem from="1722238732692" duration="1306000" />
       <workItem from="1722260298318" duration="17507000" />
-      <workItem from="1722320530488" duration="9215000" />
-    </task>
-    <task id="LOCAL-00029" summary="setup H2 db for testing">
-      <option name="closed" value="true" />
-      <created>1719249430629</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1719249430629</updated>
+      <workItem from="1722320530488" duration="16499000" />
     </task>
     <task id="LOCAL-00030" summary="change properties to yaml files">
       <option name="closed" value="true" />
@@ -665,7 +663,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722332489792</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Fixes Notes API with patientId paramater">
+      <option name="closed" value="true" />
+      <created>1722339160063</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1722339160063</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -684,7 +690,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Front refactoring" />
     <MESSAGE value="Implements Basic auth using WebFlux" />
     <MESSAGE value="Fixes frontend compilation" />
     <MESSAGE value="Implements basic security and starts Jwt auth implementation" />
@@ -709,7 +714,8 @@
     <MESSAGE value="Test gitlab CI/CD with notes MS" />
     <MESSAGE value="Enable connection to mongoDB from notes-service." />
     <MESSAGE value="Implements Note REST API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements Note REST API" />
+    <MESSAGE value="Fixes Notes API with patientId paramater" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes Notes API with patientId paramater" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
