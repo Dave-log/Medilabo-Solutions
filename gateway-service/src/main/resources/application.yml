@@ -28,6 +28,13 @@ spring:
           filters:
             - RewritePath=/note/?(?<segment>.*), /$\{segment}
 
+        - id: diabetes-report-service
+          uri: lb://diabetes-report-service
+          predicates:
+            - Path=/diabetes-report/**
+          filters:
+            - RewritePath=/diabetes-report/?(?<segment>.*), /$\{segment}
+
       globalcors:
         cors-configurations:
           '[/**]':

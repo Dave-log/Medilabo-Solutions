@@ -1,0 +1,16 @@
+server:
+  port: 8083
+
+spring:
+
+  application:
+    name: diabetes-report-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://discovery-service:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true

@@ -1,0 +1,23 @@
+compile_diabetes_report:
+  stage: compile
+  script:
+    - mvn $MAVEN_CLI_OPTS clean compile -pl diabetes-report-service
+  rules:
+    - changes:
+        - diabetes-report-service/**
+
+test_diabetes_report:
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS test -pl diabetes-report-service
+  rules:
+    - changes:
+        - diabetes-report-service/**
+
+package_diabetes_report:
+  stage: package
+  script:
+    - mvn $MAVEN_CLI_OPTS package -pl diabetes-report-service
+  rules:
+    - changes:
+        - diabetes-report-service/**

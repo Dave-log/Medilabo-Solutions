@@ -84,6 +84,19 @@ services:
       - discovery-service
       - gateway-service
 
+  diabetes-report-service:
+    build:
+      context: .
+      dockerfile: diabetes-report-service/Dockerfile
+    ports:
+      - "8083:8083"
+    networks:
+      - internal
+    depends_on:
+      - discovery-service
+      - patient-service
+      - notes-service
+
 volumes:
   mysql_data:
   mongo_data:

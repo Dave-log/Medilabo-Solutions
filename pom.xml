@@ -26,6 +26,7 @@
         <module>gateway-service</module>
         <module>frontend-service</module>
         <module>notes-service</module>
+        <module>diabetes-report-service</module>
     </modules>
 
     <packaging>pom</packaging>
