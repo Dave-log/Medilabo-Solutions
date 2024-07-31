@@ -4,6 +4,7 @@ import com.medilabo.diabetesreportservice.model.DiabetesReport;
 import com.medilabo.diabetesreportservice.model.NoteDTO;
 import com.medilabo.diabetesreportservice.model.PatientDTO;
 import com.medilabo.diabetesreportservice.model.RiskLevel;
+import com.medilabo.diabetesreportservice.utils.AgeCalculator;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,18 +17,16 @@ public class DiabetesReportService {
         diabetesReport.setPatientId(patient.id());
         diabetesReport.setPatientName(patient.firstName() + " " + patient.lastName());
         diabetesReport.setRiskLevel(calculateRiskLevel(patient, notes));
-        diabetesReport.setDetailedReport(generateDetailedReport());
 
         return diabetesReport;
     }
 
-    private String generateDetailedReport() {
-        // TODO: Implementation
-        return "Here is a detailed report for the diabetes";
-    }
+    private String calculateRiskLevel(PatientDTO patient, List<NoteDTO> notes) {
+        boolean isOverThirty = AgeCalculator.isOverThirty(patient.birthdate().toString());
+        String gender = patient.gender();
+        int triggerCount = TriggerCounter.countUniqueTriggers(notes);
 
-    private RiskLevel calculateRiskLevel(PatientDTO patient, List<NoteDTO> notes) {
-        // TODO: Implementation
-        return RiskLevel.NONE;
+        RiskLevel riskLevel = RiskLevelAssessor.assessRiskLevel(isOverThirty, gender, triggerCount);
+        return riskLevel.getRiskLevel();
     }
 }

@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements trigger counter">
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/RiskLevelAssessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/utils/AgeCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/RiskLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/RiskLevel.java" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements risk level assessor">
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/DiabetesReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/DiabetesReport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/TriggerCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/TriggerCounter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +18,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Record" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -285,15 +281,7 @@
       <workItem from="1722260298318" duration="17507000" />
       <workItem from="1722320530488" duration="22345000" />
       <workItem from="1722406867211" duration="7544000" />
-      <workItem from="1722429002070" duration="6689000" />
-    </task>
-    <task id="LOCAL-00036" summary="Implements basic frontend MS (correct docker image for front)">
-      <option name="closed" value="true" />
-      <created>1720081955221</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1720081955221</updated>
+      <workItem from="1722429002070" duration="7841000" />
     </task>
     <task id="LOCAL-00037" summary="Implements basic frontend MS">
       <option name="closed" value="true" />
@@ -679,7 +667,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722430606967</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Implements risk level assessor">
+      <option name="closed" value="true" />
+      <created>1722436007368</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1722436007368</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -698,7 +694,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactors gateway ms to make it reactive (jdbc to r2dbc)" />
     <MESSAGE value="Makes all auth api functional." />
     <MESSAGE value="Fixes gateway ms testing with H2 db" />
     <MESSAGE value="Implements backend jwt authentication" />
@@ -723,7 +718,8 @@
     <MESSAGE value="Implements DiabetesReport controller and data collector" />
     <MESSAGE value="Fixes uri in DataCollectorService" />
     <MESSAGE value="Implements trigger counter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements trigger counter" />
+    <MESSAGE value="Implements risk level assessor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements risk level assessor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
