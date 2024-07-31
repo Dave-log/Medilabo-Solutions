@@ -2,9 +2,9 @@ package com.medilabo.diabetesreportservice.service;
 
 import com.medilabo.diabetesreportservice.model.RiskLevel;
 
-public final class RiskLevelAssessor {
+public final class RiskLevelEvaluator {
 
-    public static RiskLevel assessRiskLevel(boolean isOverThirty, String gender, int triggerCount) {
+    public static RiskLevel evaluateRiskLevel(boolean isOverThirty, String gender, int triggerCount) {
         if (triggerCount < 2) {
             return RiskLevel.NONE;
         }

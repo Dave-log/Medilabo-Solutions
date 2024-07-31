@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements Report generator">
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/utils/DateFormatter.java" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Fixes Date format">
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient/ReportCellRenderer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/controller/DiabetesReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/controller/DiabetesReportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/utils/AgeCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/utils/AgeCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/RiskLevelAssessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/RiskLevelEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/TriggerCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/TriggerCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Patient/Patient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient/Patient.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/services/api.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,15 +287,7 @@
       <workItem from="1722260298318" duration="17507000" />
       <workItem from="1722320530488" duration="22345000" />
       <workItem from="1722406867211" duration="7544000" />
-      <workItem from="1722429002070" duration="11547000" />
-    </task>
-    <task id="LOCAL-00038" summary="Implements basic frontend MS">
-      <option name="closed" value="true" />
-      <created>1720085877461</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1720085877461</updated>
+      <workItem from="1722429002070" duration="16469000" />
     </task>
     <task id="LOCAL-00039" summary="Implements basic frontend MS">
       <option name="closed" value="true" />
@@ -678,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722437406415</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Fixes Date format">
+      <option name="closed" value="true" />
+      <created>1722443884138</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1722443884138</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -697,7 +700,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixes gateway ms testing with H2 db" />
     <MESSAGE value="Implements backend jwt authentication" />
     <MESSAGE value="Adds jwt to Request head (frontend)" />
     <MESSAGE value="Adds Typescript types file" />
@@ -722,7 +724,8 @@
     <MESSAGE value="Implements trigger counter" />
     <MESSAGE value="Implements risk level assessor" />
     <MESSAGE value="Implements Report generator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements Report generator" />
+    <MESSAGE value="Fixes Date format" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes Date format" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

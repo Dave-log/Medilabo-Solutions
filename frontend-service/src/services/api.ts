@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const API_BASE_URL = 'http://localhost:8080';
 const API_PATIENT_PATH = '/patient/api/v1/patients';
 const API_NOTES_PATH = '/note/api/v1/notes';
+const API_REPORT_PATH = '/diabetes-report/api/v1/reports';
 
 const api = axios.create({
     baseURL: API_BASE_URL,
@@ -68,6 +69,12 @@ export const deleteNote = async (id: string) => {
 
 export const deletePatientNotes = async (patientId: string) => {
     return api.delete(`${API_NOTES_PATH}/patient/${patientId}`)
+}
+
+// REPORT API
+
+export const getDiabetesReport = async (id: number) => {
+    return api.get(`${API_REPORT_PATH}/${id}`);
 }
 
 api.interceptors.request.use(

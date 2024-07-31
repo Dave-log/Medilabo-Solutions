@@ -28,7 +28,7 @@ public class DiabetesReportService {
         String gender = patient.gender();
         int triggerCount = TriggerCounter.countUniqueTriggers(notes);
 
-        RiskLevel riskLevel = RiskLevelAssessor.assessRiskLevel(isOverThirty, gender, triggerCount);
+        RiskLevel riskLevel = RiskLevelEvaluator.evaluateRiskLevel(isOverThirty, gender, triggerCount);
 
         return riskLevel.getRiskLevel();
     }

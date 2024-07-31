@@ -5,8 +5,9 @@ import { ColDef } from 'ag-grid-community';
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 import { Button, Modal, Box, TextField, Container, Typography } from "@mui/material";
-import { getPatients, addPatient, updatePatient, deletePatient} from '../../services/api';
+import { getPatients, addPatient, updatePatient, deletePatient } from '../../services/api';
 import NoteModal from "./NoteModal";
+import ReportCellRenderer from "./ReportCellRenderer";
 
 const PatientComponent: React.FC = () => {
     const [patients, setPatients] = useState<Patient[]>([]);
@@ -58,7 +59,7 @@ const PatientComponent: React.FC = () => {
                 console.error('Error updating patient:', error);
             }
         }
-    }
+    };
 
     const handleDeletePatient = async (id: number) => {
         try {
@@ -69,7 +70,7 @@ const PatientComponent: React.FC = () => {
         } catch (error) {
             console.error('Error deleting patient:', error);
         }
-    }
+    };
 
     const handleOpenPatientModal = (patient: Partial<Patient> | null = null) => {
         if (patient) {
@@ -94,7 +95,7 @@ const PatientComponent: React.FC = () => {
         setNewPatient({ firstName: '', lastName: '', birthdate: '', gender: '', address: '', phoneNumber: '' });
         setCurrentPatient(null);
         setSelectedPatient(null);
-    }
+    };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -111,14 +112,14 @@ const PatientComponent: React.FC = () => {
         } else {
             handleAddPatient();
         }
-    }
+    };
 
     const renderNotesCell = (params: any) => (
         <div>
             <Button variant="contained" color="primary" sx={{width: 100, fontSize: '0.7em'}} onClick={() => handleOpenNotesModal(params.data)}>Voir les notes</Button>
         </div>
-    )
-    
+    );
+
     const renderActionsCell = (params: any) => (
         <div>
             <Button variant="contained" color="secondary" sx={{width: 50, fontSize:'0.7em', marginRight: 0.5}} onClick={() => handleOpenPatientModal(params.data)}>Modifier</Button>
@@ -140,7 +141,13 @@ const PatientComponent: React.FC = () => {
             headerClass: 'center-header'
         },
         {
-            headerName: "Actions",
+            headerName: "Risque Diabète",
+            cellRenderer: 'reportCellRenderer',
+            flex: 1.4,
+            headerClass: 'center-header'
+        },
+        {
+            headerName: "Données Patient",
             cellRenderer: renderActionsCell,
             flex: 1.3,
             headerClass: 'center-header'
@@ -155,7 +162,11 @@ const PatientComponent: React.FC = () => {
             </Box>
             
             <div className='ag-theme-quartz' style={{ height: 300, width: '100%' }}>
-                <AgGridReact rowData={patients} columnDefs={colDefs} />
+                <AgGridReact 
+                    rowData={patients} 
+                    columnDefs={colDefs} 
+                    components={{ reportCellRenderer: ReportCellRenderer}}
+                />
             </div>
 
             <Box sx={{ marginTop: 2}}>

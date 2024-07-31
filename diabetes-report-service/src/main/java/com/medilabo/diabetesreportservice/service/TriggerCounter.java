@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public final class TriggerCounter {
 
     public static int countUniqueTriggers(List<NoteDTO> notes) {
-        Set<String> uniqueTriggers = new HashSet<>();
+        List<String> uniqueTriggers = new ArrayList<>();
 
         for (NoteDTO note : notes) {
             String noteContent = note.note().toLowerCase();

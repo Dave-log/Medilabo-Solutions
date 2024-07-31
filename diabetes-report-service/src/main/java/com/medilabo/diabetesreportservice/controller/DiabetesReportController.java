@@ -36,7 +36,6 @@ public class DiabetesReportController {
                 .map(tuple -> {
                     PatientDTO patient = tuple.getT1();
                     List<NoteDTO> notes = tuple.getT2();
-                    System.out.println(patient.birthdate());
                     DiabetesReport diabetesReport = diabetesReportService.generateReport(patient, notes);
                     return ResponseEntity.ok(diabetesReport);
                 })
