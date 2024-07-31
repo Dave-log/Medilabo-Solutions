@@ -28,6 +28,6 @@ public class DiabetesReportService {
 
     private RiskLevel calculateRiskLevel(PatientDTO patient, List<NoteDTO> notes) {
         // TODO: Implementation
-        return RiskLevel.None;
+        return RiskLevel.NONE;
     }
 }
