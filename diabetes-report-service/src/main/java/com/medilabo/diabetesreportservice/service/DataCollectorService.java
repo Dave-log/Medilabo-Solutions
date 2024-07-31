@@ -20,7 +20,7 @@ public class DataCollectorService {
 
     public Mono<List<NoteDTO>> getPatientNotes(String patientId) {
         WebClient webClient = webClientBuilder.build();
-        String notesServiceUrl = "lb://notes-service/note/api/v1/notes/patient/" + patientId;
+        String notesServiceUrl = "lb://notes-service/api/v1/notes/patient/" + patientId;
 
         return webClient.get()
                 .uri(notesServiceUrl)
@@ -31,7 +31,7 @@ public class DataCollectorService {
 
     public Mono<PatientDTO> getPatientDetails(Integer patientId) {
         WebClient webClient = webClientBuilder.build();
-        String patientServiceUrl = "lb://patient-service/patient/api/v1/patients/" + patientId;
+        String patientServiceUrl = "lb://patient-service/api/v1/patients/" + patientId;
 
         return webClient.get()
                 .uri(patientServiceUrl)

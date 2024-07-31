@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements DiabetesReport model">
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/configuration/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/controller/DiabetesReportController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/NoteDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/PatientDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DataCollectorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements DiabetesReport controller and data collector">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/DiabetesReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/DiabetesReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DataCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DataCollectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +139,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.DiabetesReportServiceApplication">
+  <component name="RunManager" selected="Spring Boot.DiscoveryServiceApplication">
     <configuration name="DiabetesReportServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="diabetes-report-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.diabetesreportservice.DiabetesReportServiceApplication" />
@@ -286,15 +281,7 @@
       <workItem from="1722238732692" duration="1306000" />
       <workItem from="1722260298318" duration="17507000" />
       <workItem from="1722320530488" duration="22345000" />
-      <workItem from="1722406867211" duration="4957000" />
-    </task>
-    <task id="LOCAL-00033" summary="Implements basic frontend MS">
-      <option name="closed" value="true" />
-      <created>1720080763716</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1720080763716</updated>
+      <workItem from="1722406867211" duration="6878000" />
     </task>
     <task id="LOCAL-00034" summary="Implements basic frontend MS (correct docker image for front)">
       <option name="closed" value="true" />
@@ -680,7 +667,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722379214049</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Implements DiabetesReport controller and data collector">
+      <option name="closed" value="true" />
+      <created>1722416125607</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1722416125607</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,7 +694,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adds H2 db for Gateway testing" />
     <MESSAGE value="Fixes schema.sql for H2 testuserdb" />
     <MESSAGE value="Implements reactive auth api" />
     <MESSAGE value="Refactors gateway ms to make it reactive (jdbc to r2dbc)" />
@@ -724,7 +718,8 @@
     <MESSAGE value="Implements Notes management from Frontend" />
     <MESSAGE value="Fixes notes modal" />
     <MESSAGE value="setup diabetes report MS" />
-    <option name="LAST_COMMIT_MESSAGE" value="setup diabetes report MS" />
+    <MESSAGE value="Implements DiabetesReport controller and data collector" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements DiabetesReport controller and data collector" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

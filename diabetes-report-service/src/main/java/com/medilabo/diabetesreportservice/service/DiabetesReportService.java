@@ -23,7 +23,7 @@ public class DiabetesReportService {
 
     private String generateDetailedReport() {
         // TODO: Implementation
-        return "";
+        return "Here is a detailed report for the diabetes";
     }
 
     private RiskLevel calculateRiskLevel(PatientDTO patient, List<NoteDTO> notes) {
