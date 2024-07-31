@@ -5,6 +5,7 @@ import com.medilabo.diabetesreportservice.model.NoteDTO;
 import com.medilabo.diabetesreportservice.model.PatientDTO;
 import com.medilabo.diabetesreportservice.model.RiskLevel;
 import com.medilabo.diabetesreportservice.utils.AgeCalculator;
+import com.medilabo.diabetesreportservice.utils.DateFormatter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,11 +23,13 @@ public class DiabetesReportService {
     }
 
     private String calculateRiskLevel(PatientDTO patient, List<NoteDTO> notes) {
-        boolean isOverThirty = AgeCalculator.isOverThirty(patient.birthdate().toString());
+        String formattedBirthdate = DateFormatter.convertToStandardFormat(patient.birthdate().toString());
+        boolean isOverThirty = AgeCalculator.isOverThirty(formattedBirthdate);
         String gender = patient.gender();
         int triggerCount = TriggerCounter.countUniqueTriggers(notes);
 
         RiskLevel riskLevel = RiskLevelAssessor.assessRiskLevel(isOverThirty, gender, triggerCount);
+
         return riskLevel.getRiskLevel();
     }
 }
