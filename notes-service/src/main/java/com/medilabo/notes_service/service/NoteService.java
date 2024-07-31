@@ -10,7 +10,7 @@ public interface NoteService {
 
     Note getNoteById(String id);
 
-    List<Note> getNotesByPatients(String patientId);
+    List<Note> getNotesByPatient(String patientId);
 
     Note save(Note note);
 

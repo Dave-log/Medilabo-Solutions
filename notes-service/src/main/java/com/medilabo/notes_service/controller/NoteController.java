@@ -31,7 +31,7 @@ public class NoteController {
 
     @GetMapping("/patient/{patientId}")
     public ResponseEntity<List<Note>> getNoteByPatientId(@PathVariable String patientId) {
-        List<Note> notes = noteService.getNotesByPatients(patientId);
+        List<Note> notes = noteService.getNotesByPatient(patientId);
         return ResponseEntity.ok(notes);
     }
 

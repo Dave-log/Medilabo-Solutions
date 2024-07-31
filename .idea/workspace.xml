@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements DiabetesReport controller and data collector">
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Fixes uri in DataCollectorService">
+      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/constants/TriggerConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/TriggerCounter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DataCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DataCollectorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/controller/NoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/service/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/service/NoteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/service/NoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/service/NoteServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,15 +284,8 @@
       <workItem from="1722238732692" duration="1306000" />
       <workItem from="1722260298318" duration="17507000" />
       <workItem from="1722320530488" duration="22345000" />
-      <workItem from="1722406867211" duration="6878000" />
-    </task>
-    <task id="LOCAL-00034" summary="Implements basic frontend MS (correct docker image for front)">
-      <option name="closed" value="true" />
-      <created>1720081530130</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1720081530130</updated>
+      <workItem from="1722406867211" duration="7544000" />
+      <workItem from="1722429002070" duration="1561000" />
     </task>
     <task id="LOCAL-00035" summary="Implements basic frontend MS (correct docker image for front)">
       <option name="closed" value="true" />
@@ -675,7 +671,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722416125607</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Fixes uri in DataCollectorService">
+      <option name="closed" value="true" />
+      <created>1722418257816</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1722418257816</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,7 +698,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixes schema.sql for H2 testuserdb" />
     <MESSAGE value="Implements reactive auth api" />
     <MESSAGE value="Refactors gateway ms to make it reactive (jdbc to r2dbc)" />
     <MESSAGE value="Makes all auth api functional." />
@@ -719,7 +722,8 @@
     <MESSAGE value="Fixes notes modal" />
     <MESSAGE value="setup diabetes report MS" />
     <MESSAGE value="Implements DiabetesReport controller and data collector" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements DiabetesReport controller and data collector" />
+    <MESSAGE value="Fixes uri in DataCollectorService" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes uri in DataCollectorService" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

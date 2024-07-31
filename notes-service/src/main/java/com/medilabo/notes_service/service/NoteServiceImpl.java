@@ -28,7 +28,7 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public List<Note> getNotesByPatients(String patientId) {
+    public List<Note> getNotesByPatient(String patientId) {
         return noteRepository.findByPatientId(patientId);
     }
 
