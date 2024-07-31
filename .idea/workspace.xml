@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Fixes Date format">
-      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient/ReportCellRenderer.tsx" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements risk evaluation on Frontend">
+      <change afterPath="$PROJECT_DIR$/frontend-service/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-service/nginx.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/controller/DiabetesReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/controller/DiabetesReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/RiskLevelAssessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/RiskLevelEvaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/TriggerCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/TriggerCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Patient/Patient.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Patient/Patient.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/services/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="doctor-s-notes" />
+        <entry key="$PROJECT_DIR$" value="diabetes-report" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -86,7 +84,7 @@
     "Spring Boot.NotesServiceApplication.executor": "Run",
     "Spring Boot.PatientServiceApplication 2.executor": "Run",
     "Spring Boot.PatientServiceApplication.executor": "Run",
-    "git-widget-placeholder": "diabetes-report",
+    "git-widget-placeholder": "dockerize-frontend",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_5/safetyNetAlerts",
@@ -287,15 +285,7 @@
       <workItem from="1722260298318" duration="17507000" />
       <workItem from="1722320530488" duration="22345000" />
       <workItem from="1722406867211" duration="7544000" />
-      <workItem from="1722429002070" duration="16469000" />
-    </task>
-    <task id="LOCAL-00039" summary="Implements basic frontend MS">
-      <option name="closed" value="true" />
-      <created>1720088245337</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1720088245337</updated>
+      <workItem from="1722429002070" duration="23049000" />
     </task>
     <task id="LOCAL-00040" summary="Implements basic frontend MS">
       <option name="closed" value="true" />
@@ -681,7 +671,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722443884138</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Implements risk evaluation on Frontend">
+      <option name="closed" value="true" />
+      <created>1722454115469</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1722454115469</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,7 +698,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements backend jwt authentication" />
     <MESSAGE value="Adds jwt to Request head (frontend)" />
     <MESSAGE value="Adds Typescript types file" />
     <MESSAGE value="Commit before massive security refactoring" />
@@ -725,7 +722,8 @@
     <MESSAGE value="Implements risk level assessor" />
     <MESSAGE value="Implements Report generator" />
     <MESSAGE value="Fixes Date format" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes Date format" />
+    <MESSAGE value="Implements risk evaluation on Frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements risk evaluation on Frontend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
