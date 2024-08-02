@@ -4,9 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Dockerizes frontend">
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Try to package frontend image from CI/CD">
+      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Auth/LoginRegister.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/gitlab.yml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/gitlab.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Auth/GoogleLoginButton.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Auth/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Auth/OAuth2Callback.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Auth/Register.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-service/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/services/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/model/AuthRequestDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/model/UserCredential.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/model/UserCredential.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/jwt/JwtProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/jwt/JwtTokenAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/jwt/JwtTokenProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/test/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/test/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/test/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/test/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +48,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="diabetes-report" />
+        <entry key="$PROJECT_DIR$" value="dockerize-frontend" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,10 +102,10 @@
     &quot;Spring Boot.NotesServiceApplication.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PatientServiceApplication 2.executor&quot;: &quot;Run&quot;,
     &quot;Spring Boot.PatientServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dockerize-frontend&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;oauth2-login&amp;&amp;register&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_5/safetyNetAlerts&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Documents/Programmation/Cours_OpenClassRooms/oauth2_google_cloud/backend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -282,15 +304,11 @@
       <workItem from="1722320530488" duration="22345000" />
       <workItem from="1722406867211" duration="7544000" />
       <workItem from="1722429002070" duration="23984000" />
-      <workItem from="1722498587368" duration="5076000" />
-    </task>
-    <task id="LOCAL-00041" summary="Implements basic frontend MS">
-      <option name="closed" value="true" />
-      <created>1720089583823</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1720089583823</updated>
+      <workItem from="1722498587368" duration="12044000" />
+      <workItem from="1722585701761" duration="1810000" />
+      <workItem from="1722587760247" duration="21000" />
+      <workItem from="1722591086028" duration="10309000" />
+      <workItem from="1722609513419" duration="8369000" />
     </task>
     <task id="LOCAL-00042" summary="Switch to Vite from CRA">
       <option name="closed" value="true" />
@@ -676,7 +694,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722462119405</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Try to package frontend image from CI/CD">
+      <option name="closed" value="true" />
+      <created>1722507391551</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1722507391551</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -695,7 +721,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adds Typescript types file" />
     <MESSAGE value="Commit before massive security refactoring" />
     <MESSAGE value="Login and register pages fully functional" />
     <MESSAGE value="Removes useless import" />
@@ -720,7 +745,8 @@
     <MESSAGE value="Fixes Date format" />
     <MESSAGE value="Implements risk evaluation on Frontend" />
     <MESSAGE value="Dockerizes frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dockerizes frontend" />
+    <MESSAGE value="Try to package frontend image from CI/CD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try to package frontend image from CI/CD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
