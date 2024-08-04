@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navigation/Navbar';
-import Login from './components/Auth/Login';
-import Register from './components/Auth/Register';
+import LoginRegister from './components/Auth/LoginRegister';
 import Patient from './components/Patient/Patient';
 import './styles/App.css';
-import OAuth2Callback from './components/Auth/OAuth2Callback';
+import { AuthProvider } from './components/Auth/AuthContext';
 
 const App: React.FC = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-
-    const handleLogout = () => {
-      localStorage.removeItem('token');
-      setIsAuthenticated(false);
-    };
-
     return (
-        <Router>
+        <AuthProvider>
+            <Router>
             <div className="App">
-                <Navbar isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+                <Navbar />
 
                 <header className="App-header">
                     <h1>MEDILABO-SOLUTIONS</h1>
@@ -27,17 +20,15 @@ const App: React.FC = () => {
 
                 <main>
                     <Routes>
-                        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-                        <Route path="/register" element={<Register />} />
+                        <Route path="/login" element={<LoginRegister />} />
                         <Route path="/patients" element={<Patient />} />
-                        <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-                        <Route path="auth/oauth2" element={<OAuth2Callback />} />
+                        <Route path="/" element={<LoginRegister />} />
                     </Routes>
                 </main>
                 
             </div>
-        </Router>
-
+            </Router>
+        </AuthProvider>
     );
 }
 

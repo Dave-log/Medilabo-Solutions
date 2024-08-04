@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Patient, Note } from '../types/types'
-import { useNavigate } from 'react-router-dom';
+import { CredentialResponse } from '@react-oauth/google';
 
 const API_BASE_URL = 'http://localhost:8080';
 const API_PATIENT_PATH = '/patient/api/v1/patients';
@@ -16,16 +16,21 @@ const api = axios.create({
 
 // AUTH API
 
-export const login = async (email: string, password: string) => {
-    const response = await api.post('/auth/login', { email, password });
-    const token = response.data.access_token;
-    localStorage.setItem('token', token);
-    return response;
-};
+export const login = async (credentialResponse: CredentialResponse) => {
+    return api.post('http://localhost:8080/auth/login', null, {
+        headers: {
+            Authorization: `Bearer ${credentialResponse.credential}`
+        }
+    });
+}
 
-export const register = async (email: string, password: string) => {
-    return api.post('/auth/register', { email, password });
-};
+export const register = async (credentialResponse: CredentialResponse) => {
+    return api.post('http://localhost:8080/auth/register', null, {
+        headers: {
+            Authorization: `Bearer ${credentialResponse.credential}`
+        }
+    });
+}
 
 // PATIENTS API
 
@@ -77,6 +82,21 @@ export const getDiabetesReport = async (id: number) => {
     return api.get(`${API_REPORT_PATH}/${id}`);
 }
 
+// TOKEN EXPIRATION MANAGEMENT
+
+const isTokenExpired = (token: string) : boolean => {
+    const decoded = JSON.parse(atob(token.split('.')[1])); // Decode JWT payload
+    const now = Date.now().valueOf() / 1000; // Conversion to seconds
+    return decoded.exp < now; // Compare to expiration
+}
+
+const handleExpiredToken = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+};
+
+// INTERCEPTORS
+
 api.interceptors.request.use(
     config => {
         const token = localStorage.getItem('token');
@@ -89,13 +109,29 @@ api.interceptors.request.use(
 api.interceptors.response.use(
     response => response,
     error => {
-        const navigate = useNavigate();
         if (error.response && error.response.status === 401) {
             localStorage.removeItem('token');
-            navigate('/login');
+            window.location.href = '/login';
         }
         return Promise.reject(error);
     }
 )
+
+api.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            if (isTokenExpired(token)) {
+                handleExpiredToken();
+                return Promise.reject(new Error('Token expired'));
+            }
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    error => {
+        return Promise.reject(error);
+    }
+);
 
 export default api;

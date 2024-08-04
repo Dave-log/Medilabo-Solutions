@@ -1,15 +1,11 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../Auth/AuthContext';
 
-interface NavbarProps {
-    isAuthenticated: boolean;
-    handleLogout: () => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, handleLogout }) => {
+const Navbar: React.FC = () => {
     const navigate = useNavigate();
-
+    const { isAuthenticated, handleLogout } = useAuth();
     const handlePatientsClick = () => {
         if (!isAuthenticated) {
             navigate('/login');
@@ -23,12 +19,6 @@ const Navbar: React.FC<NavbarProps> = ({ isAuthenticated, handleLogout }) => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         <Box component={Link} to={isAuthenticated ? "/patients" : "/login"} onClick={handlePatientsClick} sx={{ textDecoration: 'none', color: 'white', mr: 2 }}>
                             Patients
-                        </Box>
-                        <Box component={Link} to={isAuthenticated ? "/patients" : "/login"} onClick={handlePatientsClick} sx={{ textDecoration: 'none', color: 'white', mr: 2 }}>
-                            Element2
-                        </Box>
-                        <Box component={Link} to={isAuthenticated ? "/patients" : "/login"} onClick={handlePatientsClick} sx={{ textDecoration: 'none', color: 'white', mr: 2 }}>
-                            Element3
                         </Box>
                     </Typography>
                 </Box>

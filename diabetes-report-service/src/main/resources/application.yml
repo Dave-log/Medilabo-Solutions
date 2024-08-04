@@ -6,6 +6,12 @@ spring:
   application:
     name: diabetes-report-service
 
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+
 eureka:
   client:
     service-url:

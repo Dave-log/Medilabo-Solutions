@@ -6,11 +6,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
-public class AppConfig {
+public class WebClientConfig {
 
     @Bean
     @LoadBalanced
-    public WebClient.Builder webClientBuilder() {
-        return WebClient.builder();
+    public WebClient webClient(WebClient.Builder builder) {
+        return builder
+                .baseUrl("http://gateway-service:8080")
+                .build();
     }
 }
