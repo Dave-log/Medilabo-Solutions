@@ -97,6 +97,18 @@ services:
       - patient-service
       - notes-service
 
+  frontend-service:
+    build:
+      context: ./frontend-service
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    networks:
+      - internal
+    depends_on:
+      - gateway-service
+
+
 volumes:
   mysql_data:
   mongo_data:
