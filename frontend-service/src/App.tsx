@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navigation/Navbar';
 import LoginRegister from './components/Auth/LoginRegister';
 import Patient from './components/Patient/Patient';
 import './styles/App.css';
+import { AuthProvider } from './components/Auth/AuthContext';
 
 const App: React.FC = () => {
-    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-
-    const handleLogout = () => {
-      localStorage.removeItem('token');
-      setIsAuthenticated(false);
-    };
-
     return (
-        <Router>
+        <AuthProvider>
+            <Router>
             <div className="App">
-                <Navbar isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+                <Navbar />
 
                 <header className="App-header">
                     <h1>MEDILABO-SOLUTIONS</h1>
@@ -32,8 +27,8 @@ const App: React.FC = () => {
                 </main>
                 
             </div>
-        </Router>
-
+            </Router>
+        </AuthProvider>
     );
 }
 

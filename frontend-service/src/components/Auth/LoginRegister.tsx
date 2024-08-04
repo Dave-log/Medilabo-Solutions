@@ -1,19 +1,23 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { Container, Typography, Box } from '@mui/material';
 import { login, register } from '../../services/api';
+import { useAuth } from './AuthContext';
 
-const LoginRegister = () => {
+const LoginRegister: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
+    const { setIsAuthenticated } = useAuth();
 
     const handleLoginSuccess = async (credentialResponse: CredentialResponse) => {
         if (credentialResponse.credential) {
             try {
-                console.log(credentialResponse.credential);
                 await login(credentialResponse);
                 localStorage.setItem('token', credentialResponse.credential);
-    
-                window.location.href = '/patients';
+                setIsAuthenticated(true);
+
+                navigate('/patients');
             } catch (error) {
                 console.error('Login error:', error);
                 setError('Login failed. Please try again.');
@@ -24,12 +28,11 @@ const LoginRegister = () => {
     const handleRegisterSuccess = async (credentialResponse: CredentialResponse) => {
         if (credentialResponse.credential) {
             try {
-                console.log(credentialResponse.credential);
                 await register(credentialResponse);
                 
                 localStorage.setItem('token', credentialResponse.credential);
     
-                window.location.href = '/patients';
+                navigate('/patients');
             } catch (error) {
                 console.error('Registration error:', error);
                 setError('Registration failed. Please try again.');

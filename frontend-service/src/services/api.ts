@@ -83,6 +83,21 @@ export const getDiabetesReport = async (id: number) => {
     return api.get(`${API_REPORT_PATH}/${id}`);
 }
 
+// TOKEN EXPIRATION MANAGEMENT
+
+const isTokenExpired = (token: string) : boolean => {
+    const decoded = JSON.parse(atob(token.split('.')[1])); // Decode JWT payload
+    const now = Date.now().valueOf() / 1000; // Conversion to seconds
+    return decoded.exp < now; // Compare to expiration
+}
+
+const handleExpiredToken = () => {
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+};
+
+// INTERCEPTORS
+
 api.interceptors.request.use(
     config => {
         const token = localStorage.getItem('token');
@@ -103,5 +118,22 @@ api.interceptors.response.use(
         return Promise.reject(error);
     }
 )
+
+api.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            if (isTokenExpired(token)) {
+                handleExpiredToken();
+                return Promise.reject(new Error('Token expired'));
+            }
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    error => {
+        return Promise.reject(error);
+    }
+);
 
 export default api;
