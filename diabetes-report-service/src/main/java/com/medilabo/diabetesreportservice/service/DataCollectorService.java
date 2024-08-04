@@ -11,31 +11,35 @@ import java.util.List;
 
 @Service
 public class DataCollectorService {
-    private final WebClient.Builder webClientBuilder;
+    private final WebClient webClient;
 
     @Autowired
-    public DataCollectorService(WebClient.Builder webClientBuilder) {
-        this.webClientBuilder = webClientBuilder;
+    public DataCollectorService(WebClient webClient) {
+        this.webClient = webClient;
     }
 
-    public Mono<List<NoteDTO>> getPatientNotes(String patientId) {
-        WebClient webClient = webClientBuilder.build();
-        String notesServiceUrl = "lb://notes-service/api/v1/notes/patient/" + patientId;
-
-        return webClient.get()
-                .uri(notesServiceUrl)
+    public Mono<List<NoteDTO>> getPatientNotes(String patientId, String jwtToken) {
+        return this.webClient
+                .get()
+                .uri("/note/api/v1/notes/patient/{id}", patientId)
+                .headers(headers -> headers.setBearerAuth(jwtToken))
                 .retrieve()
                 .bodyToFlux(NoteDTO.class)
-                .collectList();
+                .collectList()
+                .doOnError(error -> {
+                    System.err.println("Failed to fetch notes: " + error.getMessage());
+                });
     }
 
-    public Mono<PatientDTO> getPatientDetails(Integer patientId) {
-        WebClient webClient = webClientBuilder.build();
-        String patientServiceUrl = "lb://patient-service/api/v1/patients/" + patientId;
-
-        return webClient.get()
-                .uri(patientServiceUrl)
+    public Mono<PatientDTO> getPatientDetails(Integer patientId, String jwtToken) {
+        return this.webClient
+                .get()
+                .uri("/patient/api/v1/patients/{id}", patientId)
+                .headers(headers -> headers.setBearerAuth(jwtToken))
                 .retrieve()
-                .bodyToMono(PatientDTO.class);
+                .bodyToMono(PatientDTO.class)
+                .doOnError(error -> {
+                    System.err.println("Failed to fetch patient: " + error.getMessage());
+                });
     }
 }

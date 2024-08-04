@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -28,9 +29,17 @@ public class DiabetesReportController {
     }
 
     @GetMapping("/{patientId}")
-    public Mono<ResponseEntity<DiabetesReport>> getDiabetesReport(@PathVariable Integer patientId) {
-        Mono<List<NoteDTO>> patientNotes = dataCollectorService.getPatientNotes(Integer.toString(patientId));
-        Mono<PatientDTO> patientDetails = dataCollectorService.getPatientDetails(patientId);
+    public Mono<ResponseEntity<DiabetesReport>> getDiabetesReport(@PathVariable Integer patientId, ServerWebExchange exchange) {
+        String jwtToken = exchange.getRequest().getHeaders().getFirst("Authorization");
+
+        if (jwtToken == null || !jwtToken.startsWith("Bearer ")) {
+            return Mono.just(ResponseEntity.notFound().build());
+        }
+
+        jwtToken = jwtToken.substring(7);
+
+        Mono<List<NoteDTO>> patientNotes = dataCollectorService.getPatientNotes(Integer.toString(patientId), jwtToken);
+        Mono<PatientDTO> patientDetails = dataCollectorService.getPatientDetails(patientId, jwtToken);
 
         return Mono.zip(patientDetails, patientNotes)
                 .map(tuple -> {

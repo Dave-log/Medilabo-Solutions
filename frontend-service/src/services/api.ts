@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { Patient, Note } from '../types/types'
-import { useNavigate } from 'react-router-dom';
 import { CredentialResponse } from '@react-oauth/google';
 
 const API_BASE_URL = 'http://localhost:8080';
@@ -110,10 +109,9 @@ api.interceptors.request.use(
 api.interceptors.response.use(
     response => response,
     error => {
-        const navigate = useNavigate();
         if (error.response && error.response.status === 401) {
             localStorage.removeItem('token');
-            navigate('/login');
+            window.location.href = '/login';
         }
         return Promise.reject(error);
     }

@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Switch to oauth2 log&amp;register">
-      <change afterPath="$PROJECT_DIR$/frontend-service/src/components/Auth/AuthContext.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/security/SecurityConfig.java" afterDir="false" />
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="Implements token expiration management and logout">
+      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/configuration/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes-service/src/main/java/com/medilabo/notes_service/configuration/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Auth/LoginRegister.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Auth/LoginRegister.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-service/src/components/Navigation/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/components/Navigation/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/configuration/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/configuration/WebClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/controller/DiabetesReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/controller/DiabetesReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DataCollectorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DataCollectorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-service/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-service/src/services/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/src/main/java/com/medilabo/gateway_service/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notes-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/patient-service/src/main/java/com/medilabo/patient_service/configuration/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,15 +301,8 @@
       <workItem from="1722663653648" duration="3963000" />
       <workItem from="1722710979683" duration="3327000" />
       <workItem from="1722753157400" duration="603000" />
-      <workItem from="1722762326790" duration="4519000" />
-    </task>
-    <task id="LOCAL-00043" summary="Switch to Vite from CRA (vitest fix)">
-      <option name="closed" value="true" />
-      <created>1720167450630</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1720167450630</updated>
+      <workItem from="1722762326790" duration="14791000" />
+      <workItem from="1722809865795" duration="1924000" />
     </task>
     <task id="LOCAL-00044" summary="Switch to Vite, add sample test">
       <option name="closed" value="true" />
@@ -691,7 +688,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722619289918</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Implements token expiration management and logout">
+      <option name="closed" value="true" />
+      <created>1722778440780</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1722778440781</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -710,7 +715,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Login and register pages fully functional" />
     <MESSAGE value="Removes useless import" />
     <MESSAGE value="Implements google oauth2 login" />
     <MESSAGE value="Try to fix oauth2 login (client bug)" />
@@ -735,7 +739,8 @@
     <MESSAGE value="Dockerizes frontend" />
     <MESSAGE value="Try to package frontend image from CI/CD" />
     <MESSAGE value="Switch to oauth2 log&amp;register" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switch to oauth2 log&amp;register" />
+    <MESSAGE value="Implements token expiration management and logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements token expiration management and logout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
