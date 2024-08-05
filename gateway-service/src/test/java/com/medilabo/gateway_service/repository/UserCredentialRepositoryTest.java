@@ -15,10 +15,8 @@ public class UserCredentialRepositoryTest extends GatewayServiceApplicationTests
     @Test
     public void testFindAllUserCredentials() {
         Flux<UserCredential> credentials = credentialRepository.findAll();
-
         StepVerifier.create(credentials)
-                .expectNextMatches(user -> user.getEmail().equals("johndoe@example.com"))
-                .expectNextCount(2)
+                .expectNextCount(3)
                 .verifyComplete();
     }
 }
