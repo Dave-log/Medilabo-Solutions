@@ -7,7 +7,7 @@ public class NoneRiskRule implements RiskRule {
 
     @Override
     public RiskLevel evaluate(boolean isOverThirty, String gender, int triggerCount) {
-        if (triggerCount < 2) {
+        if (triggerCount >= 0 && triggerCount < 2) {
             return RiskLevel.NONE;
         } else if (next != null) {
             return next.evaluate(isOverThirty, gender, triggerCount);
