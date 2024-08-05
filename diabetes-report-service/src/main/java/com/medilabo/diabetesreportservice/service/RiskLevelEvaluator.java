@@ -1,30 +1,27 @@
 package com.medilabo.diabetesreportservice.service;
 
 import com.medilabo.diabetesreportservice.model.RiskLevel;
+import com.medilabo.diabetesreportservice.service.riskrules.*;
+import org.springframework.stereotype.Service;
 
+@Service
 public final class RiskLevelEvaluator {
+    private final RiskRule chain;
 
-    public static RiskLevel evaluateRiskLevel(boolean isOverThirty, String gender, int triggerCount) {
-        if (triggerCount < 2) {
-            return RiskLevel.NONE;
-        }
+    public RiskLevelEvaluator() {
+        RiskRule noneRiskRule = new NoneRiskRule();
+        RiskRule overThirtyRiskRule = new OverThirtyRiskRule();
+        RiskRule maleUnderThirtyRiskRule = new MaleUnderThirtyRiskRule();
+        RiskRule femaleUnderThirtyRiskRule = new FemaleUnderThirtyRiskRule();
 
-        if (isOverThirty) {
-            if (triggerCount >= 8) return RiskLevel.EARLY_ONSET;
-            else if (triggerCount >= 6) return RiskLevel.IN_DANGER;
-            else return RiskLevel.BORDERLINE;
-        }
+        noneRiskRule.setNext(overThirtyRiskRule);
+        overThirtyRiskRule.setNext(maleUnderThirtyRiskRule);
+        maleUnderThirtyRiskRule.setNext(femaleUnderThirtyRiskRule);
 
-        if (gender.equals("M")) {
-            if (triggerCount >= 5) return RiskLevel.EARLY_ONSET;
-            else if (triggerCount >= 3) return RiskLevel.IN_DANGER;
-        }
+        this.chain = noneRiskRule;
+    }
 
-        if (gender.equals("F")) {
-            if (triggerCount >= 7) return RiskLevel.EARLY_ONSET;
-            else if (triggerCount >= 4) return RiskLevel.IN_DANGER;
-        }
-
-        return RiskLevel.ERROR;
+    public RiskLevel evaluateRiskLevel(boolean isOverThirty, String gender, int triggerCount) {
+        return this.chain.evaluate(isOverThirty, gender, triggerCount);
     }
 }

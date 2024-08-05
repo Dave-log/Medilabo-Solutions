@@ -14,7 +14,7 @@ services:
       - internal
 
   mongo:
-    image: mongo:8.0.0-rc15-nanoserver-ltsc2022
+    image: mongo:8.0.0-rc15-jammy
     restart: on-failure
     ports:
       - "27018:27017"

@@ -12,6 +12,11 @@ import java.util.List;
 
 @Service
 public class DiabetesReportService {
+    private final RiskLevelEvaluator riskLevelEvaluator;
+
+    public DiabetesReportService(RiskLevelEvaluator riskLevelEvaluator) {
+        this.riskLevelEvaluator = riskLevelEvaluator;
+    }
 
     public DiabetesReport generateReport(PatientDTO patient, List<NoteDTO> notes) {
         DiabetesReport diabetesReport = new DiabetesReport();
@@ -28,7 +33,7 @@ public class DiabetesReportService {
         String gender = patient.gender();
         int triggerCount = TriggerCounter.countUniqueTriggers(notes);
 
-        RiskLevel riskLevel = RiskLevelEvaluator.evaluateRiskLevel(isOverThirty, gender, triggerCount);
+        RiskLevel riskLevel = riskLevelEvaluator.evaluateRiskLevel(isOverThirty, gender, triggerCount);
 
         return riskLevel.getRiskLevel();
     }
