@@ -9,8 +9,8 @@ import java.util.regex.Pattern;
 
 public final class TriggerCounter {
 
-    public static int countUniqueTriggers(List<NoteDTO> notes) {
-        List<String> uniqueTriggers = new ArrayList<>();
+    public static int countTriggers(List<NoteDTO> notes) {
+        List<String> triggers = new ArrayList<>();
 
         for (NoteDTO note : notes) {
             String noteContent = note.note().toLowerCase();
@@ -20,11 +20,11 @@ public final class TriggerCounter {
                 Matcher matcher = pattern.matcher(noteContent);
 
                 if (matcher.find()) {
-                    uniqueTriggers.add(trigger.toLowerCase());
+                    triggers.add(trigger.toLowerCase());
                 }
             }
         }
-        return uniqueTriggers.size();
+        return triggers.size();
     }
 
 }

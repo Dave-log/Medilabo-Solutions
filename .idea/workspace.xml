@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="adds UT for AgeCalculator and UserCredentialRepository">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diabetes-report-service/src/test/java/com/medilabo/diabetesreportservice/service/TriggerCounterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/NoteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/NoteDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/PatientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/model/PatientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/AgeCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/AgeCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DateFormatter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/DiabetesReportService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/TriggerCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/main/java/com/medilabo/diabetesreportservice/service/TriggerCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diabetes-report-service/src/test/java/com/medilabo/diabetesreportservice/service/AgeCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/diabetes-report-service/src/test/java/com/medilabo/diabetesreportservice/service/AgeCalculatorTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Dave-log&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Dave-log/Medilabo-Solutions.git&quot;,
+    &quot;accountId&quot;: &quot;e4fd2fc3-d858-413c-8c26-21ce1b0df2bf&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2i3P4xzhtnP6Hs8Kdmf0MJCmYhP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "JUnit.AgeCalculatorTest.executor": "Run",
+    "JUnit.AgeCalculatorTest.testCalculateAge_BirthdateToday.executor": "Run",
+    "JUnit.AgeCalculatorTest.testCalculateAge_BirthdateTomorrow.executor": "Run",
+    "JUnit.AgeCalculatorTest.testCalculateAge_InvalidDateFormat.executor": "Run",
+    "JUnit.AgeCalculatorTest.testCalculateAge_InvalidDateValues.executor": "Run",
+    "JUnit.AgeCalculatorTest.testCalculateAge_ValidDate.executor": "Run",
+    "JUnit.AgeCalculatorTest.testIsOverThirty_ExactlyThirty.executor": "Run",
+    "JUnit.AgeCalculatorTest.testIsOverThirty_False.executor": "Run",
+    "JUnit.AgeCalculatorTest.testIsOverThirty_True.executor": "Run",
+    "JUnit.AuthServiceTest.executor": "Run",
+    "JUnit.AuthServiceTest.testFindUser.executor": "Run",
+    "JUnit.DateFormatterTest.executor": "Run",
+    "JUnit.DateFormatterTest.testConvertToStandardFormat_ValidDate.executor": "Run",
+    "JUnit.TriggerCounterTest.executor": "Run",
+    "JUnit.UserCredentialRepositoryTest.executor": "Run",
+    "JUnit.UserCredentialRepositoryTest.testSaveUserCredential.executor": "Run",
+    "Maven.p9-medilabo-solutions [clean].executor": "Run",
+    "Maven.p9-medilabo-solutions [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.DiabetesReportServiceApplication.executor": "Run",
+    "Spring Boot.DiscoveryServiceApplication.executor": "Run",
+    "Spring Boot.GatewayServiceApplication.executor": "Run",
+    "Spring Boot.NotesServiceApplication.executor": "Run",
+    "Spring Boot.PatientServiceApplication 2.executor": "Run",
+    "Spring Boot.PatientServiceApplication.executor": "Run",
+    "git-widget-placeholder": "unit-tests",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/Documents/Programmation/Cours_OpenClassRooms/Parcours_developpeur_application_Java/Projet_5/safetyNetAlerts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "settings.editor.splitter.proportion": "0.24481659",
+    "ts.external.directory.path": "E:\\Documents\\Programmation\\Cours_OpenClassRooms\\Parcours_developpeur_application_Java\\Projet_9\\p9_medilabo_solutions\\frontend-service\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "h2",
+      "mysql",
+      "mongo"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
+      "H2"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "H2"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\diabetes-report-service" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\notes-service" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\gateway-service\src\test\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\gateway-service\src\main\java" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\gateway-service\src\test\java" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\gateway-service" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\discovery-service\src\test\java\com\medilabo\discovery_service" />
+      <recent name="E:\Documents\Programmation\Cours_OpenClassRooms\Parcours_developpeur_application_Java\Projet_9\p9_medilabo_solutions\discovery-service\src\main\java\com\medilabo\discovery_service" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.medilabo.patient_service.repository" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.TriggerCounterTest.testCountTriggers_CaseInsensitivity">
+    <configuration name="AgeCalculatorTest.testCalculateAge_InvalidDateFormat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diabetes-report-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.medilabo.diabetesreportservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.medilabo.diabetesreportservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.medilabo.diabetesreportservice.service.AgeCalculatorTest" />
+      <option name="METHOD_NAME" value="testCalculateAge_InvalidDateFormat" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AgeCalculatorTest.testIsOverThirty_True" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diabetes-report-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.medilabo.diabetesreportservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.medilabo.diabetesreportservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.medilabo.diabetesreportservice.service.AgeCalculatorTest" />
+      <option name="METHOD_NAME" value="testIsOverThirty_True" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DateFormatterTest.testConvertToStandardFormat_ValidDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diabetes-report-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.medilabo.diabetesreportservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.medilabo.diabetesreportservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.medilabo.diabetesreportservice.service.DateFormatterTest" />
+      <option name="METHOD_NAME" value="testConvertToStandardFormat_ValidDate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TriggerCounterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diabetes-report-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.medilabo.diabetesreportservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.medilabo.diabetesreportservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.medilabo.diabetesreportservice.service.TriggerCounterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TriggerCounterTest.testCountTriggers_CaseInsensitivity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diabetes-report-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.medilabo.diabetesreportservice.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.medilabo.diabetesreportservice.service" />
+      <option name="MAIN_CLASS_NAME" value="com.medilabo.diabetesreportservice.service.TriggerCounterTest" />
+      <option name="METHOD_NAME" value="testCountTriggers_CaseInsensitivity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiabetesReportServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="diabetes-report-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.diabetesreportservice.DiabetesReportServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.gateway_service.GatewayServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotesServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="notes-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.notes_service.NotesServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PatientServiceApplication 2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <envs>
+        <env name="--server.port" value="8085" />
+      </envs>
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="patient-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.patient_service.PatientServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PatientServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="patient-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medilabo.patient_service.PatientServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.AgeCalculatorTest.testCalculateAge_InvalidDateFormat" />
+      <item itemvalue="JUnit.AgeCalculatorTest.testIsOverThirty_True" />
+      <item itemvalue="JUnit.DateFormatterTest.testConvertToStandardFormat_ValidDate" />
+      <item itemvalue="JUnit.TriggerCounterTest" />
+      <item itemvalue="JUnit.TriggerCounterTest.testCountTriggers_CaseInsensitivity" />
+      <item itemvalue="Spring Boot.DiabetesReportServiceApplication" />
+      <item itemvalue="Spring Boot.NotesServiceApplication" />
+      <item itemvalue="Spring Boot.GatewayServiceApplication" />
+      <item itemvalue="Spring Boot.PatientServiceApplication" />
+      <item itemvalue="Spring Boot.PatientServiceApplication 2" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TriggerCounterTest.testCountTriggers_CaseInsensitivity" />
+        <item itemvalue="JUnit.TriggerCounterTest" />
+        <item itemvalue="JUnit.DateFormatterTest.testConvertToStandardFormat_ValidDate" />
+        <item itemvalue="JUnit.AgeCalculatorTest.testIsOverThirty_True" />
+        <item itemvalue="JUnit.AgeCalculatorTest.testCalculateAge_InvalidDateFormat" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="97df2abb-3d3e-4ed8-b720-f61fd64e9d8d" name="Changes" comment="" />
+      <created>1718716101164</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718716101164</updated>
+      <workItem from="1718716102488" duration="290000" />
+      <workItem from="1718716402236" duration="5000" />
+      <workItem from="1718716424245" duration="2881000" />
+      <workItem from="1718719383347" duration="722000" />
+      <workItem from="1718742161388" duration="3711000" />
+      <workItem from="1718779393767" duration="812000" />
+      <workItem from="1718793471957" duration="427000" />
+      <workItem from="1718806742556" duration="5977000" />
+      <workItem from="1718878312685" duration="6795000" />
+      <workItem from="1718907670797" duration="4641000" />
+      <workItem from="1718915751027" duration="4792000" />
+      <workItem from="1718953678154" duration="12706000" />
+      <workItem from="1718973333910" duration="3014000" />
+      <workItem from="1718976645325" duration="2583000" />
+      <workItem from="1719235738707" duration="6738000" />
+      <workItem from="1719262939819" duration="2652000" />
+      <workItem from="1719299778743" duration="8237000" />
+      <workItem from="1720045039341" duration="3123000" />
+      <workItem from="1720077525613" duration="11348000" />
+      <workItem from="1720166598067" duration="3062000" />
+      <workItem from="1720273937588" duration="535000" />
+      <workItem from="1720274818745" duration="2505000" />
+      <workItem from="1720366433265" duration="8126000" />
+      <workItem from="1720390322573" duration="4290000" />
+      <workItem from="1720423562695" duration="9889000" />
+      <workItem from="1720454247706" duration="3620000" />
+      <workItem from="1720474875096" duration="608000" />
+      <workItem from="1720550044778" duration="5507000" />
+      <workItem from="1720596587764" duration="6648000" />
+      <workItem from="1720791105596" duration="1572000" />
+      <workItem from="1720879672318" duration="6249000" />
+      <workItem from="1720987160943" duration="4144000" />
+      <workItem from="1721070863806" duration="3494000" />
+      <workItem from="1721119800922" duration="2882000" />
+      <workItem from="1721147909460" duration="1937000" />
+      <workItem from="1721167660505" duration="1212000" />
+      <workItem from="1721200375337" duration="2011000" />
+      <workItem from="1721202889292" duration="12918000" />
+      <workItem from="1721288704980" duration="757000" />
+      <workItem from="1721550664215" duration="2204000" />
+      <workItem from="1721639683407" duration="4160000" />
+      <workItem from="1721645944331" duration="7194000" />
+      <workItem from="1721656769020" duration="8428000" />
+      <workItem from="1721684604174" duration="673000" />
+      <workItem from="1721718706669" duration="25513000" />
+      <workItem from="1721802836984" duration="25529000" />
+      <workItem from="1721842004040" duration="15346000" />
+      <workItem from="1721887686698" duration="14812000" />
+      <workItem from="1721979116393" duration="3899000" />
+      <workItem from="1722017130817" duration="594000" />
+      <workItem from="1722064397600" duration="642000" />
+      <workItem from="1722106711125" duration="9727000" />
+      <workItem from="1722153694363" duration="7652000" />
+      <workItem from="1722203312785" duration="817000" />
+      <workItem from="1722238732692" duration="1306000" />
+      <workItem from="1722260298318" duration="17507000" />
+      <workItem from="1722320530488" duration="22345000" />
+      <workItem from="1722406867211" duration="7544000" />
+      <workItem from="1722429002070" duration="16469000" />
+      <workItem from="1722816826603" duration="245000" />
+      <workItem from="1722845117360" duration="11398000" />
+      <workItem from="1722864253564" duration="5455000" />
+    </task>
+    <task id="LOCAL-00042" summary="Switch to Vite from CRA">
+      <option name="closed" value="true" />
+      <created>1720166904743</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1720166904743</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Switch to Vite from CRA (vitest fix)">
+      <option name="closed" value="true" />
+      <created>1720167450630</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1720167450630</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Switch to Vite, add sample test">
+      <option name="closed" value="true" />
+      <created>1720278513896</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1720278513896</updated>
+    </task>
+    <task id="LOCAL-00045" summary="add types in tsconfig files">
+      <option name="closed" value="true" />
+      <created>1720278900853</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1720278900853</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Adds Dockerfiles and docker-compose file. Modifies app prop">
+      <option name="closed" value="true" />
+      <created>1720557502237</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1720557502237</updated>
+    </task>
+    <task id="LOCAL-00047" summary="implements CRUD operations accessible from the front">
+      <option name="closed" value="true" />
+      <created>1720882664571</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1720882664571</updated>
+    </task>
+    <task id="LOCAL-00048" summary="implements CORS policy into Gateway ms">
+      <option name="closed" value="true" />
+      <created>1720886087802</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1720886087802</updated>
+    </task>
+    <task id="LOCAL-00049" summary="cleans Patient.tsx">
+      <option name="closed" value="true" />
+      <created>1720988772455</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1720988772455</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Implements Add Patient functional button">
+      <option name="closed" value="true" />
+      <created>1720993180459</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1720993180460</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Implements Add Patient functional button">
+      <option name="closed" value="true" />
+      <created>1720993240758</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1720993240758</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Implements all Crud operations available from frontend">
+      <option name="closed" value="true" />
+      <created>1721120017130</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1721120017130</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Front refactoring">
+      <option name="closed" value="true" />
+      <created>1721130113756</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1721130113756</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Implements Basic auth using WebFlux">
+      <option name="closed" value="true" />
+      <created>1721288767868</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1721288767869</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Fixes frontend compilation">
+      <option name="closed" value="true" />
+      <created>1721639732038</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1721639732038</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Implements basic security and starts Jwt auth implementation">
+      <option name="closed" value="true" />
+      <created>1721725519602</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1721725519602</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Adds H2 db for Gateway testing">
+      <option name="closed" value="true" />
+      <created>1721730083559</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1721730083559</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Fixes schema.sql for H2 testuserdb">
+      <option name="closed" value="true" />
+      <created>1721737483620</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1721737483620</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Implements reactive auth api">
+      <option name="closed" value="true" />
+      <created>1721753068874</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1721753068874</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Refactors gateway ms to make it reactive (jdbc to r2dbc)">
+      <option name="closed" value="true" />
+      <created>1721803160789</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1721803160789</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Makes all auth api functional.">
+      <option name="closed" value="true" />
+      <created>1721813219286</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1721813219286</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Fixes gateway ms testing with H2 db">
+      <option name="closed" value="true" />
+      <created>1721822487514</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1721822487514</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Implements backend jwt authentication">
+      <option name="closed" value="true" />
+      <created>1721838257264</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1721838257264</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Adds jwt to Request head (frontend)">
+      <option name="closed" value="true" />
+      <created>1721845673099</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1721845673099</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Adds Typescript types file">
+      <option name="closed" value="true" />
+      <created>1721845695896</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1721845695897</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Commit before massive security refactoring">
+      <option name="closed" value="true" />
+      <created>1721852503338</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1721852503338</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Login and register pages fully functional">
+      <option name="closed" value="true" />
+      <created>1721863852853</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1721863852853</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Removes useless import">
+      <option name="closed" value="true" />
+      <created>1721864043252</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1721864043252</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Implements google oauth2 login">
+      <option name="closed" value="true" />
+      <created>1721898965666</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1721898965666</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Try to fix oauth2 login (client bug)">
+      <option name="closed" value="true" />
+      <created>1721902465837</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1721902465837</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Puts the 2 mysql db into 1 container">
+      <option name="closed" value="true" />
+      <created>1722169783048</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1722169783048</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Removes oauth2 client secret">
+      <option name="closed" value="true" />
+      <created>1722169961859</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1722169961859</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Removes github secret security for testing">
+      <option name="closed" value="true" />
+      <created>1722170049150</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1722170049150</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Setup Notes MS and db with mongoDB">
+      <option name="closed" value="true" />
+      <created>1722273056674</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1722273056674</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Test gitlab CI/CD with notes MS">
+      <option name="closed" value="true" />
+      <created>1722274225952</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1722274225952</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Enable connection to mongoDB from notes-service.">
+      <option name="closed" value="true" />
+      <created>1722294688196</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1722294688196</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Implements Note REST API">
+      <option name="closed" value="true" />
+      <created>1722332489792</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1722332489792</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Fixes Notes API with patientId paramater">
+      <option name="closed" value="true" />
+      <created>1722339160063</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1722339160063</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Implements Notes management from Frontend">
+      <option name="closed" value="true" />
+      <created>1722373636475</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1722373636475</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Fixes notes modal">
+      <option name="closed" value="true" />
+      <created>1722375137618</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1722375137619</updated>
+    </task>
+    <task id="LOCAL-00081" summary="setup diabetes report MS">
+      <option name="closed" value="true" />
+      <created>1722379214033</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1722379214049</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Implements DiabetesReport controller and data collector">
+      <option name="closed" value="true" />
+      <created>1722416125607</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1722416125607</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Fixes uri in DataCollectorService">
+      <option name="closed" value="true" />
+      <created>1722418257816</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1722418257816</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Implements trigger counter">
+      <option name="closed" value="true" />
+      <created>1722430606967</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1722430606967</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Implements risk level assessor">
+      <option name="closed" value="true" />
+      <created>1722436007368</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1722436007368</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Implements Report generator">
+      <option name="closed" value="true" />
+      <created>1722437406415</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1722437406415</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Fixes Date format">
+      <option name="closed" value="true" />
+      <created>1722443884138</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1722443884138</updated>
+    </task>
+    <task id="LOCAL-00088" summary="change mongo image">
+      <option name="closed" value="true" />
+      <created>1722813447699</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1722813447699</updated>
+    </task>
+    <task id="LOCAL-00089" summary="fixes first UT in gateway ms">
+      <option name="closed" value="true" />
+      <created>1722847200003</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1722847200003</updated>
+    </task>
+    <task id="LOCAL-00090" summary="adds UT for AgeCalculator and UserCredentialRepository">
+      <option name="closed" value="true" />
+      <created>1722861656350</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1722861656350</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Commit before massive security refactoring" />
+    <MESSAGE value="Login and register pages fully functional" />
+    <MESSAGE value="Removes useless import" />
+    <MESSAGE value="Implements google oauth2 login" />
+    <MESSAGE value="Try to fix oauth2 login (client bug)" />
+    <MESSAGE value="Puts the 2 mysql db into 1 container" />
+    <MESSAGE value="Removes oauth2 client secret" />
+    <MESSAGE value="Removes github secret security for testing" />
+    <MESSAGE value="Setup Notes MS and db with mongoDB" />
+    <MESSAGE value="Test gitlab CI/CD with notes MS" />
+    <MESSAGE value="Enable connection to mongoDB from notes-service." />
+    <MESSAGE value="Implements Note REST API" />
+    <MESSAGE value="Fixes Notes API with patientId paramater" />
+    <MESSAGE value="Implements Notes management from Frontend" />
+    <MESSAGE value="Fixes notes modal" />
+    <MESSAGE value="setup diabetes report MS" />
+    <MESSAGE value="Implements DiabetesReport controller and data collector" />
+    <MESSAGE value="Fixes uri in DataCollectorService" />
+    <MESSAGE value="Implements trigger counter" />
+    <MESSAGE value="Implements risk level assessor" />
+    <MESSAGE value="Implements Report generator" />
+    <MESSAGE value="Fixes Date format" />
+    <MESSAGE value="change mongo image" />
+    <MESSAGE value="fixes first UT in gateway ms" />
+    <MESSAGE value="adds UT for AgeCalculator and UserCredentialRepository" />
+    <option name="LAST_COMMIT_MESSAGE" value="adds UT for AgeCalculator and UserCredentialRepository" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassNotFoundException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

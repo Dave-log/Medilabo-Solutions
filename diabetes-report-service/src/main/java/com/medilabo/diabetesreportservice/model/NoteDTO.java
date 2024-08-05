@@ -1,7 +1,10 @@
 package com.medilabo.diabetesreportservice.model;
 
+import lombok.Builder;
+
 import java.time.LocalDateTime;
 
+@Builder
 public record NoteDTO(
         String id,
         String patientId,

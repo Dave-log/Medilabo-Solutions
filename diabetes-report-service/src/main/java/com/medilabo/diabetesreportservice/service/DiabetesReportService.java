@@ -26,10 +26,9 @@ public class DiabetesReportService {
     }
 
     private String calculateRiskLevel(PatientDTO patient, List<NoteDTO> notes) {
-        String formattedBirthdate = DateFormatter.convertToStandardFormat(patient.birthdate().toString());
-        boolean isOverThirty = AgeCalculator.isOverThirty(formattedBirthdate);
+        boolean isOverThirty = AgeCalculator.isOverThirty(patient.birthdate());
         String gender = patient.gender();
-        int triggerCount = TriggerCounter.countUniqueTriggers(notes);
+        int triggerCount = TriggerCounter.countTriggers(notes);
 
         RiskLevel riskLevel = riskLevelEvaluator.evaluateRiskLevel(isOverThirty, gender, triggerCount);
 
