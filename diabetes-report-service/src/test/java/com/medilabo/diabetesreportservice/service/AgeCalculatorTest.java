@@ -3,6 +3,7 @@ package com.medilabo.diabetesreportservice.service;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,9 +30,8 @@ public class AgeCalculatorTest {
 
     @Test
     public void testCalculateAge_InvalidDateFormat() {
-        LocalDate invalidBirthdate = LocalDate.parse("01-01-1990");
-        assertThrows(IllegalArgumentException.class, () -> {
-            AgeCalculator.calculate(invalidBirthdate);
+        assertThrows(DateTimeParseException.class, () -> {
+            LocalDate.parse("01-01-1990");
         });
     }
 
