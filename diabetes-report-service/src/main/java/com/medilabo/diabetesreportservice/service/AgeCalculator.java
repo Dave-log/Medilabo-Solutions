@@ -1,7 +1,10 @@
-package com.medilabo.diabetesreportservice.utils;
+package com.medilabo.diabetesreportservice.service;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.regex.Pattern;
 
@@ -17,10 +20,18 @@ public final class AgeCalculator {
             throw new IllegalArgumentException("Invalid date format. Expected format: yyyy-MM-dd");
         }
 
-        LocalDate birthdateDate = LocalDate.parse(birthdate, DATE_FORMATTER);
-        LocalDate currentDate = LocalDate.now();
+        try {
+            LocalDate birthdateDate = LocalDate.parse(
+                    birthdate,
+                    DATE_FORMATTER
+            );
+            LocalDate currentDate = LocalDate.now();
 
-        return (int) ChronoUnit.YEARS.between(birthdateDate, currentDate);
+            return (int) ChronoUnit.YEARS.between(birthdateDate, currentDate);
+        } catch (DateTimeParseException e) {
+            throw new IllegalArgumentException("Invalid date value! " + birthdate, e);
+        }
+
     }
 
     public static boolean isOverThirty(String birthdate) {

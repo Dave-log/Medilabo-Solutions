@@ -4,8 +4,6 @@ import com.medilabo.diabetesreportservice.model.DiabetesReport;
 import com.medilabo.diabetesreportservice.model.NoteDTO;
 import com.medilabo.diabetesreportservice.model.PatientDTO;
 import com.medilabo.diabetesreportservice.model.RiskLevel;
-import com.medilabo.diabetesreportservice.utils.AgeCalculator;
-import com.medilabo.diabetesreportservice.utils.DateFormatter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
