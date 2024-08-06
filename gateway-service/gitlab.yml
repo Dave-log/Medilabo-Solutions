@@ -1,3 +1,11 @@
+cache:
+  paths:
+    - gateway-service/target
+
+variables:
+  DOCKER_DRIVER: overlay2
+  IMAGE_TAG: $CI_REGISTRY_IMAGE/gateway-service:$CI_COMMIT_SHA
+
 compile_gateway:
   stage: compile
   script:
@@ -18,6 +26,26 @@ package_gateway:
   stage: package
   script:
     - mvn $MAVEN_CLI_OPTS package -pl gateway-service
+  artifacts:
+    paths:
+      - gateway-service/target/gateway-service-0.0.1-SNAPSHOT.jar
+  rules:
+    - changes:
+        - gateway-service/**
+
+docker_build_gateway:
+  image: docker:27.1.1-dind-alpine3.20
+  stage: docker_build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - echo "Building Docker image with tag $IMAGE_TAG"
+    - docker build -t $IMAGE_TAG -f gateway-service/Dockerfile .
+    - echo "Docker images lists:"
+    - docker images
+    - docker push $IMAGE_TAG
   rules:
     - changes:
         - gateway-service/**

@@ -49,15 +49,3 @@ docker_build_patient:
   rules:
     - changes:
         - patient-service/**
-
-#docker_push_patient:
-  #  image: docker:27.1.1-dind-alpine3.20
-  #stage: docker_push
-    #services:
-    #- docker:dind
-    #script:
-    #- echo "Pushing Docker image with tag $IMAGE_TAG"
-    #- docker push $IMAGE_TAG
-    #rules:
-        # - changes:
-        #- patient-service/**

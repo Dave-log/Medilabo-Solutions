@@ -1,3 +1,11 @@
+cache:
+  paths:
+    - discovery-service/target
+
+variables:
+  DOCKER_DRIVER: overlay2
+  IMAGE_TAG: $CI_REGISTRY_IMAGE/discovery-service:$CI_COMMIT_SHA
+
 compile_discovery:
   stage: compile
   script:
@@ -18,6 +26,26 @@ package_discovery:
   stage: package
   script:
     - mvn $MAVEN_CLI_OPTS package -pl discovery-service
+  artifacts:
+    paths:
+      - discovery-service/target/discovery-service-0.0.1-SNAPSHOT.jar
+  rules:
+    - changes:
+        - discovery-service/**
+
+docker_build_discovery:
+  image: docker:27.1.1-dind-alpine3.20
+  stage: docker_build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - echo "Building Docker image with tag $IMAGE_TAG"
+    - docker build -t $IMAGE_TAG -f discovery-service/Dockerfile .
+    - echo "Docker images lists:"
+    - docker images
+    - docker push $IMAGE_TAG
   rules:
     - changes:
         - discovery-service/**

@@ -1,3 +1,11 @@
+cache:
+  paths:
+    - diabetes-report-service/target
+
+variables:
+  DOCKER_DRIVER: overlay2
+  IMAGE_TAG: $CI_REGISTRY_IMAGE/diabetes-report-service:$CI_COMMIT_SHA
+
 compile_diabetes_report:
   stage: compile
   script:
@@ -18,6 +26,26 @@ package_diabetes_report:
   stage: package
   script:
     - mvn $MAVEN_CLI_OPTS package -pl diabetes-report-service
+  artifacts:
+    paths: diabetes-report-service/target/diabetes-report-service-0.0.1-SNAPSHOT.jar
+      -
+  rules:
+    - changes:
+        - diabetes-report-service/**
+
+docker_build_diabetes_report:
+  image: docker:27.1.1-dind-alpine3.20
+  stage: docker_build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - echo "Building Docker image with tag $IMAGE_TAG"
+    - docker build -t $IMAGE_TAG -f diabetes-report-service/Dockerfile .
+    - echo "Docker images lists:"
+    - docker images
+    - docker push $IMAGE_TAG
   rules:
     - changes:
         - diabetes-report-service/**
