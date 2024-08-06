@@ -28,7 +28,7 @@ package_patient:
 docker_build_patient:
   image: docker:27.1.1-dind-alpine3.20
   stage: docker_build
-  service:
+  services:
     - docker:dind
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
