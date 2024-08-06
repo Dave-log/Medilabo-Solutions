@@ -1,3 +1,6 @@
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE/patient-service:$CI_COMMIT_SHA
+
 compile_patient:
   stage: compile
   script:
@@ -18,6 +21,30 @@ package_patient:
   stage: package
   script:
     - mvn $MAVEN_CLI_OPTS package -pl patient-service
+  rules:
+    - changes:
+        - patient-service/**
+
+docker_build_patient:
+  image: docker:27.1.1-dind-alpine3.20
+  stage: docker_build
+  service:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $IMAGE_TAG -f patient-service/Dockerfile .
+  rules:
+    - changes:
+        - patient-service/**
+
+docker_push_patient:
+  image: docker:27.1.1-dind-alpine3.20
+  stage: docker_push
+  services:
+    - docker:dind
+  script:
+    - docker push $IMAGE_TAG
   rules:
     - changes:
         - patient-service/**
