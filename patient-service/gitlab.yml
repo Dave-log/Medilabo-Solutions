@@ -21,6 +21,9 @@ package_patient:
   stage: package
   script:
     - mvn $MAVEN_CLI_OPTS package -pl patient-service
+  artifacts:
+    paths:
+      - patient-service/target/patient-service-0.0.1-SNAPSHOT.jar
   rules:
     - changes:
         - patient-service/**
@@ -33,6 +36,7 @@ docker_build_patient:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
+    - ls -l patient-service/target/
     - docker build -t $IMAGE_TAG -f patient-service/Dockerfile .
   rules:
     - changes:
