@@ -10,7 +10,6 @@ stages:
 cache:
   paths:
     - .m2/repository
-    - target
 
 variables:
   MAVEN_CLI_OPTS: "--batch-mode"

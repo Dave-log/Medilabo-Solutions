@@ -1,4 +1,9 @@
+cache:
+  paths:
+    - patient-service/target
+
 variables:
+  DOCKER_DRIVER: overlay2
   IMAGE_TAG: $CI_REGISTRY_IMAGE/patient-service:$CI_COMMIT_SHA
 
 compile_patient:
@@ -36,8 +41,8 @@ docker_build_patient:
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - ls -l patient-service/target/
     - docker build -t $IMAGE_TAG -f patient-service/Dockerfile .
+    - docker images
   rules:
     - changes:
         - patient-service/**
