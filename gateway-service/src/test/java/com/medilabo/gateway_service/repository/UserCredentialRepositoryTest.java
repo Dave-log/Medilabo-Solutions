@@ -20,7 +20,7 @@ public class UserCredentialRepositoryTest extends GatewayContextTest {
     public void testFindAllUserCredentials() {
         Flux<UserCredential> credentials = credentialRepository.findAll();
         StepVerifier.create(credentials)
-                .expectNextCount(3)
+                .expectNextCount(4)
                 .verifyComplete();
     }
 

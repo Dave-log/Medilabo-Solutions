@@ -20,3 +20,4 @@ include:
   - local: 'gateway-service/gitlab.yml'
   - local: 'frontend-service/gitlab.yml'
   - local: 'notes-service/gitlab.yml'
+  - local: 'diabetes-report-service/gitlab.yml'
