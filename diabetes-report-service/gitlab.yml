@@ -27,8 +27,8 @@ package_diabetes_report:
   script:
     - mvn $MAVEN_CLI_OPTS package -pl diabetes-report-service
   artifacts:
-    paths: diabetes-report-service/target/diabetes-report-service-0.0.1-SNAPSHOT.jar
-      -
+    paths:
+      - diabetes-report-service/target/diabetes-report-service-0.0.1-SNAPSHOT.jar
   rules:
     - changes:
         - diabetes-report-service/**
