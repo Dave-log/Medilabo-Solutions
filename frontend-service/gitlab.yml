@@ -1,7 +1,3 @@
-cache:
-  paths:
-    - frontend-service/dist
-
 compile_frontend:
   stage: compile
   image: node:22.2-alpine
