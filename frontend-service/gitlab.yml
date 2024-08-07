@@ -1,16 +1,12 @@
-variables:
-  DOCKER_DRIVER: overlay2
-  PROJECT_NAME: "frontend-service"
-  CUSTOM_TAG: "$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
-  IMAGE_TAG: $CI_REGISTRY_IMAGE/$PROJECT_NAME:$CUSTOM_TAG
-
 compile_frontend:
   stage: compile
   image: node:22.2-alpine
   script:
     - cd frontend-service
     - npm install
-    - npm run build
+  artifacts:
+    paths:
+      - frontend-service/node_modules
   rules:
     - changes:
         - frontend-service/**
@@ -20,7 +16,6 @@ test_frontend:
   image: node:22.2-alpine
   script:
     - cd frontend-service
-    - npm install
     - npm run test
   rules:
     - changes:
@@ -28,13 +23,35 @@ test_frontend:
 
 package_frontend:
   stage: package
-  image: docker:latest
+  image: node:22.2-alpine
+  script:
+    - cd frontend-service
+    - npm run build
+  artifacts:
+    paths:
+      - frontend-service/dist
+  rules:
+    - changes:
+        - frontend-service/**
+
+docker_build_frontend:
+  stage: docker_build
+  image: docker:27.1.1-dind-alpine3.20
   services:
     - docker:dind
-  script:
+  variables:
+    DOCKER_DRIVER: overlay2
+    PROJECT_NAME: "frontend-service"
+    CI_REGISTRY_IMAGE: "registry.gitlab.com/davelog/medilabo-solutions"
+    CUSTOM_TAG: "$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
+    IMAGE_TAG: "$CI_REGISTRY_IMAGE/$PROJECT_NAME:$CUSTOM_TAG"
+  before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
     - docker build -t $IMAGE_TAG ./frontend-service
     - docker push $IMAGE_TAG
+  dependencies:
+    - package_frontend
   rules:
     - changes:
         - frontend-service/**
