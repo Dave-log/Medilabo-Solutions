@@ -2,7 +2,7 @@ FROM nginx:stable-alpine-perl
 
 COPY frontend-service/dist /usr/share/nginx/html
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY frontend-service/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
