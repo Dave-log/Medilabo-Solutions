@@ -18,13 +18,13 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
-public class PatientServiceTest {
+public class PatientServiceImplTest {
 
     @Mock
     private PatientRepository patientRepository;
 
     @InjectMocks
-    private PatientService patientService;
+    private PatientServiceImpl patientService;
 
     private Patient testPatient;
     private PatientDTO testPatientDTO;

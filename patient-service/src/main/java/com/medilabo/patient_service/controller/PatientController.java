@@ -2,6 +2,7 @@ package com.medilabo.patient_service.controller;
 
 import com.medilabo.patient_service.model.PatientDTO;
 import com.medilabo.patient_service.service.PatientService;
+import com.medilabo.patient_service.service.PatientServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class PatientController {
     private final PatientService patientService;
 
     @Autowired
-    public PatientController(PatientService patientService) {
+    public PatientController(PatientServiceImpl patientService) {
         this.patientService = patientService;
     }
 
