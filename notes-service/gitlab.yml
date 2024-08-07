@@ -4,7 +4,9 @@ cache:
 
 variables:
   DOCKER_DRIVER: overlay2
-  IMAGE_TAG: $CI_REGISTRY_IMAGE/notes-service:$CI_COMMIT_SHA
+  PROJECT_NAME: "notes-service"
+  CUSTOM_TAG: "$CI_COMMIT_REF_NAME-$CI-COMMIT_SHORT_SHA"
+  IMAGE_TAG: $CI_REGISTRY_IMAGE/$PROJECT_NAME:$CUSTOM_TAG
 
 compile_notes:
   stage: compile
