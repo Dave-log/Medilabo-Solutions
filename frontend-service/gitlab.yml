@@ -27,9 +27,6 @@ package_frontend:
   script:
     - cd frontend-service
     - npm run build
-  artifacts:
-    paths:
-      - frontend-service/dist
   rules:
     - changes:
         - frontend-service/**
@@ -46,9 +43,10 @@ docker_build_frontend:
     CUSTOM_TAG: "$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
     IMAGE_TAG: "$CI_REGISTRY_IMAGE/$PROJECT_NAME:$CUSTOM_TAG"
   before_script:
+    - cd frontend-service
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - docker build -t $IMAGE_TAG ./frontend-service
+    - docker build -t $IMAGE_TAG -f Dockerfile .
     - docker push $IMAGE_TAG
   dependencies:
     - package_frontend
