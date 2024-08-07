@@ -1,9 +1,16 @@
+cache:
+  paths:
+    - frontend-service/dist
+
 compile_frontend:
   stage: compile
   image: node:22.2-alpine
   script:
     - cd frontend-service
     - npm install
+  artifacts:
+    paths:
+      - frontend-service/node_modules
   rules:
     - changes:
         - frontend-service/**
