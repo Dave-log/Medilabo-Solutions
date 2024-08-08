@@ -22,7 +22,14 @@ public class SecurityConfig {
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .cors(cors -> cors.configurationSource(configurationSource()))
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/login/**","/auth/**", "/oauth2/**").permitAll()
+                        .pathMatchers(
+                                "/login/**",
+                                "/auth/**",
+                                "/oauth2/**",
+                                "/swagger-ui.html",
+                                "/swagger-resources/**",
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**").permitAll()
                         .anyExchange().authenticated()
                 )
                 .oauth2Login(Customizer.withDefaults())
