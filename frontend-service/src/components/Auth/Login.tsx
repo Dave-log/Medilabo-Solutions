@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { Container, Typography, Box } from '@mui/material';
-import { login, register } from '../../services/api';
 import { useAuth } from './AuthContext';
 
 const LoginRegister: React.FC = () => {
@@ -13,10 +12,8 @@ const LoginRegister: React.FC = () => {
     const handleLoginSuccess = async (credentialResponse: CredentialResponse) => {
         if (credentialResponse.credential) {
             try {
-                await login(credentialResponse);
                 localStorage.setItem('token', credentialResponse.credential);
                 setIsAuthenticated(true);
-
                 navigate('/patients');
             } catch (error) {
                 console.error('Login error:', error);
@@ -24,21 +21,6 @@ const LoginRegister: React.FC = () => {
             }
         }  
     }
-
-    const handleRegisterSuccess = async (credentialResponse: CredentialResponse) => {
-        if (credentialResponse.credential) {
-            try {
-                await register(credentialResponse);
-                
-                localStorage.setItem('token', credentialResponse.credential);
-    
-                navigate('/patients');
-            } catch (error) {
-                console.error('Registration error:', error);
-                setError('Registration failed. Please try again.');
-            }
-        }
-    };
 
     const handleError = () => {
         console.error('Authentication error:', error);
@@ -63,16 +45,6 @@ const LoginRegister: React.FC = () => {
                     {/* Bouton de connexion */}
                     <GoogleLogin
                         onSuccess={handleLoginSuccess}
-                        onError={handleError}
-                        //useOneTap // permet la connexion automatique
-                    />
-
-                    {/* Ajoutez un espace entre les boutons */}
-                    <Box sx={{ margin: 1 }} />
-
-                    {/* Bouton d'enregistrement */}
-                    <GoogleLogin
-                        onSuccess={handleRegisterSuccess}
                         onError={handleError}
                     />
                 </Box>

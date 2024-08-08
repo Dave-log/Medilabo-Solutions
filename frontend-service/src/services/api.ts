@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { Patient, Note } from '../types/types'
-import { CredentialResponse } from '@react-oauth/google';
 
 const API_BASE_URL = 'http://localhost:8080';
 const API_PATIENT_PATH = '/patient/api/v1/patients';
@@ -13,24 +12,6 @@ const api = axios.create({
         'Content-Type': 'application/json'
     }
 });
-
-// AUTH API
-
-export const login = async (credentialResponse: CredentialResponse) => {
-    return api.post('http://localhost:8080/auth/login', null, {
-        headers: {
-            Authorization: `Bearer ${credentialResponse.credential}`
-        }
-    });
-}
-
-export const register = async (credentialResponse: CredentialResponse) => {
-    return api.post('http://localhost:8080/auth/register', null, {
-        headers: {
-            Authorization: `Bearer ${credentialResponse.credential}`
-        }
-    });
-}
 
 // PATIENTS API
 
@@ -101,26 +82,6 @@ api.interceptors.request.use(
     config => {
         const token = localStorage.getItem('token');
         if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-});
-
-api.interceptors.response.use(
-    response => response,
-    error => {
-        if (error.response && error.response.status === 401) {
-            localStorage.removeItem('token');
-            window.location.href = '/login';
-        }
-        return Promise.reject(error);
-    }
-)
-
-api.interceptors.request.use(
-    config => {
-        const token = localStorage.getItem('token');
-        if (token) {
             if (isTokenExpired(token)) {
                 handleExpiredToken();
                 return Promise.reject(new Error('Token expired'));
@@ -133,5 +94,16 @@ api.interceptors.request.use(
         return Promise.reject(error);
     }
 );
+
+api.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response && error.response.status === 401) {
+            localStorage.removeItem('token');
+            window.location.href = '/login';
+        }
+        return Promise.reject(error);
+    }
+)
 
 export default api;

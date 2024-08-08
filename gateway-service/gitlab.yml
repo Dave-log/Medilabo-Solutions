@@ -51,3 +51,4 @@ docker_build_gateway:
   rules:
     - changes:
         - gateway-service/**
+        - pom.xml

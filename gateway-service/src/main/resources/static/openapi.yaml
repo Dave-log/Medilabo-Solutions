@@ -1,0 +1,272 @@
+openapi: 3.1.0
+info:
+  title: Medilabo Solutions API Documentation
+  description: Microservices endpoints documentation
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+
+paths:
+  /api/v1/patients:
+    get:
+      summary: Patient list
+      operationId: getPatients
+      responses:
+        '200':
+          description: Patient list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PatientDTO'
+    post:
+      summary: Patient record
+      operationId: savePatient
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatientDTO'
+      responses:
+        '201':
+          description: Patient successfully saved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientDTO'
+  /api/v1/patients/{id}:
+    get:
+      summary: Get patient details
+      operationId: getPatient
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Patient details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientDTO'
+        '404':
+          description: Patient not found
+    put:
+      summary: Update patient
+      operationId: updatePatient
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatientDTO'
+      responses:
+        '200':
+          description: Patient successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientDTO'
+        '404':
+          description: Patient not found
+    delete:
+      summary: Delete patient
+      operationId: deletePatient
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Patient successfully deleted
+        '404':
+          description: Patient not found
+
+  /api/v1/notes:
+    get:
+      summary: Note list
+      operationId: getAllNotes
+      responses:
+        '200':
+          description: Note list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Note'
+    post:
+      summary: Create a note
+      operationId: createNote
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+      responses:
+        '200':
+          description: Note successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+
+  /api/v1/notes/{id}:
+    get:
+      summary: Get note details
+      operationId: getNoteById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Note details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+    put:
+      summary: Update note
+      operationId: updateNote
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+      responses:
+        '200':
+          description: Note successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+    delete:
+      summary: Delete note
+      operationId: deleteNote
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Note successfully deleted
+
+  /api/v1/notes/patient/{patientId}:
+    get:
+      summary: Get patient notes
+      operationId: getNoteByPatientId
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Patient note list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Note'
+    delete:
+      summary: Delete patient note
+      operationId: deleteNoteByPatientId
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Patient note successfully deleted
+
+  /api/v1/reports/{patientId}:
+    get:
+      summary: Get patient diabetes report
+      operationId: getDiabetesReport
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Patient diabetes report
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiabetesReport'
+        '404':
+          description: Patient not found or not authenticated
+
+components:
+  schemas:
+    PatientDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        birthDate:
+          type: string
+          format: date
+        gender:
+          type: string
+        address:
+          type: string
+        phoneNumber:
+          type: string
+    Note:
+      type: object
+      properties:
+        id:
+          type: string
+        patientId:
+          type: string
+        date:
+          type: string
+          format: date-time
+        observation:
+          type: string
+    DiabetesReport:
+      type: object
+      properties:
+        patient:
+          $ref: '#/components/schemas/PatientDTO'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+        riskLevel:
+          type: string
+

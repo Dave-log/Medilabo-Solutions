@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navigation/Navbar';
-import LoginRegister from './components/Auth/LoginRegister';
+import LoginRegister from './components/Auth/Login';
 import Patient from './components/Patient/Patient';
 import './styles/App.css';
 import { AuthProvider } from './components/Auth/AuthContext';

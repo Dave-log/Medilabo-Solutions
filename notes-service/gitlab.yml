@@ -51,3 +51,4 @@ docker_build_notes:
   rules:
     - changes:
         - notes-service/**
+        - pom.xml

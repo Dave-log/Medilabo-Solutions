@@ -51,4 +51,4 @@ docker_build_patient:
   rules:
     - changes:
         - patient-service/**
-        - ../pom.xml
+        - pom.xml

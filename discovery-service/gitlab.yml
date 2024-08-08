@@ -51,3 +51,4 @@ docker_build_discovery:
   rules:
     - changes:
         - discovery-service/**
+        - pom.xml

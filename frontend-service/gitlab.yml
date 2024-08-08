@@ -61,3 +61,4 @@ docker_build_frontend:
   rules:
     - changes:
         - frontend-service/**
+        - pom.xml

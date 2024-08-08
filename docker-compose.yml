@@ -99,8 +99,8 @@ services:
 
   frontend-service:
     build:
-      context: ./frontend-service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: frontend-service/Dockerfile
     ports:
       - "3000:80"
     networks:

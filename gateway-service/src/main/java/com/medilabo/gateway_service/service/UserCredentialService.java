@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
-public class AuthService {
+public class UserCredentialService {
 
     private final UserCredentialRepository repository;
 
     @Autowired
-    public AuthService(UserCredentialRepository repository) {
+    public UserCredentialService(UserCredentialRepository repository) {
         this.repository = repository;
     }
 
