@@ -16,9 +16,6 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
-/**
- * Rest controller for handling diabetes reports.
- */
 @RestController
 @RequestMapping("/api/v1/reports")
 public class DiabetesReportController {
@@ -31,13 +28,6 @@ public class DiabetesReportController {
         this.diabetesReportService = diabetesReportService;
     }
 
-    /**
-     * Retrieves a diabetes report for a specific patient.
-     *
-     * @param patientId the ID of the patient
-     * @param exchange the server web exchange for accessing request headers
-     * @return a {@link Mono} emitting the {@link ResponseEntity} containing the diabetes report or a not found status
-     */
     @GetMapping("/{patientId}")
     public Mono<ResponseEntity<DiabetesReport>> getDiabetesReport(@PathVariable Integer patientId, ServerWebExchange exchange) {
         String jwtToken = exchange.getRequest().getHeaders().getFirst("Authorization");
