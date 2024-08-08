@@ -9,6 +9,8 @@ servers:
 paths:
   /api/v1/patients:
     get:
+      tags:
+        - Patient Service
       summary: Patient list
       operationId: getPatients
       responses:
@@ -21,6 +23,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/PatientDTO'
     post:
+      tags:
+        - Patient Service
       summary: Patient record
       operationId: savePatient
       requestBody:
@@ -38,6 +42,8 @@ paths:
                 $ref: '#/components/schemas/PatientDTO'
   /api/v1/patients/{id}:
     get:
+      tags:
+        - Patient Service
       summary: Get patient details
       operationId: getPatient
       parameters:
@@ -56,6 +62,8 @@ paths:
         '404':
           description: Patient not found
     put:
+      tags:
+        - Patient Service
       summary: Update patient
       operationId: updatePatient
       parameters:
@@ -80,6 +88,8 @@ paths:
         '404':
           description: Patient not found
     delete:
+      tags:
+        - Patient Service
       summary: Delete patient
       operationId: deletePatient
       parameters:
@@ -96,6 +106,8 @@ paths:
 
   /api/v1/notes:
     get:
+      tags:
+        - Notes Service
       summary: Note list
       operationId: getAllNotes
       responses:
@@ -108,6 +120,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Note'
     post:
+      tags:
+        - Notes Service
       summary: Create a note
       operationId: createNote
       requestBody:
@@ -126,6 +140,8 @@ paths:
 
   /api/v1/notes/{id}:
     get:
+      tags:
+        - Notes Service
       summary: Get note details
       operationId: getNoteById
       parameters:
@@ -142,6 +158,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Note'
     put:
+      tags:
+        - Notes Service
       summary: Update note
       operationId: updateNote
       parameters:
@@ -164,6 +182,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Note'
     delete:
+      tags:
+        - Notes Service
       summary: Delete note
       operationId: deleteNote
       parameters:
@@ -178,6 +198,8 @@ paths:
 
   /api/v1/notes/patient/{patientId}:
     get:
+      tags:
+        - Notes Service
       summary: Get patient notes
       operationId: getNoteByPatientId
       parameters:
@@ -196,6 +218,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/Note'
     delete:
+      tags:
+        - Notes Service
       summary: Delete patient note
       operationId: deleteNoteByPatientId
       parameters:
@@ -210,6 +234,8 @@ paths:
 
   /api/v1/reports/{patientId}:
     get:
+      tags:
+        - Diabetes Report Service
       summary: Get patient diabetes report
       operationId: getDiabetesReport
       parameters:

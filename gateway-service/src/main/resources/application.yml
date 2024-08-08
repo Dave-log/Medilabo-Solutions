@@ -41,6 +41,7 @@ spring:
             allowed-origins:
               - "http://localhost:3000"
               - "http://localhost:5173"
+              - "http://localhost:8080"
             allowed-methods:
               - GET
               - POST
@@ -67,7 +68,6 @@ spring:
             client-id: 648209968703-25m2abibg15g7v1sbjbetgp6dq72fdvo.apps.googleusercontent.com
             client-secret: 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
             scope: openid,profile,email
-            redirect-uri: http://localhost:3000
         provider:
           google:
             issuer-uri: https://accounts.google.com
@@ -88,9 +88,7 @@ eureka:
 
 springdoc:
   api-docs:
-    path: /v3/api-docs
+    enabled: false
   swagger-ui:
     path: /swagger-ui.html
-    urls:
-      - url: /openapi.yaml
-        name: Medilabo Solutions API
+    url: /openapi.yaml

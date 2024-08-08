@@ -1,22 +1,35 @@
 package com.medilabo.gateway_service.configuration;
 
-import org.springdoc.core.models.GroupedOpenApi;
+import org.springdoc.core.configuration.SpringDocConfiguration;
+import org.springdoc.core.configuration.SpringDocUIConfiguration;
+import org.springdoc.core.properties.SpringDocConfigProperties;
+import org.springdoc.core.properties.SwaggerUiConfigProperties;
+import org.springdoc.core.providers.ObjectMapperProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Optional;
 
 @Configuration
 public class OpenApiConfig {
 
     @Bean
-    public GroupedOpenApi customOpenAPI() {
-        return GroupedOpenApi.builder()
-                .group("custom")
-                .addOpenApiCustomizer(openApi -> {
-                    openApi.info(new io.swagger.v3.oas.models.info.Info().title("Medilabo Solutions API")
-                            .description("Microservices endpoints documentation.")
-                            .version("1.0.0"));
-                })
-                .build();
+    SpringDocConfiguration springDocConfiguration(){
+        return new SpringDocConfiguration();
     }
 
+    @Bean
+    SpringDocConfigProperties springDocConfigProperties() {
+        return new SpringDocConfigProperties();
+    }
+
+    @Bean
+    ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
+        return new ObjectMapperProvider(springDocConfigProperties);
+    }
+
+    @Bean
+    SpringDocUIConfiguration SpringDocUIConfiguration(Optional<SwaggerUiConfigProperties> optionalSwaggerUiConfigProperties){
+        return new SpringDocUIConfiguration(optionalSwaggerUiConfigProperties);
+    }
 }
