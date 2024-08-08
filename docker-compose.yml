@@ -24,14 +24,14 @@ services:
       - internal
 
   discovery-service:
-    image: registry.gitlab.com/davelog/medilabo-solutions/discovery-service:main-16096a87
+    image: registry.gitlab.com/davelog/medilabo-solutions/discovery-service:latest
     ports:
       - "8761:8761"
     networks:
       - internal
 
   gateway-service:
-    image: registry.gitlab.com/davelog/medilabo-solutions/gateway-service:main-16096a87
+    image: registry.gitlab.com/davelog/medilabo-solutions/gateway-service:latest
     ports:
       - "8080:8080"
     networks:
@@ -46,7 +46,7 @@ services:
       - discovery-service
 
   patient-service:
-    image: registry.gitlab.com/davelog/medilabo-solutions/patient-service:main-16096a87
+    image: registry.gitlab.com/davelog/medilabo-solutions/patient-service:latest
     ports:
       - "8081:8081"
     networks:
@@ -62,7 +62,7 @@ services:
       - gateway-service
 
   notes-service:
-    image: registry.gitlab.com/davelog/medilabo-solutions/notes-service:main-16096a87
+    image: registry.gitlab.com/davelog/medilabo-solutions/notes-service:latest
     ports:
       - "8082:8082"
     networks:
@@ -77,7 +77,7 @@ services:
       - gateway-service
 
   diabetes-report-service:
-    image: registry.gitlab.com/davelog/medilabo-solutions/diabetes-report-service:main-16096a87
+    image: registry.gitlab.com/davelog/medilabo-solutions/diabetes-report-service:latest
     ports:
       - "8083:8083"
     networks:
@@ -88,7 +88,7 @@ services:
       - notes-service
 
   frontend-service:
-    image: registry.gitlab.com/davelog/medilabo-solutions/frontend-service:main-6573fea6
+    image: registry.gitlab.com/davelog/medilabo-solutions/frontend-service:latest
     ports:
       - "3000:80"
     networks:
