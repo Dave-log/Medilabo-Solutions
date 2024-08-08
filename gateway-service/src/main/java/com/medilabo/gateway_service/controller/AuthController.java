@@ -11,6 +11,9 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
+/**
+ * REST controller for handling authentication-related requests.
+ */
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -23,6 +26,12 @@ public class AuthController {
         this.authService = authService;
     }
 
+    /**
+     * Handles login requests. Authenticates the user based on the provided JWT token.
+     *
+     * @param token the JWT authentication token
+     * @return a {@link Mono} emitting the {@link ResponseEntity} with a success or failure message
+     */
     @PostMapping("/login")
     public Mono<ResponseEntity<String>> login(JwtAuthenticationToken token) {
         if (token.isAuthenticated()) {
@@ -36,6 +45,12 @@ public class AuthController {
         return Mono.just(ResponseEntity.status(401).body("Authentication failed"));
     }
 
+    /**
+     * Handles registration requests. Registers a new user based on the provided JWT token.
+     *
+     * @param token the JWT authentication token
+     * @return a {@link Mono} emitting the {@link ResponseEntity} with a success or conflict message
+     */
     @PostMapping("/register")
     public Mono<ResponseEntity<String>> register(JwtAuthenticationToken token) {
         String email = "";

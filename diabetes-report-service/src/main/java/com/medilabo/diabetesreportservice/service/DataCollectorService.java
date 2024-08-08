@@ -9,6 +9,9 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
+/**
+ * Service for collecting patient data from external APIs.
+ */
 @Service
 public class DataCollectorService {
     private final WebClient webClient;
@@ -18,6 +21,13 @@ public class DataCollectorService {
         this.webClient = webClient;
     }
 
+    /**
+     * Retrieves the notes of a specific patient.
+     *
+     * @param patientId the ID of the patient
+     * @param jwtToken the JWT token for authorization
+     * @return a {@link Mono} emitting a list of {@link NoteDTO} objects
+     */
     public Mono<List<NoteDTO>> getPatientNotes(String patientId, String jwtToken) {
         return this.webClient
                 .get()
@@ -31,6 +41,13 @@ public class DataCollectorService {
                 });
     }
 
+    /**
+     * Retrieves the details of a specific patient.
+     *
+     * @param patientId the ID of the patient
+     * @param jwtToken the JWT token for authorization
+     * @return a {@link Mono} emitting a {@link PatientDTO} object
+     */
     public Mono<PatientDTO> getPatientDetails(Integer patientId, String jwtToken) {
         return this.webClient
                 .get()

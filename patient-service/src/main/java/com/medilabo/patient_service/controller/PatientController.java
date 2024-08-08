@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * REST controller for managing patients.
+ */
 @RestController
 @RequestMapping("/api/v1/patients")
 public class PatientController {
@@ -23,11 +26,22 @@ public class PatientController {
         this.patientService = patientService;
     }
 
+    /**
+     * Retrieves all patients.
+     *
+     * @return a list of {@link PatientDTO} objects
+     */
     @GetMapping
     public List<PatientDTO> getPatients() {
         return patientService.getPatients();
     }
 
+    /**
+     * Retrieves a patient by their ID.
+     *
+     * @param id the ID of the patient
+     * @return a {@link ResponseEntity} containing the {@link PatientDTO} if found, or {@link HttpStatus#NOT_FOUND} if not found
+     */
     @GetMapping("/{id}")
     public ResponseEntity<PatientDTO> getPatient(@PathVariable Integer id) {
         Optional<PatientDTO> patientDTO = patientService.getPatientById(id);
@@ -35,12 +49,25 @@ public class PatientController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    /**
+     * Saves a new patient.
+     *
+     * @param patientDTO the data transfer object containing patient details
+     * @return a {@link ResponseEntity} containing the saved {@link PatientDTO} and {@link HttpStatus#CREATED}
+     */
     @PostMapping
     public ResponseEntity<PatientDTO> savePatient(@Valid @RequestBody PatientDTO patientDTO) {
         PatientDTO savedPatient = patientService.savePatient(patientDTO);
         return new ResponseEntity<>(savedPatient, HttpStatus.CREATED);
     }
 
+    /**
+     * Updates an existing patient.
+     *
+     * @param id the ID of the patient to update
+     * @param patientDTO the data transfer object containing updated patient details
+     * @return a {@link ResponseEntity} containing the updated {@link PatientDTO} if the patient was found, or {@link HttpStatus#NOT_FOUND} if not found
+     */
     @PutMapping("/{id}")
     public ResponseEntity<PatientDTO> updatePatient(@PathVariable Integer id, @Valid @RequestBody PatientDTO patientDTO) {
         Optional<PatientDTO> updatedPatient = patientService.updatePatient(id, patientDTO);
@@ -49,6 +76,12 @@ public class PatientController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    /**
+     * Deletes a patient by their ID.
+     *
+     * @param id the ID of the patient to delete
+     * @return a {@link ResponseEntity} with {@link HttpStatus#NO_CONTENT} if the patient was deleted, or {@link HttpStatus#NOT_FOUND} if the patient was not found
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePatient(@PathVariable Integer id) {
         boolean deleted = patientService.deletePatient(id);

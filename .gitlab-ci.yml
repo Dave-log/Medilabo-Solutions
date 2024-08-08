@@ -5,7 +5,6 @@ stages:
   - test
   - package
   - docker_build
-  - docker_push
 
 cache:
   paths:

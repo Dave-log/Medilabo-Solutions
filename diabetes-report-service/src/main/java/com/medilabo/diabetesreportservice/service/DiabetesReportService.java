@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service for generating diabetes reports based on patient data and notes.
+ */
 @Service
 public class DiabetesReportService {
     private final RiskLevelEvaluator riskLevelEvaluator;
@@ -16,6 +19,13 @@ public class DiabetesReportService {
         this.riskLevelEvaluator = riskLevelEvaluator;
     }
 
+    /**
+     * Generates a diabetes report for a given patient using their details and notes.
+     *
+     * @param patient the patient details
+     * @param notes the list of notes related to the patient
+     * @return a {@link DiabetesReport} containing the generated report
+     */
     public DiabetesReport generateReport(PatientDTO patient, List<NoteDTO> notes) {
         DiabetesReport diabetesReport = new DiabetesReport();
         diabetesReport.setPatientId(patient.id());
@@ -25,6 +35,13 @@ public class DiabetesReportService {
         return diabetesReport;
     }
 
+    /**
+     * Calculates the risk level for a patient based on their details and notes.
+     *
+     * @param patient the patient details
+     * @param notes the list of notes related to the patient
+     * @return a {@link String} representing the risk level
+     */
     private String calculateRiskLevel(PatientDTO patient, List<NoteDTO> notes) {
         boolean isOverThirty = AgeCalculator.isOverThirty(patient.birthdate());
         String gender = patient.gender();
