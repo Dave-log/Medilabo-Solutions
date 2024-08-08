@@ -37,8 +37,9 @@ docker_build_gateway:
   variables:
     DOCKER_DRIVER: overlay2
     PROJECT_NAME: "gateway-service"
+    CI_REGISTRY_IMAGE: "registry.gitlab.com/davelog/medilabo-solutions"
     CUSTOM_TAG: "$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA"
-    IMAGE_TAG: "$PROJECT_NAME:$CUSTOM_TAG"
+    IMAGE_TAG: "$CI_REGISTRY_IMAGE/$PROJECT_NAME:$CUSTOM_TAG"
   before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
