@@ -1,11 +1,10 @@
-USE userdb;
-
-INSERT INTO users (email, password, role)
-VALUES
-   ('johndoe@example.com', '$2a$10$Vh1.NnKFmE9Ex0LXaK3ovOZqD4wUOeKUkqjJJrGBfGgXaHrN/xq7S', 'USER'),
-   ('janesmith@example.com', '$2a$10$7E3YZ/ypTBB6X0TCl3G8ZehJxHHzKhgKImH6CjXY5GzKPQx/R0Wvi', 'USER'),
-   ('mikejones@example.com', '$2a$10$K9y6hG.vlbTSUOwMHjLzDOF36bnqRu8MCgS.2S7ofLqjG7oeBP9P6', 'USER');
-
 USE patients;
+
+INSERT INTO patient (firstname, lastname, birthdate, gender, address, phone_number)
+VALUES
+    ('Test', 'TestNone', '1966-12-31', 'F', '1 Brookside St', '100-222-3333'),
+    ('Test', 'TestBorderline', '1945-06-24', 'M', '2 High St', '200-333-4444'),
+    ('Test', 'TestInDanger', '2004-06-18', 'M', '3 Club Road', '300-444-5555'),
+    ('Test', 'TestEarlyOnset', '2002-06-28', 'F', '4 Valley Dr', '400-555-6666');
 
 
