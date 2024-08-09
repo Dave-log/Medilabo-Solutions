@@ -9,7 +9,7 @@ services:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./public/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - internal
 
@@ -20,13 +20,12 @@ services:
       - "27018:27017"
     volumes:
       - mongo_data:/data/db
-      - ./public/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     networks:
       - internal
 
   discovery-service:
-    build:
-      dockerfile: ./discovery-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/discovery-service:1.0.0
     restart: on-failure
     ports:
       - "8761:8761"
@@ -34,8 +33,7 @@ services:
       - internal
 
   gateway-service:
-    build:
-      dockerfile: ./gateway-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/gateway-service:1.0.0
     restart: on-failure
     ports:
       - "8080:8080"
@@ -51,8 +49,7 @@ services:
       - discovery-service
 
   patient-service:
-    build:
-      dockerfile: ./patient-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/patient-service:1.0.0
     restart: on-failure
     ports:
       - "8081:8081"
@@ -69,8 +66,7 @@ services:
       - gateway-service
 
   notes-service:
-    build:
-      dockerfile: ./notes-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/notes-service:1.0.0
     restart: on-failure
     ports:
       - "8082:8082"
@@ -86,8 +82,7 @@ services:
       - gateway-service
 
   diabetes-report-service:
-    build:
-      dockerfile: ./diabetes-report-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/diabetes-report-service:1.0.0
     restart: on-failure
     ports:
       - "8083:8083"
@@ -99,8 +94,7 @@ services:
       - notes-service
 
   frontend-service:
-    build:
-      dockerfile: ./frontend-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/frontend-service:1.0.0
     restart: on-failure
     ports:
       - "3000:80"
