@@ -9,6 +9,7 @@ compile_gateway:
   rules:
     - changes:
         - gateway-service/**
+        - pom.xml
 
 test_gateway:
   stage: test
@@ -17,6 +18,7 @@ test_gateway:
   rules:
     - changes:
         - gateway-service/**
+        - pom.xml
 
 package_gateway:
   stage: package
@@ -28,6 +30,7 @@ package_gateway:
   rules:
     - changes:
         - gateway-service/**
+        - pom.xml
 
 docker_build_gateway:
   image: docker:27.1.1-dind-alpine3.20

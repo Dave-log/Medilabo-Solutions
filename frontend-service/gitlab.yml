@@ -14,6 +14,7 @@ compile_frontend:
   rules:
     - changes:
         - frontend-service/**
+        - pom.xml
 
 test_frontend:
   stage: test
@@ -24,6 +25,7 @@ test_frontend:
   rules:
     - changes:
         - frontend-service/**
+        - pom.xml
 
 package_frontend:
   stage: package
@@ -37,6 +39,7 @@ package_frontend:
   rules:
     - changes:
         - frontend-service/**
+        - pom.xml
 
 docker_build_frontend:
   stage: docker_build

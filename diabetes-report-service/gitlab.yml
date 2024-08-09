@@ -9,6 +9,7 @@ compile_diabetes_report:
   rules:
     - changes:
         - diabetes-report-service/**
+        - pom.xml
 
 test_diabetes_report:
   stage: test
@@ -17,6 +18,7 @@ test_diabetes_report:
   rules:
     - changes:
         - diabetes-report-service/**
+        - pom.xml
 
 package_diabetes_report:
   stage: package
@@ -28,6 +30,7 @@ package_diabetes_report:
   rules:
     - changes:
         - diabetes-report-service/**
+        - pom.xml
 
 docker_build_diabetes_report:
   image: docker:27.1.1-dind-alpine3.20
