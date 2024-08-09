@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@Table(name = "patient")
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

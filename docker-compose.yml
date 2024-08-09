@@ -9,7 +9,7 @@ services:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./mysql/:/docker-entrypoint-initdb.d/
+      - ./patient-service/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - internal
 
@@ -20,6 +20,7 @@ services:
       - "27018:27017"
     volumes:
       - mongo_data:/data/db
+      - ./notes-service/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     networks:
       - internal
 
@@ -27,6 +28,7 @@ services:
     build:
       context: .
       dockerfile: discovery-service/Dockerfile
+    restart: on-failure
     ports:
       - "8761:8761"
     networks:
@@ -36,6 +38,7 @@ services:
     build:
       context: .
       dockerfile: gateway-service/Dockerfile
+    restart: on-failure
     ports:
       - "8080:8080"
     networks:
@@ -53,6 +56,7 @@ services:
     build:
       context: .
       dockerfile: patient-service/Dockerfile
+    restart: on-failure
     ports:
       - "8081:8081"
     networks:
@@ -71,6 +75,7 @@ services:
     build:
       context: .
       dockerfile: notes-service/Dockerfile
+    restart: on-failure
     ports:
       - "8082:8082"
     networks:
@@ -88,6 +93,7 @@ services:
     build:
       context: .
       dockerfile: diabetes-report-service/Dockerfile
+    restart: on-failure
     ports:
       - "8083:8083"
     networks:
@@ -101,6 +107,7 @@ services:
     build:
       context: .
       dockerfile: frontend-service/Dockerfile
+    restart: on-failure
     ports:
       - "3000:80"
     networks:
