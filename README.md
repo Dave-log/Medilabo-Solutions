@@ -16,13 +16,14 @@ The Diabetes Report Application by Medilabo Solutions is a comprehensive tool de
 
 To get started with the Diabetes Report Application, follow these steps:
 
-1. **Download the docker-compose.yml** in the [root folder](https://gitlab.com/DaveLog/medilabo-solutions/-/blob/main/docker-compose.yml?ref_type=heads).
-2. Ensure you have **Docker Desktop installed** on your machine. You can download it from the official [Docker's official website](https://www.docker.com/products/docker-desktop).
-3. Run the following command in a terminal: 
+1. Download the **docker-compose.yml** in the [public folder](https://gitlab.com/DaveLog/medilabo-solutions/-/blob/main/public/docker-compose.yml?ref_type=heads).
+2. Download the **two database initialization files** in the public folder as well : [init.sql](https://gitlab.com/DaveLog/medilabo-solutions/-/blob/main/public/init.sql?ref_type=heads) and [mongo-init.js](https://gitlab.com/DaveLog/medilabo-solutions/-/blob/main/public/mongo-init.js?ref_type=heads).
+3. Ensure you have **Docker Desktop installed** on your machine. You can download it from the official [Docker's official website](https://www.docker.com/products/docker-desktop).
+4. Run the following command in a terminal: 
 ```bash
 docker compose up
 ```
-This command will pull the necessary Docker images from the container registry and start the services.
+This command will pull the necessary Docker images from the container registry and start the services. It may take a minute.
 
 ## Usage
 
