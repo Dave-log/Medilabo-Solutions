@@ -16,7 +16,7 @@ The Diabetes Report Application by Medilabo Solutions is a comprehensive tool de
 
 To get started with the Diabetes Report Application, follow these steps:
 
-1. **Download the docker-compose.yml** in the **public folder** (not the one at root folder)
+1. **Download the docker-compose.yml** in the [public folder](https://github.com/Dave-log/Medilabo-Solutions/blob/main/public/docker-compose.yml) (not the one at root folder).
 2. Ensure you have **Docker Desktop installed** on your machine. You can download it from the official [Docker's official website](https://www.docker.com/products/docker-desktop).
 3. Run the following command in a terminal: 
 ```bash
