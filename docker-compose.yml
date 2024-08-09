@@ -25,9 +25,7 @@ services:
       - internal
 
   discovery-service:
-    build:
-      context: .
-      dockerfile: discovery-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/discovery-service:1.0.0
     restart: on-failure
     ports:
       - "8761:8761"
@@ -35,9 +33,7 @@ services:
       - internal
 
   gateway-service:
-    build:
-      context: .
-      dockerfile: gateway-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/gateway-service:1.0.0
     restart: on-failure
     ports:
       - "8080:8080"
@@ -53,9 +49,7 @@ services:
       - discovery-service
 
   patient-service:
-    build:
-      context: .
-      dockerfile: patient-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/patient-service:1.0.0
     restart: on-failure
     ports:
       - "8081:8081"
@@ -72,9 +66,7 @@ services:
       - gateway-service
 
   notes-service:
-    build:
-      context: .
-      dockerfile: notes-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/notes-service:1.0.0
     restart: on-failure
     ports:
       - "8082:8082"
@@ -90,9 +82,7 @@ services:
       - gateway-service
 
   diabetes-report-service:
-    build:
-      context: .
-      dockerfile: diabetes-report-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/diabetes-report-service:1.0.0
     restart: on-failure
     ports:
       - "8083:8083"
@@ -104,9 +94,7 @@ services:
       - notes-service
 
   frontend-service:
-    build:
-      context: .
-      dockerfile: frontend-service/Dockerfile
+    image: registry.gitlab.com/davelog/medilabo-solutions/frontend-service:1.0.0
     restart: on-failure
     ports:
       - "3000:80"
