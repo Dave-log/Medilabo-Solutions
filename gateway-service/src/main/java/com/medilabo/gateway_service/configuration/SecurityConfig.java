@@ -28,7 +28,8 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
                                 "/webjars/**",
-                                "/openapi.yaml").permitAll()
+                                "/openapi.yaml",
+                                "/api/auth/google").permitAll()
                         .anyExchange().authenticated()
                 )
                 .oauth2Login(Customizer.withDefaults())
@@ -51,4 +52,5 @@ public class SecurityConfig {
 
         return source;
     }
+
 }

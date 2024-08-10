@@ -14,6 +14,13 @@ const LoginRegister: React.FC = () => {
             try {
                 localStorage.setItem('token', credentialResponse.credential);
                 setIsAuthenticated(true);
+
+                fetch('http://localhost:8080/api/auth/google', {
+                    headers: new Headers({
+                        'Authorization': `Bearer ${credentialResponse.credential}`
+                    })
+                })
+
                 navigate('/patients');
             } catch (error) {
                 console.error('Login error:', error);
